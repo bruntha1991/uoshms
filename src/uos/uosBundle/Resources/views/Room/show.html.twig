@@ -1,0 +1,73 @@
+{% extends '::base.html.twig' %}
+
+{% block container -%}
+
+<div class="span2">
+            <div class="containerHome" >
+    <h1>Room</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Room Number</th>
+                <td>{{ entity.roomno }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ entity.type }}</td>
+            </tr>
+            <tr>
+                <th>Monthly Cost</th>
+                <td>{{ entity.monthlycost }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li class="nav-header">
+        <a href="{{ path('room') }}">
+            Back to the list
+        </a>
+    </li>
+    <li class="nav-header">
+        <a href="{{ path('room_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li class="nav-header">{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
+   {%block sideMenu %}
+
+<ul class="nav nav-list">
+                <li class="nav-header"><b>Home</b></li>
+              <li class="active"><a href="http://localhost:8080/uoshms/web/app_dev.php/home">Home</a></li>
+              <li class="nav-header">UOS Halls</li>
+              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/hall">Halls</a></li>
+              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/hall/new">Add Hall</a></li>
+              <li><a href="#">Link</a></li>
+              <li class="nav-header">UOS Rooms</li>
+              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/room">Rooms</a></li>
+              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/room/new">Add Room</a></li>
+              <li class="nav-header">UOS Student Management </li>
+              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/student">Students</a></li>
+              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/student/new">Add Student</a></li>
+              <li class="nav-header">UOS Student Accomodation </li>
+              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/occupy">Accomodation</a></li>
+              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/occupy/new">Add Accomodation</a></li>
+              <li class="nav-header">UOS Employee Management </li>
+              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/employee">Employee</a></li>
+              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/employee/new">Add Employee</a></li>
+              <li class="nav-header">UOS Employee Positining </li>
+              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/work">Positions</a></li>
+              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/work/new">Add Position</a></li>
+              <li class="nav-header">UOS Accounts </li>
+              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/finance">Account Details</a></li>
+              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/finance/new">Add Account</a></li>
+              
+            </ul>
+{%endblock%}

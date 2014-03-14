@@ -1,0 +1,30 @@
+work:
+    pattern:  /
+    defaults: { _controller: "uosuosBundle:Work:index" }
+
+work_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "uosuosBundle:Work:show" }
+
+work_new:
+    pattern:  /new
+    defaults: { _controller: "uosuosBundle:Work:new" }
+
+work_create:
+    pattern:  /create
+    defaults: { _controller: "uosuosBundle:Work:create" }
+    requirements: { _method: post }
+
+work_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "uosuosBundle:Work:edit" }
+
+work_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "uosuosBundle:Work:update" }
+    requirements: { _method: post|put }
+
+work_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "uosuosBundle:Work:delete" }
+    requirements: { _method: post|delete }

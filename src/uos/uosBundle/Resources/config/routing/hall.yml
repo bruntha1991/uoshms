@@ -1,0 +1,30 @@
+hall:
+    pattern:  /
+    defaults: { _controller: "uosuosBundle:Hall:index" }
+
+hall_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "uosuosBundle:Hall:show" }
+
+hall_new:
+    pattern:  /new
+    defaults: { _controller: "uosuosBundle:Hall:new" }
+
+hall_create:
+    pattern:  /create
+    defaults: { _controller: "uosuosBundle:Hall:create" }
+    requirements: { _method: post }
+
+hall_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "uosuosBundle:Hall:edit" }
+
+hall_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "uosuosBundle:Hall:update" }
+    requirements: { _method: post|put }
+
+hall_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "uosuosBundle:Hall:delete" }
+    requirements: { _method: post|delete }

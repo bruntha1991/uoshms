@@ -1,0 +1,30 @@
+occupy:
+    pattern:  /
+    defaults: { _controller: "uosuosBundle:Occupy:index" }
+
+occupy_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "uosuosBundle:Occupy:show" }
+
+occupy_new:
+    pattern:  /new
+    defaults: { _controller: "uosuosBundle:Occupy:new" }
+
+occupy_create:
+    pattern:  /create
+    defaults: { _controller: "uosuosBundle:Occupy:create" }
+    requirements: { _method: post }
+
+occupy_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "uosuosBundle:Occupy:edit" }
+
+occupy_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "uosuosBundle:Occupy:update" }
+    requirements: { _method: post|put }
+
+occupy_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "uosuosBundle:Occupy:delete" }
+    requirements: { _method: post|delete }

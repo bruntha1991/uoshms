@@ -1,0 +1,30 @@
+employee:
+    pattern:  /
+    defaults: { _controller: "uosuosBundle:Employee:index" }
+
+employee_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "uosuosBundle:Employee:show" }
+
+employee_new:
+    pattern:  /new
+    defaults: { _controller: "uosuosBundle:Employee:new" }
+
+employee_create:
+    pattern:  /create
+    defaults: { _controller: "uosuosBundle:Employee:create" }
+    requirements: { _method: post }
+
+employee_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "uosuosBundle:Employee:edit" }
+
+employee_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "uosuosBundle:Employee:update" }
+    requirements: { _method: post|put }
+
+employee_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "uosuosBundle:Employee:delete" }
+    requirements: { _method: post|delete }

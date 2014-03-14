@@ -1,0 +1,30 @@
+student:
+    pattern:  /
+    defaults: { _controller: "uosuosBundle:Student:index" }
+
+student_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "uosuosBundle:Student:show" }
+
+student_new:
+    pattern:  /new
+    defaults: { _controller: "uosuosBundle:Student:new" }
+
+student_create:
+    pattern:  /create
+    defaults: { _controller: "uosuosBundle:Student:create" }
+    requirements: { _method: post }
+
+student_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "uosuosBundle:Student:edit" }
+
+student_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "uosuosBundle:Student:update" }
+    requirements: { _method: post|put }
+
+student_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "uosuosBundle:Student:delete" }
+    requirements: { _method: post|delete }

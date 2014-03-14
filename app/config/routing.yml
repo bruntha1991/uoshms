@@ -1,0 +1,4 @@
+uosuos:
+    resource: "@uosuosBundle/Resources/config/routing.yml"
+    prefix:   /
+

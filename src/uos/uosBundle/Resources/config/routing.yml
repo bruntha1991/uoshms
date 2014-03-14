@@ -1,0 +1,35 @@
+uosuosBundle_hall:
+        resource: "@uosuosBundle/Resources/config/routing/hall.yml"
+        prefix:   /hall
+        
+uosuosBundle_room:
+        resource: "@uosuosBundle/Resources/config/routing/room.yml"
+        prefix:   /room
+
+uosuosBundle_employee:
+        resource: "@uosuosBundle/Resources/config/routing/employee.yml"
+        prefix:   /employee
+
+uosuosBundle_finance:
+        resource: "@uosuosBundle/Resources/config/routing/finance.yml"
+        prefix:   /finance
+        
+uosuosBundle_occupy:
+        resource: "@uosuosBundle/Resources/config/routing/occupy.yml"
+        prefix:   /occupy
+        
+uosuosBundle_student:
+        resource: "@uosuosBundle/Resources/config/routing/student.yml"
+        prefix:   /student
+
+uosuosBundle_work:
+        resource: "@uosuosBundle/Resources/config/routing/work.yml"
+        prefix:   /work
+
+uosuos_uos:
+    pattern:  /uos
+    defaults: { _controller: uosuosBundle:Default:uos }
+    
+uosuos_home:
+    pattern:  /home
+    defaults: { _controller: uosuosBundle:Default:home }

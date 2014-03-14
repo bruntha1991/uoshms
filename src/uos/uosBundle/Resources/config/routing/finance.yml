@@ -1,0 +1,30 @@
+finance:
+    pattern:  /
+    defaults: { _controller: "uosuosBundle:Finance:index" }
+
+finance_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "uosuosBundle:Finance:show" }
+
+finance_new:
+    pattern:  /new
+    defaults: { _controller: "uosuosBundle:Finance:new" }
+
+finance_create:
+    pattern:  /create
+    defaults: { _controller: "uosuosBundle:Finance:create" }
+    requirements: { _method: post }
+
+finance_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "uosuosBundle:Finance:edit" }
+
+finance_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "uosuosBundle:Finance:update" }
+    requirements: { _method: post|put }
+
+finance_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "uosuosBundle:Finance:delete" }
+    requirements: { _method: post|delete }

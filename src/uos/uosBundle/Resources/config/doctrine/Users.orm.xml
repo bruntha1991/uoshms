@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="uos\uosBundle\Entity\Users" table="users">
+    <indexes>
+      <index name="user_student_fk_idx" columns="firstName_std_id"/>
+      <index name="user_employee_fk_idx" columns="firsrName_emp_id"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="id_UNIQUE" columns="id"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="user" type="string" column="user" length="7" nullable="false"/>
+    <field name="role" type="string" column="role" length="20" nullable="false"/>
+    <field name="password" type="string" column="password" length="20" nullable="false"/>
+    <field name="firstname" type="string" column="firstName" length="45" nullable="true"/>
+    <many-to-one field="firsrnameEmp" target-entity="Employee">
+      <join-columns>
+        <join-column name="firsrName_emp_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="firstnameStd" target-entity="Student">
+      <join-columns>
+        <join-column name="firstName_std_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

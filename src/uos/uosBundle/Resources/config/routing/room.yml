@@ -1,0 +1,30 @@
+room:
+    pattern:  /
+    defaults: { _controller: "uosuosBundle:Room:index" }
+
+room_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "uosuosBundle:Room:show" }
+
+room_new:
+    pattern:  /new
+    defaults: { _controller: "uosuosBundle:Room:new" }
+
+room_create:
+    pattern:  /create
+    defaults: { _controller: "uosuosBundle:Room:create" }
+    requirements: { _method: post }
+
+room_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "uosuosBundle:Room:edit" }
+
+room_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "uosuosBundle:Room:update" }
+    requirements: { _method: post|put }
+
+room_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "uosuosBundle:Room:delete" }
+    requirements: { _method: post|delete }
