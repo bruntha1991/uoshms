@@ -138,7 +138,7 @@ class Employee
     }
     
     public function __toString() {
-        return "$this->employeename";
+        return "$this->name";
     }
     
 }
