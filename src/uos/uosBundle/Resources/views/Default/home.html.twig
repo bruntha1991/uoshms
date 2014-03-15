@@ -9,30 +9,35 @@
 {%block sideMenu %}
 
 <ul class="nav nav-list">
-                <li class="nav-header"><b>Home</b></li>
-              <li class="active"><a href="http://localhost:8080/uoshms/web/app_dev.php/home">Home</a></li>
+                <li class="active" class="nav-header" ><b>Home</b></li>
+              
               <li class="nav-header">UOS Halls</li>
-              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/hall">Halls</a></li>
-              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/hall/new">Add Hall</a></li>
-              <li><a href="#">Link</a></li>
+              <li ><a  href="{{ path('hall')}}">View All </a></li>
+              <li ><a href="{{ path('hall_new')}}">Add Hall</a></li>
+              
               <li class="nav-header">UOS Rooms</li>
-              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/room">Rooms</a></li>
-              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/room/new">Add Room</a></li>
+              <li><a href="{{ path('room')}}">View All</a></li>
+              <li><a href="{{ path('room_new')}}">Add Room</a></li>
+              
               <li class="nav-header">UOS Student Management </li>
-              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/student">Students</a></li>
-              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/student/new">Add Student</a></li>
+              <li><a href="{{ path('student')}}">View All Students</a></li>
+              <li><a href="{{ path('student_new')}}">Add Student</a></li>
+              
               <li class="nav-header">UOS Student Accomodation </li>
-              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/occupy">Accomodation</a></li>
-              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/occupy/new">Add Accomodation</a></li>
+              <li><a href="{{ path('student')}}">Accomodation</a></li>
+              <li><a href="{{ path('student')}}">Add Accomodation</a></li>
+              
               <li class="nav-header">UOS Employee Management </li>
-              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/employee">Employee</a></li>
-              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/employee/new">Add Employee</a></li>
+              <li><a href="{{ path('employee')}}">Employee</a></li>
+              <li><a href="{{ path('employee_new')}}">Add Employee</a></li>
+              
               <li class="nav-header">UOS Employee Positining </li>
-              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/work">Positions</a></li>
-              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/work/new">Add Position</a></li>
+              <li><a href="{{ path('student')}}">Positions</a></li>
+              <li><a href="{{ path('student')}}">Add Position</a></li>
+              
               <li class="nav-header">UOS Accounts </li>
-              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/finance">Account Details</a></li>
-              <li><a href="http://localhost:8080/uoshms/web/app_dev.php/finance/new">Add Account</a></li>
+              <li><a href="{{ path('student')}}">Account Details</a></li>
+              <li><a href="{{ path('student')}}">Add Account</a></li>
               
             </ul>
 {%endblock%}

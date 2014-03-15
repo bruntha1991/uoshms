@@ -45,7 +45,7 @@ class __TwigTemplate_cc5c957dc1beebbc98034396b00ae2cd972220857f838ea222dad0a7fff
                 <th>Capacity</th>
                 <th>Gender</th>
                 
-                <th>Actions</th>
+                
             </tr>
         </thead>
         <tbody>
