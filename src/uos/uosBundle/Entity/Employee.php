@@ -34,7 +34,7 @@ class Employee
      */
     private $id;
 
-    private $employeename;
+
     /**
      * Set employeeid
      *

@@ -99,9 +99,34 @@ class __TwigTemplate_00bb651345a403face309d9d48ad2bf37917c39fe955963a62d77cd62b6
           </button>
           <a class=\"brand\" href=\"#\">Hostel Management System for University of Sumanadasa</a>
           <div class=\"nav-collapse collapse\">
-            <p class=\"navbar-text pull-right\">
-              Logged in as <a href=\"#\" class=\"navbar-link\">name</a>
+              ";
+        // line 57
+        if (array_key_exists("name", $context)) {
+            // line 58
+            echo "    
+    <p class=\"navbar-text pull-right\">
+              Logged in as <a href=\"\" class=\"navbar-link\">";
+            // line 60
+            echo twig_escape_filter($this->env, $this->getContext($context, "name"), "html", null, true);
+            echo "</a>
+              <a href=\"";
+            // line 61
+            echo $this->env->getExtension('routing')->getPath("uosuos_uos");
+            echo "\">
+            <button type=\"submit\" class=\"btn\">Log Out</button>
+        </a>
             </p>
+            
+    
+    ";
+        }
+        // line 68
+        echo "            
+            
+              
+              
+           
+            
             
           </div><!--/.nav-collapse -->
         </div>
@@ -114,17 +139,17 @@ class __TwigTemplate_00bb651345a403face309d9d48ad2bf37917c39fe955963a62d77cd62b6
           <div class=\"well sidebar-nav\">
            
               ";
-        // line 71
+        // line 85
         $this->displayBlock('sideMenu', $context, $blocks);
-        // line 73
+        // line 87
         echo "              
           </div><!--/.well -->
         </div><!--/span-->
         
         ";
-        // line 77
+        // line 91
         $this->displayBlock('container', $context, $blocks);
-        // line 79
+        // line 93
         echo "        
       
       <!--/row-->
@@ -141,55 +166,55 @@ class __TwigTemplate_00bb651345a403face309d9d48ad2bf37917c39fe955963a62d77cd62b6
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src=\"";
-        // line 94
+        // line 108
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/jquery.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 95
+        // line 109
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-transition.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 96
+        // line 110
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-alert.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 97
+        // line 111
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-modal.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 98
+        // line 112
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-dropdown.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 99
+        // line 113
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-scrollspy.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 100
+        // line 114
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-tab.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 101
+        // line 115
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-tooltip.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 102
+        // line 116
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-popover.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 103
+        // line 117
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-button.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 104
+        // line 118
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-collapse.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 105
+        // line 119
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-carousel.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 106
+        // line 120
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-typeahead.js"), "html", null, true);
         echo "\"></script>
 
@@ -203,13 +228,13 @@ class __TwigTemplate_00bb651345a403face309d9d48ad2bf37917c39fe955963a62d77cd62b6
     <head>
         <meta charset=\"UTF-8\" />
         <title>";
-        // line 117
+        // line 131
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
         ";
-        // line 118
+        // line 132
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 119
+        // line 133
         echo "        <link rel=\"icon\" type=\"image/x-icon\" href=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("fevicon.ico"), "html", null, true);
         echo "\" />
@@ -219,12 +244,12 @@ class __TwigTemplate_00bb651345a403face309d9d48ad2bf37917c39fe955963a62d77cd62b6
         
         
         ";
-        // line 125
+        // line 139
         $this->displayBlock('body', $context, $blocks);
-        // line 126
+        // line 140
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 127
+        // line 141
         echo "    </body>
 </html>
 
@@ -232,33 +257,33 @@ class __TwigTemplate_00bb651345a403face309d9d48ad2bf37917c39fe955963a62d77cd62b6
 ";
     }
 
-    // line 71
+    // line 85
     public function block_sideMenu($context, array $blocks = array())
     {
     }
 
-    // line 77
+    // line 91
     public function block_container($context, array $blocks = array())
     {
     }
 
-    // line 117
+    // line 131
     public function block_title($context, array $blocks = array())
     {
         echo "Welcome!";
     }
 
-    // line 118
+    // line 132
     public function block_stylesheets($context, array $blocks = array())
     {
     }
 
-    // line 125
+    // line 139
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 126
+    // line 140
     public function block_javascripts($context, array $blocks = array())
     {
     }
@@ -275,6 +300,6 @@ class __TwigTemplate_00bb651345a403face309d9d48ad2bf37917c39fe955963a62d77cd62b6
 
     public function getDebugInfo()
     {
-        return array (  262 => 126,  257 => 125,  252 => 118,  246 => 117,  241 => 77,  236 => 71,  228 => 127,  225 => 126,  223 => 125,  213 => 119,  211 => 118,  207 => 117,  193 => 106,  189 => 105,  185 => 104,  181 => 103,  177 => 102,  173 => 101,  169 => 100,  165 => 99,  161 => 98,  157 => 97,  153 => 96,  149 => 95,  145 => 94,  128 => 79,  126 => 77,  120 => 73,  118 => 71,  86 => 42,  78 => 40,  74 => 39,  59 => 30,  37 => 11,  25 => 1,  89 => 36,  82 => 41,  70 => 38,  64 => 22,  57 => 18,  51 => 17,  48 => 16,  44 => 15,  31 => 4,  28 => 3,);
+        return array (  287 => 140,  282 => 139,  277 => 132,  271 => 131,  266 => 91,  261 => 85,  253 => 141,  250 => 140,  248 => 139,  238 => 133,  236 => 132,  232 => 131,  218 => 120,  214 => 119,  210 => 118,  206 => 117,  202 => 116,  198 => 115,  194 => 114,  190 => 113,  186 => 112,  182 => 111,  178 => 110,  174 => 109,  170 => 108,  153 => 93,  151 => 91,  145 => 87,  143 => 85,  124 => 68,  114 => 61,  110 => 60,  106 => 58,  104 => 57,  86 => 42,  82 => 41,  78 => 40,  74 => 39,  70 => 38,  59 => 30,  37 => 11,  25 => 1,  111 => 53,  108 => 52,  98 => 45,  91 => 40,  79 => 34,  73 => 31,  66 => 27,  60 => 26,  57 => 25,  53 => 24,  32 => 5,  29 => 4,);
     }
 }
