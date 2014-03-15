@@ -1,7 +1,7 @@
 <?php
 
-/* uosuosBundle:Hall:show.html.twig */
-class __TwigTemplate_68f80790490e31b341092f6a9b08b4d5253bf0cfd27ae81692d8db8d0f07fa32 extends Twig_Template
+/* uosuosBundle:Hall:edit.html.twig */
+class __TwigTemplate_6e0fdf20ccc1bd4ff3c0f71232f16be64d908606fc87c544f0f8fc26196c85eb extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -29,66 +29,36 @@ class __TwigTemplate_68f80790490e31b341092f6a9b08b4d5253bf0cfd27ae81692d8db8d0f0
     public function block_container($context, array $blocks = array())
     {
         // line 4
-        echo "<div class=\"span2\">
+        echo "<div class=\"span10\">
             <div class=\"containerHome\" >
-    <h1>Hall</h1>
+    <h1>Hall edit</h1>
 
-    <table class=\"table\">
-        <tbody>
-            <tr>
-                <th>Hallname</th>
-                <td>";
-        // line 12
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "hallname"), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Capacity</th>
-                <td>";
-        // line 16
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "capacity"), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Gender</th>
-                <td>";
-        // line 20
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "gender"), "html", null, true);
-        echo "</td>
-            </tr>
-            
-        </tbody>
-    </table>
+    ";
+        // line 8
+        echo         $this->env->getExtension('form')->renderer->renderBlock($this->getContext($context, "edit_form"), 'form');
+        echo "
 
         <ul class=\"record_actions\">
-   <li class=\"nav-header\">
+    <li class=\"nav-header\">
         <a href=\"";
-        // line 28
+        // line 12
         echo $this->env->getExtension('routing')->getPath("hall");
         echo "\">
             Back to the list
         </a>
     </li>
-    <li class=\"nav-header\">
-        <a href=\"";
-        // line 33
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("hall_edit", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
-        echo "\">
-            Edit
-        </a>
-    </li>
     <li class=\"nav-header\">";
-        // line 37
+        // line 16
         echo         $this->env->getExtension('form')->renderer->renderBlock($this->getContext($context, "delete_form"), 'form');
         echo "</li>
 </ul>
 ";
     }
 
-    // line 41
+    // line 20
     public function block_sideMenu($context, array $blocks = array())
     {
-        // line 42
+        // line 21
         echo "
 <ul class=\"nav nav-list\">
                 <li class=\"nav-header\"><b>Home</b></li>
@@ -122,7 +92,7 @@ class __TwigTemplate_68f80790490e31b341092f6a9b08b4d5253bf0cfd27ae81692d8db8d0f0
 
     public function getTemplateName()
     {
-        return "uosuosBundle:Hall:show.html.twig";
+        return "uosuosBundle:Hall:edit.html.twig";
     }
 
     public function isTraitable()
@@ -132,6 +102,6 @@ class __TwigTemplate_68f80790490e31b341092f6a9b08b4d5253bf0cfd27ae81692d8db8d0f0
 
     public function getDebugInfo()
     {
-        return array (  92 => 42,  89 => 41,  82 => 37,  75 => 33,  67 => 28,  56 => 20,  49 => 16,  42 => 12,  32 => 4,  29 => 3,);
+        return array (  62 => 21,  59 => 20,  52 => 16,  45 => 12,  38 => 8,  32 => 4,  29 => 3,);
     }
 }

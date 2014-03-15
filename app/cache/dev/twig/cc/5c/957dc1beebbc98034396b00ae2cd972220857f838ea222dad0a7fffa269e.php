@@ -29,7 +29,7 @@ class __TwigTemplate_cc5c957dc1beebbc98034396b00ae2cd972220857f838ea222dad0a7fff
     public function block_container($context, array $blocks = array())
     {
         // line 4
-        echo "<div class=\"span8\">
+        echo "<div class=\"span6\">
     <div class=\"containerHome\" >
     <h1>Hall list</h1>
 <script src=\"assets/js/jquery.tablesorter.min.js\"></script>
@@ -44,7 +44,7 @@ class __TwigTemplate_cc5c957dc1beebbc98034396b00ae2cd972220857f838ea222dad0a7fff
                 <th>Hallname</th>
                 <th>Capacity</th>
                 <th>Gender</th>
-                <th>Id</th>
+                
                 <th>Actions</th>
             </tr>
         </thead>
@@ -70,10 +70,7 @@ class __TwigTemplate_cc5c957dc1beebbc98034396b00ae2cd972220857f838ea222dad0a7fff
             // line 28
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "gender"), "html", null, true);
             echo "</td>
-                <td>";
-            // line 29
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "id"), "html", null, true);
-            echo "</td>
+                
                 <td>
                 <ul>
                     <li class=\"nav-header\">
@@ -122,7 +119,7 @@ class __TwigTemplate_cc5c957dc1beebbc98034396b00ae2cd972220857f838ea222dad0a7fff
                 <li  class=\"nav-header\" ><b>Home</b></li>
               
               <li class=\"nav-header\">UOS Halls</li>
-              <li><a class=\"active\" href=\"";
+              <li class=\"active\"><a  href=\"";
         // line 60
         echo $this->env->getExtension('routing')->getPath("hall");
         echo "\">View All </a></li>
@@ -207,6 +204,6 @@ class __TwigTemplate_cc5c957dc1beebbc98034396b00ae2cd972220857f838ea222dad0a7fff
 
     public function getDebugInfo()
     {
-        return array (  191 => 85,  187 => 84,  181 => 81,  177 => 80,  171 => 77,  167 => 76,  161 => 73,  157 => 72,  151 => 69,  147 => 68,  141 => 65,  137 => 64,  131 => 61,  127 => 60,  120 => 55,  117 => 54,  107 => 47,  100 => 42,  88 => 36,  82 => 33,  75 => 29,  71 => 28,  67 => 27,  61 => 26,  58 => 25,  54 => 24,  32 => 4,  29 => 3,);
+        return array (  188 => 85,  184 => 84,  178 => 81,  174 => 80,  168 => 77,  164 => 76,  158 => 73,  154 => 72,  148 => 69,  144 => 68,  138 => 65,  134 => 64,  128 => 61,  124 => 60,  117 => 55,  114 => 54,  104 => 47,  97 => 42,  85 => 36,  79 => 33,  71 => 28,  67 => 27,  61 => 26,  58 => 25,  54 => 24,  32 => 4,  29 => 3,);
     }
 }

@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block container -%}
-<div class="span8">
+<div class="span6">
     <div class="containerHome" >
     <h1>Hall list</h1>
 <script src="assets/js/jquery.tablesorter.min.js"></script>
@@ -16,7 +16,7 @@
                 <th>Hallname</th>
                 <th>Capacity</th>
                 <th>Gender</th>
-                <th>Id</th>
+                
                 <th>Actions</th>
             </tr>
         </thead>
@@ -26,7 +26,7 @@
                 <td><a href="{{ path('hall_show', { 'id': entity.id }) }}">{{ entity.hallname }}</a></td>
                 <td>{{ entity.capacity }}</td>
                 <td>{{ entity.gender }}</td>
-                <td>{{ entity.id }}</td>
+                
                 <td>
                 <ul>
                     <li class="nav-header">
@@ -57,7 +57,7 @@
                 <li  class="nav-header" ><b>Home</b></li>
               
               <li class="nav-header">UOS Halls</li>
-              <li><a class="active" href="{{ path('hall')}}">View All </a></li>
+              <li class="active"><a  href="{{ path('hall')}}">View All </a></li>
               <li><a href="{{ path('hall_new')}}">Add Hall</a></li>
               
               <li class="nav-header">UOS Rooms</li>
