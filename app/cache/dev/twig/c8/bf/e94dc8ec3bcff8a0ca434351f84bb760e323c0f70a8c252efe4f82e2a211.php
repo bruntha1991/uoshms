@@ -41,7 +41,7 @@ class __TwigTemplate_c8bfe94dc8ec3bcff8a0ca434351f84bb760e323c0f70a8c252efe4f82e
             <table class=\"table\">
                 <thead>
                     <tr>
-                        <th>StudentDId </th>
+                        <th>Student Id </th>
                         <th>First Name </th>
                         <th>Last Name </th>
                         <th>Gender </th>
@@ -83,7 +83,7 @@ class __TwigTemplate_c8bfe94dc8ec3bcff8a0ca434351f84bb760e323c0f70a8c252efe4f82e
             echo "</td>
                             <td>";
             // line 33
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "year"), "m/d/Y"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "year"), "html", null, true);
             echo "</td>
                             <td>";
             // line 34

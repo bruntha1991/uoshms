@@ -106,11 +106,11 @@ class __TwigTemplate_91977f4ec2388afed54d1015a3288e094de2d3de39facb56bb99ae2faa8
               <li class=\"nav-header\">UOS Student Accomodation </li>
               <li><a href=\"";
         // line 43
-        echo $this->env->getExtension('routing')->getPath("student");
+        echo $this->env->getExtension('routing')->getPath("occupy");
         echo "\">Accomodation</a></li>
               <li><a href=\"";
         // line 44
-        echo $this->env->getExtension('routing')->getPath("student");
+        echo $this->env->getExtension('routing')->getPath("occupy_new");
         echo "\">Add Accomodation</a></li>
               
               <li class=\"nav-header\">UOS Employee Management </li>

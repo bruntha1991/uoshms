@@ -26,10 +26,7 @@ class Student
      * @var string
      */
     private $deptName;
-    /**
-     * @var \DateTime
-     */
-    private $year;
+
     /**
      * @var integer
      */
@@ -134,26 +131,7 @@ class Student
     {
         return $this->deptName;
     }
-    /**
-     * Set year
-     *
-     * @param \DateTime $year
-     * @return Student
-     */
-    public function setYear($year)
-    {
-        $this->year = $year;
-        return $this;
-    }
-    /**
-     * Get year
-     *
-     * @return \DateTime 
-     */
-    public function getYear()
-    {
-        return $this->year;
-    }
+     
     /**
      * Get id
      *
@@ -163,4 +141,37 @@ class Student
     {
         return $this->id;
     }
+    /**
+     * @var string
+     */
+    private $year;
+
+
+    /**
+     * Set year
+     *
+     * @param string $year
+     * @return Student
+     */
+    public function setYear($year)
+    {
+        $this->year = $year;
+    
+        return $this;
+    }
+
+    /**
+     * Get year
+     *
+     * @return string 
+     */
+    public function getYear()
+    {
+        return $this->year;
+    }
+    
+    public function __toString() {
+        return "$this->studentid";
+    }
+    
 }
