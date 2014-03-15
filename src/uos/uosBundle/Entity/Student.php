@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Student
  */
-class Student
-{
+class Student {
+
     /**
      * @var string
      */
@@ -44,15 +44,13 @@ class Student
      */
     private $id;
 
-
     /**
      * Set studentid
      *
      * @param string $studentid
      * @return Student
      */
-    public function setStudentid($studentid)
-    {
+    public function setStudentid($studentid) {
         $this->studentid = $studentid;
 
         return $this;
@@ -63,8 +61,7 @@ class Student
      *
      * @return string 
      */
-    public function getStudentid()
-    {
+    public function getStudentid() {
         return $this->studentid;
     }
 
@@ -74,8 +71,7 @@ class Student
      * @param string $firstname
      * @return Student
      */
-    public function setFirstname($firstname)
-    {
+    public function setFirstname($firstname) {
         $this->firstname = $firstname;
 
         return $this;
@@ -86,8 +82,7 @@ class Student
      *
      * @return string 
      */
-    public function getFirstname()
-    {
+    public function getFirstname() {
         return $this->firstname;
     }
 
@@ -97,8 +92,7 @@ class Student
      * @param string $lastname
      * @return Student
      */
-    public function setLastname($lastname)
-    {
+    public function setLastname($lastname) {
         $this->lastname = $lastname;
 
         return $this;
@@ -109,8 +103,7 @@ class Student
      *
      * @return string 
      */
-    public function getLastname()
-    {
+    public function getLastname() {
         return $this->lastname;
     }
 
@@ -120,8 +113,7 @@ class Student
      * @param string $gender
      * @return Student
      */
-    public function setGender($gender)
-    {
+    public function setGender($gender) {
         $this->gender = $gender;
 
         return $this;
@@ -132,8 +124,7 @@ class Student
      *
      * @return string 
      */
-    public function getGender()
-    {
+    public function getGender() {
         return $this->gender;
     }
 
@@ -143,8 +134,7 @@ class Student
      * @param string $deptName
      * @return Student
      */
-    public function setDeptName($deptName)
-    {
+    public function setDeptName($deptName) {
         $this->deptName = $deptName;
 
         return $this;
@@ -155,8 +145,7 @@ class Student
      *
      * @return string 
      */
-    public function getDeptName()
-    {
+    public function getDeptName() {
         return $this->deptName;
     }
 
@@ -166,8 +155,7 @@ class Student
      * @param \DateTime $year
      * @return Student
      */
-    public function setYear($year)
-    {
+    public function setYear($year) {
         $this->year = $year;
 
         return $this;
@@ -178,8 +166,7 @@ class Student
      *
      * @return \DateTime 
      */
-    public function getYear()
-    {
+    public function getYear() {
         return $this->year;
     }
 
@@ -188,8 +175,12 @@ class Student
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
+
+    public function __toString() {
+        return "$this->studentid";
+    }
+
 }

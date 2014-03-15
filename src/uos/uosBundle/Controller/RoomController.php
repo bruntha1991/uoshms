@@ -23,7 +23,7 @@ class RoomController extends Controller {
         $entities = $em->getRepository('uosuosBundle:Room')->findAll();
 
         return $this->render('uosuosBundle:Room:index.html.twig', array(
-                    'entities' => $entities,
+                    'entities' => $entities
                 ));
     }
 

@@ -136,4 +136,8 @@ class Room
     {
         return $this->hall;
     }
+    
+    public function __toString() {
+        return "$this->roomno";
+    }
 }
