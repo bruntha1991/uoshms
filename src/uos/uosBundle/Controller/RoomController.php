@@ -42,7 +42,7 @@ class RoomController extends Controller {
 
             $repository = $em1->getRepository('uosuosBundle:Room');
 
-            $room = $repository->findOneBy(array('hall' => $entity->getHall(),'roomno' => $entity->getRoomno()));
+            $room = $repository->findOneBy(array('hall' => $entity->getHall(), 'roomno' => $entity->getRoomno()));
 
             if ($room) {
                 return $this->render('uosuosBundle:Room:new.html.twig', array('entity' => $entity, 'form' => $form->createView(), 'error' => 'Room already exist.'));
