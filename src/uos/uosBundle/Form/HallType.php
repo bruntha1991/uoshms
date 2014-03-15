@@ -18,7 +18,7 @@ class HallType extends AbstractType
             ->add('hallname')
             ->add('capacity')
             ->add('gender','choice', array(
-    'choices' => array('Male' => 'Male', 'Male' => 'Female')));
+    'choices' => array('Male' => 'Male', 'Female' => 'Female')));
         
     }
     
