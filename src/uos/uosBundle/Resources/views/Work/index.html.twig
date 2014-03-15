@@ -15,6 +15,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th>Employe Name</th>
                 <th>Date</th>
                 <th>Id</th>
                 <th>Actions</th>
@@ -23,8 +24,10 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('work_show', { 'id': entity.id }) }}">{{ entity.date }}</a></td>
+                <td><a href="{{ path('work_show', { 'id': entity.id }) }}">{{ entity.employee }}</a></td>
+                <td>{{ entity.date|date("m/d/Y") }}</td>
                 <td>{{ entity.id }}</td>
+                
                 <td>
                 <ul>
                     <li>

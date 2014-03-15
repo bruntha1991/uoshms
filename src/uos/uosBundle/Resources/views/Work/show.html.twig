@@ -8,9 +8,13 @@
 
     <table class="record_properties">
         <tbody>
+             <tr>
+                <th>Employee Name</th>
+                <td>{{ entity.employee }}</td>
+            </tr>
             <tr>
                 <th>Date</th>
-                <td>{{ entity.date|date('Y-m-d H:i:s') }}</td>
+                <td>{{ entity.date|date("m/d/Y") }}</td>
             </tr>
             <tr>
                 <th>Id</th>
