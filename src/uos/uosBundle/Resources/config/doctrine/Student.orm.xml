@@ -13,6 +13,6 @@
     <field name="lastname" type="string" column="lastName" length="45" nullable="false"/>
     <field name="gender" type="string" column="gender" length="45" nullable="false"/>
     <field name="deptName" type="string" column="dept_Name" length="45" nullable="false"/>
-    <field name="year" type="date" column="year" nullable="false"/>
+    <field name="year" type="string" column="year" length="4" nullable="false"/>
   </entity>
 </doctrine-mapping>

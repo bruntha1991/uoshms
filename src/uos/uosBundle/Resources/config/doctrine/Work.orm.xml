@@ -12,14 +12,14 @@
       <generator strategy="IDENTITY"/>
     </id>
     <field name="date" type="date" column="date" nullable="false"/>
-    <many-to-one field="hall" target-entity="Hall">
-      <join-columns>
-        <join-column name="hall_id" referenced-column-name="id"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="employee" target-entity="Employee">
       <join-columns>
         <join-column name="employee_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="hall" target-entity="Hall">
+      <join-columns>
+        <join-column name="hall_id" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
   </entity>

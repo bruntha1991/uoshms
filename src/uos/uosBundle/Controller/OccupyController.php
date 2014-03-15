@@ -40,6 +40,7 @@ class OccupyController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            $entity = setDate(Date());
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
