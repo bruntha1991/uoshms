@@ -34,7 +34,7 @@ class Employee
      */
     private $id;
 
-
+    private $employeename;
     /**
      * Set employeeid
      *
@@ -136,4 +136,9 @@ class Employee
     {
         return $this->id;
     }
+    
+    public function __toString() {
+        return "$this->employeename";
+    }
+    
 }
