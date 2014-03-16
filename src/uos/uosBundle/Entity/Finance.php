@@ -80,4 +80,60 @@ class Finance
     {
         return $this->student;
     }
+    /**
+     * @var \DateTime
+     */
+    private $paydate;
+
+    /**
+     * @var \uos\uosBundle\Entity\Occupy
+     */
+    private $occupy;
+
+
+    /**
+     * Set paydate
+     *
+     * @param \DateTime $paydate
+     * @return Finance
+     */
+    public function setPaydate($paydate)
+    {
+        $this->paydate = $paydate;
+    
+        return $this;
+    }
+
+    /**
+     * Get paydate
+     *
+     * @return \DateTime 
+     */
+    public function getPaydate()
+    {
+        return $this->paydate;
+    }
+
+    /**
+     * Set occupy
+     *
+     * @param \uos\uosBundle\Entity\Occupy $occupy
+     * @return Finance
+     */
+    public function setOccupy(\uos\uosBundle\Entity\Occupy $occupy = null)
+    {
+        $this->occupy = $occupy;
+    
+        return $this;
+    }
+
+    /**
+     * Get occupy
+     *
+     * @return \uos\uosBundle\Entity\Occupy 
+     */
+    public function getOccupy()
+    {
+        return $this->occupy;
+    }
 }
