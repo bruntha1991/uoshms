@@ -94,14 +94,15 @@ class DefaultController extends Controller
     
     public function hall_roomAction(Request $request) {
         
-        $hall = $request->get('hallname');
+        $hallname = $request->get('hallname');
 
         $em = $this->getDoctrine()->getManager();
         
         $entities = $em->getRepository('uosuosBundle:Room')->findAll();
 
         return $this->render('uosuosBundle:Room:index_hall.html.twig', array(
-                    'entities' => $entities,'hallname'=> $hall ,
+                    'entities' => $entities,'hallname'=> $hallname ,
                 ));
+        
     }
 }
