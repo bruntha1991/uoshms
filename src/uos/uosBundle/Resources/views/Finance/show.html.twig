@@ -10,6 +10,10 @@
                 <td>{{ entity.balance }}</td>
             </tr>
             <tr>
+                <th>Paydate</th>
+                <td>{{ entity.paydate|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
                 <th>Id</th>
                 <td>{{ entity.id }}</td>
             </tr>

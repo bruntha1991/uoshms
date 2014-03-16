@@ -10,9 +10,19 @@ use Doctrine\ORM\Mapping as ORM;
 class Occupy
 {
     /**
+     * @var \DateTime
+     */
+    private $date;
+
+    /**
      * @var integer
      */
     private $id;
+
+    /**
+     * @var \uos\uosBundle\Entity\Student
+     */
+    private $student;
 
     /**
      * @var \uos\uosBundle\Entity\Room
@@ -24,11 +34,29 @@ class Occupy
      */
     private $hall;
 
-    /**
-     * @var \uos\uosBundle\Entity\Student
-     */
-    private $student;
 
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Occupy
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
 
     /**
      * Get id
@@ -38,6 +66,29 @@ class Occupy
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set student
+     *
+     * @param \uos\uosBundle\Entity\Student $student
+     * @return Occupy
+     */
+    public function setStudent(\uos\uosBundle\Entity\Student $student = null)
+    {
+        $this->student = $student;
+
+        return $this;
+    }
+
+    /**
+     * Get student
+     *
+     * @return \uos\uosBundle\Entity\Student 
+     */
+    public function getStudent()
+    {
+        return $this->student;
     }
 
     /**
@@ -84,58 +135,5 @@ class Occupy
     public function getHall()
     {
         return $this->hall;
-    }
-
-    /**
-     * Set student
-     *
-     * @param \uos\uosBundle\Entity\Student $student
-     * @return Occupy
-     */
-    public function setStudent(\uos\uosBundle\Entity\Student $student = null)
-    {
-        $this->student = $student;
-
-        return $this;
-    }
-
-    /**
-     * Get student
-     *
-     * @return \uos\uosBundle\Entity\Student 
-     */
-    public function getStudent()
-    {
-        return $this->student;
-    }
-        
-    
-    /**
-     * @var \DateTime
-     */
-    private $date;
-
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     * @return Occupy
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-    
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime 
-     */
-    public function getDate()
-    {
-        return $this->date;
     }
 }

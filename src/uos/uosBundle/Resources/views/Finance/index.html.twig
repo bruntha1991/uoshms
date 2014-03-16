@@ -7,6 +7,7 @@
         <thead>
             <tr>
                 <th>Balance</th>
+                <th>Paydate</th>
                 <th>Id</th>
                 <th>Actions</th>
             </tr>
@@ -15,6 +16,7 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('finance_show', { 'id': entity.id }) }}">{{ entity.balance }}</a></td>
+                <td>{% if entity.paydate %}{{ entity.paydate|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ entity.id }}</td>
                 <td>
                 <ul>

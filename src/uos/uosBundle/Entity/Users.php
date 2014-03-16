@@ -35,14 +35,14 @@ class Users
     private $id;
 
     /**
-     * @var \uos\uosBundle\Entity\Employee
-     */
-    private $firsrnameEmp;
-
-    /**
      * @var \uos\uosBundle\Entity\Student
      */
     private $firstnameStd;
+
+    /**
+     * @var \uos\uosBundle\Entity\Employee
+     */
+    private $firsrnameEmp;
 
 
     /**
@@ -148,29 +148,6 @@ class Users
     }
 
     /**
-     * Set firsrnameEmp
-     *
-     * @param \uos\uosBundle\Entity\Employee $firsrnameEmp
-     * @return Users
-     */
-    public function setFirsrnameEmp(\uos\uosBundle\Entity\Employee $firsrnameEmp = null)
-    {
-        $this->firsrnameEmp = $firsrnameEmp;
-
-        return $this;
-    }
-
-    /**
-     * Get firsrnameEmp
-     *
-     * @return \uos\uosBundle\Entity\Employee 
-     */
-    public function getFirsrnameEmp()
-    {
-        return $this->firsrnameEmp;
-    }
-
-    /**
      * Set firstnameStd
      *
      * @param \uos\uosBundle\Entity\Student $firstnameStd
@@ -191,5 +168,28 @@ class Users
     public function getFirstnameStd()
     {
         return $this->firstnameStd;
+    }
+
+    /**
+     * Set firsrnameEmp
+     *
+     * @param \uos\uosBundle\Entity\Employee $firsrnameEmp
+     * @return Users
+     */
+    public function setFirsrnameEmp(\uos\uosBundle\Entity\Employee $firsrnameEmp = null)
+    {
+        $this->firsrnameEmp = $firsrnameEmp;
+
+        return $this;
+    }
+
+    /**
+     * Get firsrnameEmp
+     *
+     * @return \uos\uosBundle\Entity\Employee 
+     */
+    public function getFirsrnameEmp()
+    {
+        return $this->firsrnameEmp;
     }
 }

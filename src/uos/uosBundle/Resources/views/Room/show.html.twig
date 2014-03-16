@@ -1,15 +1,12 @@
 {% extends '::base.html.twig' %}
 
-{% block container -%}
-
-<div class="span2">
-            <div class="containerHome" >
+{% block body -%}
     <h1>Room</h1>
 
-    <table class="table">
+    <table class="record_properties">
         <tbody>
             <tr>
-                <th>Room Number</th>
+                <th>Roomno</th>
                 <td>{{ entity.roomno }}</td>
             </tr>
             <tr>
@@ -17,7 +14,7 @@
                 <td>{{ entity.type }}</td>
             </tr>
             <tr>
-                <th>Monthly Cost</th>
+                <th>Monthlycost</th>
                 <td>{{ entity.monthlycost }}</td>
             </tr>
             <tr>
@@ -28,51 +25,16 @@
     </table>
 
         <ul class="record_actions">
-    <li class="nav-header">
+    <li>
         <a href="{{ path('room') }}">
             Back to the list
         </a>
     </li>
-    <li class="nav-header">
+    <li>
         <a href="{{ path('room_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>
-    <li class="nav-header">{{ form(delete_form) }}</li>
+    <li>{{ form(delete_form) }}</li>
 </ul>
 {% endblock %}
-   {%block sideMenu %}
-
-<ul class="nav nav-list">
-                <li  class="nav-header" ><b>Home</b></li>
-              
-              <li class="nav-header">UOS Halls</li>
-              <li ><a  href="{{ path('hall')}}">View All </a></li>
-              <li ><a href="{{ path('hall_new')}}">Add Hall</a></li>
-              
-              <li class="nav-header">UOS Rooms</li>
-              <li><a href="{{ path('room')}}">View All</a></li>
-              <li><a href="{{ path('room_new')}}">Add Room</a></li>
-              
-              <li class="nav-header">UOS Student Management </li>
-              <li><a href="{{ path('student')}}">View All Students</a></li>
-              <li><a href="{{ path('student_new')}}">Add Student</a></li>
-              
-              <li class="nav-header">UOS Student Accomodation </li>
-              <li><a href="{{ path('student')}}">Accomodation</a></li>
-              <li><a href="{{ path('student')}}">Add Accomodation</a></li>
-              
-              <li class="nav-header">UOS Employee Management </li>
-              <li><a href="{{ path('employee')}}">Employee</a></li>
-              <li><a href="{{ path('employee_new')}}">Add Employee</a></li>
-              
-              <li class="nav-header">UOS Employee Positining </li>
-              <li><a href="{{ path('student')}}">Positions</a></li>
-              <li><a href="{{ path('student')}}">Add Position</a></li>
-              
-              <li class="nav-header">UOS Accounts </li>
-              <li><a href="{{ path('student')}}">Account Details</a></li>
-              <li><a href="{{ path('student')}}">Add Account</a></li>
-              
-            </ul>
-{%endblock%}

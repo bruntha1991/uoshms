@@ -108,8 +108,4 @@ class Hall
     {
         return $this->id;
     }
-    
-    public function __toString() {
-        return "$this->hallname";
-    }
 }

@@ -16,8 +16,7 @@ class RoomType extends AbstractType
     {
         $builder
             ->add('roomno')
-            ->add('type','choice', array(
-    'choices' => array('Single' => 'Single', 'Double' => 'Double')))
+            ->add('type')
             ->add('monthlycost')
             ->add('hall')
         ;

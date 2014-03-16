@@ -4,6 +4,7 @@ namespace uos\uosBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
 use uos\uosBundle\Entity\Room;
 use uos\uosBundle\Form\RoomType;
 
@@ -11,67 +12,60 @@ use uos\uosBundle\Form\RoomType;
  * Room controller.
  *
  */
-class RoomController extends Controller {
+class RoomController extends Controller
+{
 
     /**
      * Lists all Room entities.
      *
      */
-    public function indexAction() {
+    public function indexAction()
+    {
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('uosuosBundle:Room')->findAll();
 
         return $this->render('uosuosBundle:Room:index.html.twig', array(
-                    'entities' => $entities
-                ));
+            'entities' => $entities,
+        ));
     }
-
     /**
      * Creates a new Room entity.
      *
      */
-    public function createAction(Request $request) {
+    public function createAction(Request $request)
+    {
         $entity = new Room();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em1 = $this->getDoctrine()->getEntityManager();
+            $em->persist($entity);
+            $em->flush();
 
-            $repository = $em1->getRepository('uosuosBundle:Room');
-
-            $room = $repository->findOneBy(array('hall' => $entity->getHall(), 'roomno' => $entity->getRoomno()));
-
-            if ($room) {
-                return $this->render('uosuosBundle:Room:new.html.twig', array('entity' => $entity, 'form' => $form->createView(), 'error' => 'Room already exist.'));
-            } else {
-                $em->persist($entity);
-                $em->flush();
-
-                return $this->redirect($this->generateUrl('room_show', array('id' => $entity->getId())));
-            }
+            return $this->redirect($this->generateUrl('room_show', array('id' => $entity->getId())));
         }
 
         return $this->render('uosuosBundle:Room:new.html.twig', array(
-                    'entity' => $entity,
-                    'form' => $form->createView(),
-                ));
+            'entity' => $entity,
+            'form'   => $form->createView(),
+        ));
     }
 
     /**
-     * Creates a form to create a Room entity.
-     *
-     * @param Room $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createCreateForm(Room $entity) {
+    * Creates a form to create a Room entity.
+    *
+    * @param Room $entity The entity
+    *
+    * @return \Symfony\Component\Form\Form The form
+    */
+    private function createCreateForm(Room $entity)
+    {
         $form = $this->createForm(new RoomType(), $entity, array(
             'action' => $this->generateUrl('room_create'),
             'method' => 'POST',
-                ));
+        ));
 
         $form->add('submit', 'submit', array('label' => 'Create'));
 
@@ -82,21 +76,23 @@ class RoomController extends Controller {
      * Displays a form to create a new Room entity.
      *
      */
-    public function newAction() {
+    public function newAction()
+    {
         $entity = new Room();
-        $form = $this->createCreateForm($entity);
+        $form   = $this->createCreateForm($entity);
 
         return $this->render('uosuosBundle:Room:new.html.twig', array(
-                    'entity' => $entity,
-                    'form' => $form->createView(),
-                ));
+            'entity' => $entity,
+            'form'   => $form->createView(),
+        ));
     }
 
     /**
      * Finds and displays a Room entity.
      *
      */
-    public function showAction($id) {
+    public function showAction($id)
+    {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('uosuosBundle:Room')->find($id);
@@ -108,15 +104,16 @@ class RoomController extends Controller {
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('uosuosBundle:Room:show.html.twig', array(
-                    'entity' => $entity,
-                    'delete_form' => $deleteForm->createView(),));
+            'entity'      => $entity,
+            'delete_form' => $deleteForm->createView(),        ));
     }
 
     /**
      * Displays a form to edit an existing Room entity.
      *
      */
-    public function editAction($id) {
+    public function editAction($id)
+    {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('uosuosBundle:Room')->find($id);
@@ -129,35 +126,36 @@ class RoomController extends Controller {
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('uosuosBundle:Room:edit.html.twig', array(
-                    'entity' => $entity,
-                    'edit_form' => $editForm->createView(),
-                    'delete_form' => $deleteForm->createView(),
-                ));
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
     }
 
     /**
-     * Creates a form to edit a Room entity.
-     *
-     * @param Room $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createEditForm(Room $entity) {
+    * Creates a form to edit a Room entity.
+    *
+    * @param Room $entity The entity
+    *
+    * @return \Symfony\Component\Form\Form The form
+    */
+    private function createEditForm(Room $entity)
+    {
         $form = $this->createForm(new RoomType(), $entity, array(
             'action' => $this->generateUrl('room_update', array('id' => $entity->getId())),
             'method' => 'PUT',
-                ));
+        ));
 
         $form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
     }
-
     /**
      * Edits an existing Room entity.
      *
      */
-    public function updateAction(Request $request, $id) {
+    public function updateAction(Request $request, $id)
+    {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('uosuosBundle:Room')->find($id);
@@ -177,17 +175,17 @@ class RoomController extends Controller {
         }
 
         return $this->render('uosuosBundle:Room:edit.html.twig', array(
-                    'entity' => $entity,
-                    'edit_form' => $editForm->createView(),
-                    'delete_form' => $deleteForm->createView(),
-                ));
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
     }
-
     /**
      * Deletes a Room entity.
      *
      */
-    public function deleteAction(Request $request, $id) {
+    public function deleteAction(Request $request, $id)
+    {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
@@ -213,13 +211,13 @@ class RoomController extends Controller {
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id) {
+    private function createDeleteForm($id)
+    {
         return $this->createFormBuilder()
-                        ->setAction($this->generateUrl('room_delete', array('id' => $id)))
-                        ->setMethod('DELETE')
-                        ->add('submit', 'submit', array('label' => 'Delete'))
-                        ->getForm()
+            ->setAction($this->generateUrl('room_delete', array('id' => $id)))
+            ->setMethod('DELETE')
+            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->getForm()
         ;
     }
-
 }

@@ -15,14 +15,19 @@ class Finance
     private $balance;
 
     /**
+     * @var \DateTime
+     */
+    private $paydate;
+
+    /**
      * @var integer
      */
     private $id;
 
     /**
-     * @var \uos\uosBundle\Entity\Student
+     * @var \uos\uosBundle\Entity\Occupy
      */
-    private $student;
+    private $occupy;
 
 
     /**
@@ -49,6 +54,29 @@ class Finance
     }
 
     /**
+     * Set paydate
+     *
+     * @param \DateTime $paydate
+     * @return Finance
+     */
+    public function setPaydate($paydate)
+    {
+        $this->paydate = $paydate;
+
+        return $this;
+    }
+
+    /**
+     * Get paydate
+     *
+     * @return \DateTime 
+     */
+    public function getPaydate()
+    {
+        return $this->paydate;
+    }
+
+    /**
      * Get id
      *
      * @return integer 
@@ -59,25 +87,25 @@ class Finance
     }
 
     /**
-     * Set student
+     * Set occupy
      *
-     * @param \uos\uosBundle\Entity\Student $student
+     * @param \uos\uosBundle\Entity\Occupy $occupy
      * @return Finance
      */
-    public function setStudent(\uos\uosBundle\Entity\Student $student = null)
+    public function setOccupy(\uos\uosBundle\Entity\Occupy $occupy = null)
     {
-        $this->student = $student;
+        $this->occupy = $occupy;
 
         return $this;
     }
 
     /**
-     * Get student
+     * Get occupy
      *
-     * @return \uos\uosBundle\Entity\Student 
+     * @return \uos\uosBundle\Entity\Occupy 
      */
-    public function getStudent()
+    public function getOccupy()
     {
-        return $this->student;
+        return $this->occupy;
     }
 }

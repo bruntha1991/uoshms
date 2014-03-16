@@ -1,23 +1,16 @@
 {% extends '::base.html.twig' %}
 
-{% block container -%}
-<div class="span6">
-    <div class="containerHome" >
+{% block body -%}
     <h1>Hall list</h1>
-<script src="assets/js/jquery.tablesorter.min.js"></script>
-        <script >
-            $(function() {
-                $("table#sortTableExample").tablesorter({sortList: [[1, 0]]});
-            });
-        </script>
-        <table class="table">
+
+    <table class="records_list">
         <thead>
             <tr>
                 <th>Hallname</th>
                 <th>Capacity</th>
                 <th>Gender</th>
-                
-                
+                <th>Id</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -26,17 +19,14 @@
                 <td><a href="{{ path('hall_show', { 'id': entity.id }) }}">{{ entity.hallname }}</a></td>
                 <td>{{ entity.capacity }}</td>
                 <td>{{ entity.gender }}</td>
-                
+                <td>{{ entity.id }}</td>
                 <td>
                 <ul>
-                    <li class="nav-header">
+                    <li>
                         <a href="{{ path('hall_show', { 'id': entity.id }) }}">show</a>
                     </li>
-                    <li class="nav-header">
+                    <li>
                         <a href="{{ path('hall_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                    <li class="nav-header">
-                        <a href="{{ path('uosuos_hall_room', { 'hallname': entity.hallname }) }}">show rooms</a>
                     </li>
                 </ul>
                 </td>
@@ -46,46 +36,10 @@
     </table>
 
         <ul>
-        <li class="nav-header">
+        <li>
             <a href="{{ path('hall_new') }}">
                 Create a new entry
             </a>
         </li>
     </ul>
     {% endblock %}
-
-    {%block sideMenu %}
-
-<ul class="nav nav-list">
-                <li  class="nav-header" ><b>Home</b></li>
-              
-              <li class="nav-header">UOS Halls</li>
-              <li class="active"><a  href="{{ path('hall')}}">View All </a></li>
-              <li><a href="{{ path('hall_new')}}">Add Hall</a></li>
-              
-              <li class="nav-header">UOS Rooms</li>
-              <li><a href="{{ path('room')}}">View All</a></li>
-              <li><a href="{{ path('room_new')}}">Add Room</a></li>
-              
-              <li class="nav-header">UOS Student Management </li>
-              <li><a href="{{ path('student')}}">View All Students</a></li>
-              <li><a href="{{ path('student_new')}}">Add Student</a></li>
-              
-              <li class="nav-header">UOS Student Accomodation </li>
-              <li><a href="{{ path('occupy')}}">Accomodation</a></li>
-              <li><a href="{{ path('occupy_new')}}">Add Accomodation</a></li>
-              
-              <li class="nav-header">UOS Employee Management </li>
-              <li><a href="{{ path('employee')}}">Employee</a></li>
-              <li><a href="{{ path('employee_new')}}">Add Employee</a></li>
-              
-              <li class="nav-header">UOS Employee Positining </li>
-              <li><a href="{{ path('student')}}">Positions</a></li>
-              <li><a href="{{ path('student')}}">Add Position</a></li>
-              
-              <li class="nav-header">UOS Accounts </li>
-              <li><a href="{{ path('student')}}">Account Details</a></li>
-              <li><a href="{{ path('student')}}">Add Account</a></li>
-              
-            </ul>
-{%endblock%}

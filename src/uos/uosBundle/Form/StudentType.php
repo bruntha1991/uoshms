@@ -1,8 +1,11 @@
 <?php
+
 namespace uos\uosBundle\Form;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
 class StudentType extends AbstractType
 {
         /**
@@ -11,7 +14,6 @@ class StudentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        
         $builder
             ->add('studentid')
             ->add('firstname')
@@ -31,6 +33,7 @@ class StudentType extends AbstractType
             'data_class' => 'uos\uosBundle\Entity\Student'
         ));
     }
+
     /**
      * @return string
      */

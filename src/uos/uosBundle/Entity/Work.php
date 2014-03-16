@@ -20,14 +20,14 @@ class Work
     private $id;
 
     /**
-     * @var \uos\uosBundle\Entity\Hall
-     */
-    private $hall;
-
-    /**
      * @var \uos\uosBundle\Entity\Employee
      */
     private $employee;
+
+    /**
+     * @var \uos\uosBundle\Entity\Hall
+     */
+    private $hall;
 
 
     /**
@@ -64,29 +64,6 @@ class Work
     }
 
     /**
-     * Set hall
-     *
-     * @param \uos\uosBundle\Entity\Hall $hall
-     * @return Work
-     */
-    public function setHall(\uos\uosBundle\Entity\Hall $hall = null)
-    {
-        $this->hall = $hall;
-
-        return $this;
-    }
-
-    /**
-     * Get hall
-     *
-     * @return \uos\uosBundle\Entity\Hall 
-     */
-    public function getHall()
-    {
-        return $this->hall;
-    }
-
-    /**
      * Set employee
      *
      * @param \uos\uosBundle\Entity\Employee $employee
@@ -107,5 +84,28 @@ class Work
     public function getEmployee()
     {
         return $this->employee;
+    }
+
+    /**
+     * Set hall
+     *
+     * @param \uos\uosBundle\Entity\Hall $hall
+     * @return Work
+     */
+    public function setHall(\uos\uosBundle\Entity\Hall $hall = null)
+    {
+        $this->hall = $hall;
+
+        return $this;
+    }
+
+    /**
+     * Get hall
+     *
+     * @return \uos\uosBundle\Entity\Hall 
+     */
+    public function getHall()
+    {
+        return $this->hall;
     }
 }
