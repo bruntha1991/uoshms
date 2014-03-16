@@ -34,16 +34,6 @@ class Users
      */
     private $id;
 
-    /**
-     * @var \uos\uosBundle\Entity\Employee
-     */
-    private $firsrnameEmp;
-
-    /**
-     * @var \uos\uosBundle\Entity\Student
-     */
-    private $firstnameStd;
-
 
     /**
      * Set user
@@ -146,50 +136,60 @@ class Users
     {
         return $this->id;
     }
+    /**
+     * @var \uos\uosBundle\Entity\Employee
+     */
+    private $employee;
 
     /**
-     * Set firsrnameEmp
+     * @var \uos\uosBundle\Entity\Student
+     */
+    private $student;
+
+
+    /**
+     * Set employee
      *
-     * @param \uos\uosBundle\Entity\Employee $firsrnameEmp
+     * @param \uos\uosBundle\Entity\Employee $employee
      * @return Users
      */
-    public function setFirsrnameEmp(\uos\uosBundle\Entity\Employee $firsrnameEmp = null)
+    public function setEmployee(\uos\uosBundle\Entity\Employee $employee = null)
     {
-        $this->firsrnameEmp = $firsrnameEmp;
+        $this->employee = $employee;
 
         return $this;
     }
 
     /**
-     * Get firsrnameEmp
+     * Get employee
      *
      * @return \uos\uosBundle\Entity\Employee 
      */
-    public function getFirsrnameEmp()
+    public function getEmployee()
     {
-        return $this->firsrnameEmp;
+        return $this->employee;
     }
 
     /**
-     * Set firstnameStd
+     * Set student
      *
-     * @param \uos\uosBundle\Entity\Student $firstnameStd
+     * @param \uos\uosBundle\Entity\Student $student
      * @return Users
      */
-    public function setFirstnameStd(\uos\uosBundle\Entity\Student $firstnameStd = null)
+    public function setStudent(\uos\uosBundle\Entity\Student $student = null)
     {
-        $this->firstnameStd = $firstnameStd;
+        $this->student = $student;
 
         return $this;
     }
 
     /**
-     * Get firstnameStd
+     * Get student
      *
      * @return \uos\uosBundle\Entity\Student 
      */
-    public function getFirstnameStd()
+    public function getStudent()
     {
-        return $this->firstnameStd;
+        return $this->student;
     }
 }

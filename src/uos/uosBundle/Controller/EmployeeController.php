@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use uos\uosBundle\Entity\Employee;
 use uos\uosBundle\Form\EmployeeType;
+use uos\uosBundle\Entity\Users;
 
 /**
  * Employee controller.
@@ -38,10 +39,20 @@ class EmployeeController extends Controller
         $entity = new Employee();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
+        
+        $user = new Users();
+        $user->setUser($entity->getEmployeeid());
+        $user->setRole('Employee');
+        $user->setPassword('uoshms');
+        $user->setFirstName($entity->getName());
+        $user->setStudent($entity);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
+            $em->flush();
+            
+            $em->persist($user);
             $em->flush();
 
             return $this->redirect($this->generateUrl('employee_show', array('id' => $entity->getId())));

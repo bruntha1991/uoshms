@@ -631,6 +631,66 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/users')) {
+            // users
+            if (rtrim($pathinfo, '/') === '/users') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'users');
+                }
+
+                return array (  '_controller' => 'uos\\uosBundle\\Controller\\UsersController::indexAction',  '_route' => 'users',);
+            }
+
+            // users_show
+            if (preg_match('#^/users/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'users_show')), array (  '_controller' => 'uos\\uosBundle\\Controller\\UsersController::showAction',));
+            }
+
+            // users_new
+            if ($pathinfo === '/users/new') {
+                return array (  '_controller' => 'uos\\uosBundle\\Controller\\UsersController::newAction',  '_route' => 'users_new',);
+            }
+
+            // users_create
+            if ($pathinfo === '/users/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_users_create;
+                }
+
+                return array (  '_controller' => 'uos\\uosBundle\\Controller\\UsersController::createAction',  '_route' => 'users_create',);
+            }
+            not_users_create:
+
+            // users_edit
+            if (preg_match('#^/users/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'users_edit')), array (  '_controller' => 'uos\\uosBundle\\Controller\\UsersController::editAction',));
+            }
+
+            // users_update
+            if (preg_match('#^/users/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_users_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'users_update')), array (  '_controller' => 'uos\\uosBundle\\Controller\\UsersController::updateAction',));
+            }
+            not_users_update:
+
+            // users_delete
+            if (preg_match('#^/users/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_users_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'users_delete')), array (  '_controller' => 'uos\\uosBundle\\Controller\\UsersController::deleteAction',));
+            }
+            not_users_delete:
+
+        }
+
         // _welcome
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

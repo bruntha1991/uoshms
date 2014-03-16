@@ -83,7 +83,8 @@ class DefaultController extends Controller
 
             $user = $repository->findOneBy(array('user' => $user_id, 'password' => $password));
             if ($user) {
-                return $this->render('uosuosBundle:Default:home.html.twig', array('name' => $user->getFirstname()));
+                return $this->render('uosuosBundle:Default:home.html.twig', 
+                        array('name' => $user->getFirstname(),'id' => $user->getId()));
             } else {
                 return $this->render('uosuosBundle:Default:login.html.twig', array('name' => 'Login Error'));
             }

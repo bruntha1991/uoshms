@@ -56,8 +56,11 @@
           <div class="nav-collapse collapse">
               {% if name is defined%}
     
+             
+              
+              
     <p class="navbar-text pull-right">
-              Logged in as <a href="" class="navbar-link">{{name}}</a>
+              Logged in as <a href="{{ path('users_edit', {'id' : id} ) }}" class="navbar-link">{{name}}</a>
               <a href="{{ path('uosuos_uos') }}">
             <button type="submit" class="btn">Log Out</button>
         </a>

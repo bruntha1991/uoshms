@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use uos\uosBundle\Entity\Student;
+use uos\uosBundle\Entity\Users;
 use uos\uosBundle\Form\StudentType;
 
 /**
@@ -38,11 +39,24 @@ class StudentController extends Controller
         $entity = new Student();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
+        
+        $user = new Users();
+        $user->setUser($entity->getStudentid());
+        $user->setRole('Student');
+        $user->setPassword('uoshms');
+        $user->setFirstName($entity->getFirstname());
+        $user->setStudent($entity);
+        
+        
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
+            
+            $em->persist($user);
+            $em->flush();
+            
 
             return $this->redirect($this->generateUrl('student_show', array('id' => $entity->getId())));
         }
