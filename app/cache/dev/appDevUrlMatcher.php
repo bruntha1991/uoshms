@@ -593,9 +593,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'uos\\uosBundle\\Controller\\DefaultController::uosAction',  '_route' => 'uosuos_uos',);
         }
 
-        // uosuos_home
-        if ($pathinfo === '/home') {
-            return array (  '_controller' => 'uos\\uosBundle\\Controller\\DefaultController::homeAction',  '_route' => 'uosuos_home',);
+        if (0 === strpos($pathinfo, '/h')) {
+            // uosuos_home
+            if ($pathinfo === '/home') {
+                return array (  '_controller' => 'uos\\uosBundle\\Controller\\DefaultController::homeAction',  '_route' => 'uosuos_home',);
+            }
+
+            // uosuos_hall_room
+            if ($pathinfo === '/hall_room') {
+                return array (  '_controller' => 'uos\\uosBundle\\Controller\\DefaultController::hall_roomAction',  '_route' => 'uosuos_hall_room',);
+            }
+
         }
 
         // _welcome

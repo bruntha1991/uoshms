@@ -33,3 +33,7 @@ uosuos_uos:
 uosuos_home:
     pattern:  /home
     defaults: { _controller: uosuosBundle:Default:home }
+    
+uosuos_hall_room:
+    pattern:  /hall_room
+    defaults: { _controller: uosuosBundle:Default:hall_room }
