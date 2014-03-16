@@ -1,0 +1,30 @@
+functions:
+    pattern:  /
+    defaults: { _controller: "uosuosBundle:Functions:index" }
+
+functions_checkin:
+    pattern:  /checkin
+    defaults: { _controller: "uosuosBundle:Functions:checkin" }
+
+functions_checkout:
+    pattern:  /checkout
+    defaults: { _controller: "uosuosBundle:Functions:checkout" }
+
+finance_create:
+    pattern:  /create
+    defaults: { _controller: "uosuosBundle:functions:create" }
+    requirements: { _method: post }
+
+finance_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "uosuosBundle:functions:edit" }
+
+finance_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "uosuosBundle:functions:update" }
+    requirements: { _method: post|put }
+
+finance_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "uosuosBundle:functions:delete" }
+    requirements: { _method: post|delete }

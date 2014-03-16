@@ -2,6 +2,10 @@ uosuosBundle_hall:
         resource: "@uosuosBundle/Resources/config/routing/hall.yml"
         prefix:   /hall
         
+uosuosBundle_functions:
+        resource: "@uosuosBundle/Resources/config/routing/functions.yml"
+        prefix:   /functions
+
 uosuosBundle_room:
         resource: "@uosuosBundle/Resources/config/routing/room.yml"
         prefix:   /room

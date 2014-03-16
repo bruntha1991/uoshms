@@ -228,6 +228,31 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/functions')) {
+            // functions
+            if (rtrim($pathinfo, '/') === '/functions') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'functions');
+                }
+
+                return array (  '_controller' => 'uos\\uosBundle\\Controller\\FunctionsController::indexAction',  '_route' => 'functions',);
+            }
+
+            if (0 === strpos($pathinfo, '/functions/check')) {
+                // functions_checkin
+                if ($pathinfo === '/functions/checkin') {
+                    return array (  '_controller' => 'uos\\uosBundle\\Controller\\FunctionsController::checkinAction',  '_route' => 'functions_checkin',);
+                }
+
+                // functions_checkout
+                if ($pathinfo === '/functions/checkout') {
+                    return array (  '_controller' => 'uos\\uosBundle\\Controller\\FunctionsController::checkoutAction',  '_route' => 'functions_checkout',);
+                }
+
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/room')) {
             // room
             if (rtrim($pathinfo, '/') === '/room') {
