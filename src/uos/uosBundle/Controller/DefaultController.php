@@ -90,4 +90,19 @@ class DefaultController extends Controller
         }
         return $this->render('uosuosBundle:Default:uos.html.twig');
     }
+    
+    
+    public function hall_roomAction(Request $request) {
+        
+        $hallname = $request->get('hallname');
+
+        $em = $this->getDoctrine()->getManager();
+        
+        $entities = $em->getRepository('uosuosBundle:Room')->findAll();
+
+        return $this->render('uosuosBundle:Room:index_hall.html.twig', array(
+                    'entities' => $entities,'hallname'=> $hallname ,
+                ));
+        
+    }
 }
