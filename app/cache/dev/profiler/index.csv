@@ -363,3 +363,4 @@ ed8202,::1,GET,http://localhost:8080/uoshms/web/app_dev.php/student/assets/js/jq
 de2d1f,::1,GET,http://localhost:8080/uoshms/web/app_dev.php/student/new,1394996590,
 fe2fb3,::1,POST,http://localhost:8080/uoshms/web/app_dev.php/student/create,1394996625,
 afc5e6,::1,GET,http://localhost:8080/uoshms/web/app_dev.php/student/2/show,1394996627,
+814091,::1,GET,http://localhost:8080/uoshms/web/app_dev.php/student/2/show,1394997139,
