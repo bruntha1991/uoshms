@@ -17,6 +17,7 @@ uosuosBundle_finance:
 uosuosBundle_occupy:
         resource: "@uosuosBundle/Resources/config/routing/occupy.yml"
         prefix:   /occupy
+
         
 uosuosBundle_student:
         resource: "@uosuosBundle/Resources/config/routing/student.yml"
