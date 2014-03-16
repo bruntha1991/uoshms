@@ -15,10 +15,9 @@ class OccupyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date')
             ->add('student')
-            ->add('room')
             ->add('hall')
+            ->add('room')
         ;
     }
     

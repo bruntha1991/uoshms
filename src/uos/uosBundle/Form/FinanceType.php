@@ -16,8 +16,7 @@ class FinanceType extends AbstractType
     {
         $builder
             ->add('balance')
-            ->add('paydate')
-            ->add('occupy')
+            ->add('student')
         ;
     }
     

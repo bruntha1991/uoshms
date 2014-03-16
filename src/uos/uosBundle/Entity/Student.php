@@ -1,9 +1,6 @@
 <?php
-
 namespace uos\uosBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Student
  */
@@ -13,38 +10,27 @@ class Student
      * @var string
      */
     private $studentid;
-
     /**
      * @var string
      */
     private $firstname;
-
     /**
      * @var string
      */
     private $lastname;
-
     /**
      * @var string
      */
     private $gender;
-
     /**
      * @var string
      */
     private $deptName;
 
     /**
-     * @var string
-     */
-    private $year;
-
-    /**
      * @var integer
      */
     private $id;
-
-
     /**
      * Set studentid
      *
@@ -54,10 +40,8 @@ class Student
     public function setStudentid($studentid)
     {
         $this->studentid = $studentid;
-
         return $this;
     }
-
     /**
      * Get studentid
      *
@@ -67,7 +51,6 @@ class Student
     {
         return $this->studentid;
     }
-
     /**
      * Set firstname
      *
@@ -77,10 +60,8 @@ class Student
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
-
         return $this;
     }
-
     /**
      * Get firstname
      *
@@ -90,7 +71,6 @@ class Student
     {
         return $this->firstname;
     }
-
     /**
      * Set lastname
      *
@@ -100,10 +80,8 @@ class Student
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;
-
         return $this;
     }
-
     /**
      * Get lastname
      *
@@ -113,7 +91,6 @@ class Student
     {
         return $this->lastname;
     }
-
     /**
      * Set gender
      *
@@ -123,10 +100,8 @@ class Student
     public function setGender($gender)
     {
         $this->gender = $gender;
-
         return $this;
     }
-
     /**
      * Get gender
      *
@@ -136,7 +111,6 @@ class Student
     {
         return $this->gender;
     }
-
     /**
      * Set deptName
      *
@@ -146,10 +120,8 @@ class Student
     public function setDeptName($deptName)
     {
         $this->deptName = $deptName;
-
         return $this;
     }
-
     /**
      * Get deptName
      *
@@ -159,6 +131,21 @@ class Student
     {
         return $this->deptName;
     }
+     
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    /**
+     * @var string
+     */
+    private $year;
+
 
     /**
      * Set year
@@ -169,7 +156,7 @@ class Student
     public function setYear($year)
     {
         $this->year = $year;
-
+    
         return $this;
     }
 
@@ -182,14 +169,9 @@ class Student
     {
         return $this->year;
     }
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
+    
+    public function __toString() {
+        return "$this->studentid";
     }
+    
 }

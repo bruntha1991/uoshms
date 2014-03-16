@@ -2,7 +2,7 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="uos\uosBundle\Entity\Finance" table="finance">
     <indexes>
-      <index name="student_finance_fk_idx" columns="occupy_id"/>
+      <index name="student_finance_fk_idx" columns="student_id"/>
     </indexes>
     <unique-constraints>
       <unique-constraint name="id_UNIQUE" columns="id"/>
@@ -11,10 +11,9 @@
       <generator strategy="IDENTITY"/>
     </id>
     <field name="balance" type="float" column="balance" precision="10" scale="0" nullable="false"/>
-    <field name="paydate" type="datetime" column="paydate" nullable="false"/>
-    <many-to-one field="occupy" target-entity="Occupy">
+    <many-to-one field="student" target-entity="Student">
       <join-columns>
-        <join-column name="occupy_id" referenced-column-name="student_id"/>
+        <join-column name="student_id" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
   </entity>

@@ -20,14 +20,14 @@ class Work
     private $id;
 
     /**
-     * @var \uos\uosBundle\Entity\Employee
-     */
-    private $employee;
-
-    /**
      * @var \uos\uosBundle\Entity\Hall
      */
     private $hall;
+
+    /**
+     * @var \uos\uosBundle\Entity\Employee
+     */
+    private $employee;
 
 
     /**
@@ -64,29 +64,6 @@ class Work
     }
 
     /**
-     * Set employee
-     *
-     * @param \uos\uosBundle\Entity\Employee $employee
-     * @return Work
-     */
-    public function setEmployee(\uos\uosBundle\Entity\Employee $employee = null)
-    {
-        $this->employee = $employee;
-
-        return $this;
-    }
-
-    /**
-     * Get employee
-     *
-     * @return \uos\uosBundle\Entity\Employee 
-     */
-    public function getEmployee()
-    {
-        return $this->employee;
-    }
-
-    /**
      * Set hall
      *
      * @param \uos\uosBundle\Entity\Hall $hall
@@ -107,5 +84,28 @@ class Work
     public function getHall()
     {
         return $this->hall;
+    }
+
+    /**
+     * Set employee
+     *
+     * @param \uos\uosBundle\Entity\Employee $employee
+     * @return Work
+     */
+    public function setEmployee(\uos\uosBundle\Entity\Employee $employee = null)
+    {
+        $this->employee = $employee;
+
+        return $this;
+    }
+
+    /**
+     * Get employee
+     *
+     * @return \uos\uosBundle\Entity\Employee 
+     */
+    public function getEmployee()
+    {
+        return $this->employee;
     }
 }

@@ -16,8 +16,8 @@ class WorkType extends AbstractType
     {
         $builder
             ->add('date')
-            ->add('employee')
             ->add('hall')
+            ->add('employee')
         ;
     }
     
