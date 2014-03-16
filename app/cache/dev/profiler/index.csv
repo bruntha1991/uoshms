@@ -384,3 +384,12 @@ e946c1,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/hall/assets/js/jque
 631cdc,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/hall_room?hallname=Assasins,1394939616,
 bd4112,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/assets/js/jquery.tablesorter.min.js,1394939617,2365b9
 2365b9,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/assets/js/jquery.tablesorter.min.js,1394939617,
+10f14e,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/hall/,1394953439,
+91eb5f,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/hall/assets/js/jquery.tablesorter.min.js,1394953442,b0b35b
+b0b35b,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/hall/assets/js/jquery.tablesorter.min.js,1394953442,
+8a47e7,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/hall/new,1394953452,
+653802,127.0.0.1,POST,http://127.0.0.1/uoshms/web/app_dev.php/hall/create,1394953459,
+f521ce,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/hall/1/show,1394953461,
+0c1b39,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/hall/,1394953464,
+06c282,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/hall/assets/js/jquery.tablesorter.min.js,1394953465,22ffa8
+22ffa8,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/hall/assets/js/jquery.tablesorter.min.js,1394953466,
