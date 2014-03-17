@@ -419,3 +419,6 @@ c16bea,127.0.0.1,POST,http://127.0.0.1/uoshms/web/app_dev.php/uos,1394998103,
 0dbe17,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/uos,1394998238,
 19a0c4,127.0.0.1,POST,http://127.0.0.1/uoshms/web/app_dev.php/uos,1394998246,
 a07d17,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/users/1/edit,1394998249,
+8e916f,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/hall/,1395035762,
+bdad55,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/hall/assets/js/jquery.tablesorter.min.js,1395035773,0219c3
+0219c3,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/hall/assets/js/jquery.tablesorter.min.js,1395035773,
