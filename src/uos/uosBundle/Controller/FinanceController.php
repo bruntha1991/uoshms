@@ -38,6 +38,8 @@ class FinanceController extends Controller
         $entity = new Finance();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
+        
+        
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();

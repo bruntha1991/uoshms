@@ -25,9 +25,7 @@ class OccupyController extends Controller {
         return $this->render('uosuosBundle:Occupy:index.html.twig', array(
                     'entities' => $entities,
                 ));
-    }
-
-    /**
+    }    /**
      * Creates a new Occupy entity.
      *
      */
@@ -38,24 +36,17 @@ class OccupyController extends Controller {
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em1 = $this->getDoctrine()->getEntityManager();
-
-            $repository = $em1->getRepository('uosuosBundle:Occupy');
-            $occupy = $repository->findOneBy(array('student' => $entity->getStudent(), 'hall' => $entity->getHall(), 'room' => $entity->getRoom()));
-
-            if ($occupy) {
-                return $this->render('uosuosBundle:Occupy:new.html.twig', array('entity' => $entity, 'form' => $form->createView(), 'error' => 'Occupy already exist.'));
-            } else {
-                $em->persist($entity);
-                $em->flush();
-
-                return $this->redirect($this->generateUrl('occupy_show', array('id' => $entity->getId())));
-            }
+            
+            $entities = $em->getRepository('uosuosBundle:Room')->findBy(array('hall' => $entity->getHall(),'type'=> $form->get('type')->getData()));
+            return $this->render('uosuosBundle:Occupy:roomsearch.html.twig', array(
+                    'entities' => $entities
+                ));
         }
+
         return $this->render('uosuosBundle:Occupy:new.html.twig', array(
-                    'entity' => $entity,
-                    'form' => $form->createView(),
-                    'error' => 'Invalid Entry'));
+            'entity' => $entity,
+            'form'   => $form->createView(),
+        ));
     }
 
     /**
@@ -71,7 +62,7 @@ class OccupyController extends Controller {
             'method' => 'POST',
                 ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Search'));
 
         return $form;
     }

@@ -5,6 +5,8 @@ namespace uos\uosBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 
 class OccupyType extends AbstractType {
 
@@ -15,8 +17,7 @@ class OccupyType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder->add('student');
         $builder->add('hall');
-        $builder->add('type', 'choice', array('mapped' => false, 'choices' => array('Single', 'Double'), 'required' => false));
-        $builder->add('room');
+        $builder->add('type', 'choice', array('mapped' => false, 'choices' => array('Single'=>'Single','Double'=> 'Double'), 'required' => false));
     }
 
     /**
