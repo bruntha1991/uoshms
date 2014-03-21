@@ -32,70 +32,80 @@ class OccupyController extends Controller {
      * Creates a new Occupy entity.
      *
      */
-   public function createAction(Request $request) {
+public function createAction(Request $request) {
         $entity = new Occupy();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
-        
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();          
-           
+            $em = $this->getDoctrine()->getManager();
+            /*           $hall = $em->getRepository('uosuosBundle:Hall')->find($entity->getHall());
+              $genderH =$hall->getGender();
+              $student = $em->getRepository('uosuosBundle:Student')->find($entity->getStudent());
+              $genderS =$student->getGender();
+              if($genderH == $genderS)
+              {
+              if(($form->get('type')->getData())=='Single')
+              {
+              $typeN='1';
+              }
+              else
+              {
+              $typeN='2';
+              }
+              //           $isEmpty = $em->getRepository('uosuosBundle:Occupy')->findOneBy(array('hall' => $username, 'room' => $password));
+              $rsm = new ResultSetMapping;
+              $rsm->addEntityResult('uos\uosBundle\Entity\Room', 'r');
+              $rsm->addFieldResult('r', 'id', 'id');
+              $rsm->addFieldResult('r', 'roomNo', 'roomno');
+              $rsm->addFieldResult('r', 'type', 'type');
+              $rsm->addFieldResult('r', 'monthlyCost', 'monthlycost');
+              //          $rsm->addFieldResult('r', 'hall', 'hallname');
+              $query = $em->createNativeQuery('select id,roomNo,type,monthlyCost,hallname
+              from hall inner join((select roomNo,type,monthlyCost,room.hall_id
+              from room inner join ( (
+              select hall_id,room_id, count(student_id) as count
+              from occupy
+              group by hall_id,room_id) as J) on (room.hall_id,room.id)=(J.hall_id,J.room_id)
+              where J.count <type) as F) on hall.id=F.hall_id', $rsm);
+              //          $query->setParameter(1,$typeN );
+              $users = $query->getResult();
+             */
             $hall = $em->getRepository('uosuosBundle:Hall')->find($entity->getHall());
-            $genderH =$hall->getGender();
-            $hname = $entity->getHall();
-            $student = $em->getRepository('uosuosBundle:Student')->find($entity->getStudent());
-            $genderS =$student->getGender();
-            
-            if($genderH == $genderS)
-            {
- 
-             if(($form->get('type')->getData())=='Single'){
-                 $typeN='1';
-             }
-             else
-             {
-                 $typeN='2';
-             }
-             
- //           $isEmpty = $em->getRepository('uosuosBundle:Occupy')->findOneBy(array('hall' => $username, 'room' => $password));
-            $rsm = new ResultSetMapping;
-            $rsm->addEntityResult('uos\uosBundle\Entity\Room', 'r');
-            $rsm->addFieldResult('r', 'id', 'id');
-            $rsm->addFieldResult('r', 'roomNo', 'roomno');
-            $rsm->addFieldResult('r', 'type', 'type');
-            $rsm->addFieldResult('r', 'monthlyCost', 'monthlycost');
-  //          $rsm->addFieldResult('r', 'hall', 'hallname');
-            
-            $query = $em->createNativeQuery('select id,roomNo,type,monthlyCost,hallname
-                from hall inner join((select roomNo,type,monthlyCost,room.hall_id
-                from room inner join ( (
-                select hall_id,room_id, count(student_id) as count
-                from occupy 
-                group by hall_id,room_id) as J) on (room.hall_id,room.id)=(J.hall_id,J.room_id)
-                where J.count <type) as F) on hall.id=F.hall_id
-                union 
-                select id,roomNo,type,monthlyCost,hallname
-                from hall inner join(select roomNo,type,monthlyCost,A.hall_id
-                from room as A
-                WHERE (NOT EXISTS
-                (select hall_id,room_id
-                from occupy
-                where (A.hall_id,A.id)=(hall_id,room_id)))) as F on F.hall_id = hall.id WHERE type = ? and hallname = ?', $rsm);
-            $query->setParameter(1,$typeN );
-            $query->setParameter(2,$hname );
-            $users = $query->getResult();
-            
- //           $users = $em->getRepository('uosuosBundle:Room')->findBy(array('hall' => $entity->getHall(), 'type' => $form->get('type')->getData()));
+            $hallname=$hall->getHallname();
+            if (($form->get('type')->getData()) == 'Single') {
+                $typeN = '1';
+            } else {
+                $typeN = '2';
+            }
+            $stmt = $em->getConnection()->prepare('select id,roomNo,type,monthlyCost,hallname,hall_id,room_id
+            from hall inner join((select roomNo,type,monthlyCost,room.hall_id,room.id as room_id
+            from room inner join ( (
+            select hall_id,room_id, count(student_id) as count
+            from occupy 
+            group by hall_id,room_id) as J) on (room.hall_id,room.id)=(J.hall_id,J.room_id)
+            where J.count <type) as F) on hall.id=F.hall_id where (type= :type and hallname= :hall)
+            union 
+            select id,roomNo,type,monthlyCost,hallname,hall_id,room_id
+            from hall inner join(select roomNo,type,monthlyCost,A.hall_id,A.id as room_id
+            from room as A
+            WHERE (NOT EXISTS
+            (select hall_id,room_id
+            from occupy
+            where (A.hall_id,A.id)=(hall_id,room_id)))) as F on F.hall_id = hall.id where (type= :type and hallname= :hall) ');
+            $stmt->bindValue(':type',$typeN);
+            $stmt->bindValue(':hall',$hallname);
+   //         $stmt->bindValue(':hallname',$hallname);
+            $stmt->execute();
+            $users = $stmt->fetchAll();
+ //           $users = $userss->findBy(array('hall' => $entity->getHall(), 'type' => $form->get('type')->getData()));
             return $this->render('uosuosBundle:Occupy:roomsearch.html.twig', array(
-                        'entities' => $users
+                        'entities' => $users,'student_id' =>$entity->getStudent()
             ));
-            
         }
         return $this->render('uosuosBundle:Occupy:new.html.twig', array(
                     'entity' => $entity,
                     'form' => $form->createView(),
         ));
-        }
     }
 
     /**
