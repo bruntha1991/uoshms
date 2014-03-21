@@ -22,9 +22,9 @@
 
         {% for entity in entities %}
                     <tr>
-                        <td ><a href="{{ path('room_show', { 'id': entity.id }) }}">{{ entity.roomno }}</a></td>
+                        <td ><a href="{{ path('room_show', { 'id': entity.id }) }}">{{ entity.roomNo }}</a></td>
                         <td>{{entity.hallname}}</td>
-                        <td>{{ entity.monthlycost }}</td>
+                        <td>{{ entity.monthlyCost }}</td>
                         <td><button lass="btn btn-large btn-primary" type="submit">Check IN</button></td>
 
                     </tr>
