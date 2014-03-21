@@ -448,9 +448,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'occupy_show')), array (  '_controller' => 'uos\\uosBundle\\Controller\\OccupyController::showAction',));
             }
 
-            // occupy_new
-            if ($pathinfo === '/occupy/new') {
-                return array (  '_controller' => 'uos\\uosBundle\\Controller\\OccupyController::newAction',  '_route' => 'occupy_new',);
+            if (0 === strpos($pathinfo, '/occupy/n')) {
+                // occupy_new
+                if ($pathinfo === '/occupy/new') {
+                    return array (  '_controller' => 'uos\\uosBundle\\Controller\\OccupyController::newAction',  '_route' => 'occupy_new',);
+                }
+
+                // saveOccupy
+                if ($pathinfo === '/occupy/n') {
+                    return array (  '_controller' => 'uos\\uosBundle\\Controller\\OccupyController::saveOccupyAction',  '_route' => 'saveOccupy',);
+                }
+
             }
 
             // occupy_create

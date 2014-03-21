@@ -23,17 +23,20 @@
 
         {% for entity in entities %}
                     <tr>
-                        <td class="roomno"><a href="{{ path('room_show', { 'id': entity.id }) }}">{{ entity.roomNo }}</a></td>
-                        <td class="hallname">{{entity.hallname}}</td>
-                        <td class="cost">{{ entity.monthlyCost }}</td>
-                        <ul>
-                    <li class="nav-header">
-                        <a href="{{ path('saveOccupy', {'room_id': entity.room_id,'hall_id': entity.hall_id,'student_id':student_id }) }}">Choose</a>
-                    </li>
+                <td>{{ entity.hallname }}</td>
+                <td><a href="{{ path('room_show', { 'id': entity.id }) }}">{{ entity.roomNo }}</a></td>
+                <td>{{ entity.monthlyCost }}</td>
+                
+                <td>
                     
+                <ul>
+                    <li class="nav-header">
+                        <a href="{{ path('saveOccupy', { 'room_id': entity.room_id,'hall_id': entity.hall_id,'student':student }) }}">Choose</a>
+                    </li>
+                    {{student}}
                 </ul>
-
-                    </tr>
+                </td>
+            </tr>
         {% endfor %}
                 </tbody>
             </table>
