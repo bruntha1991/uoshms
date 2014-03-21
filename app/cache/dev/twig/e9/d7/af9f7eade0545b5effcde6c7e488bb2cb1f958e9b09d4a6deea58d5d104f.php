@@ -31,7 +31,11 @@ class __TwigTemplate_e9d7af9f7eade0545b5effcde6c7e488bb2cb1f958e9b09d4a6deea58d5
         // line 4
         echo "<div class=\"span6\">
     <div class=\"containerHome\" >
-        <h1>Rooms Available</h1>
+        
+        <h1>Rooms Available ";
+        // line 7
+        echo twig_escape_filter($this->env, $this->getContext($context, "student_id"), "html", null, true);
+        echo "</h1>
         <script src=\"assets/js/jquery.tablesorter.min.js\"></script>
         <script >
             \$(function() {
@@ -49,27 +53,35 @@ class __TwigTemplate_e9d7af9f7eade0545b5effcde6c7e488bb2cb1f958e9b09d4a6deea58d5
                 <tbody>
 
         ";
-        // line 23
+        // line 24
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "entities"));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 24
-            echo "                    <tr>
-                        <td ><a href=\"";
             // line 25
+            echo "                    <tr>
+                        <td class=\"roomno\"><a href=\"";
+            // line 26
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("room_show", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "roomNo"), "html", null, true);
             echo "</a></td>
-                        <td>";
-            // line 26
+                        <td class=\"hallname\">";
+            // line 27
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "hallname"), "html", null, true);
             echo "</td>
-                        <td>";
-            // line 27
+                        <td class=\"cost\">";
+            // line 28
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "monthlyCost"), "html", null, true);
             echo "</td>
-                        <td><button lass=\"btn btn-large btn-primary\" type=\"submit\">Check IN</button></td>
+                        <ul>
+                    <li class=\"nav-header\">
+                        <a href=\"";
+            // line 31
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("saveOccupy", array("room_id" => $this->getAttribute($this->getContext($context, "entity"), "room_id"), "hall_id" => $this->getAttribute($this->getContext($context, "entity"), "hallname"), "student_id" => $this->getContext($context, "student_id"))), "html", null, true);
+            echo "\">Choose</a>
+                    </li>
+                    
+                </ul>
 
                     </tr>
         ";
@@ -77,20 +89,11 @@ class __TwigTemplate_e9d7af9f7eade0545b5effcde6c7e488bb2cb1f958e9b09d4a6deea58d5
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 32
+        // line 38
         echo "                </tbody>
             </table>
-
-            <ul>
-                <li class=\"nav-header\">
-                    <a href=\"";
-        // line 37
-        echo $this->env->getExtension('routing')->getPath("room_new");
-        echo "\">
-
-                    </a>
-                </li>
-            </ul>
+        
+            
     ";
     }
 
@@ -188,6 +191,6 @@ class __TwigTemplate_e9d7af9f7eade0545b5effcde6c7e488bb2cb1f958e9b09d4a6deea58d5
 
     public function getDebugInfo()
     {
-        return array (  172 => 74,  168 => 73,  162 => 70,  158 => 69,  152 => 66,  148 => 65,  142 => 62,  138 => 61,  132 => 58,  128 => 57,  122 => 54,  118 => 53,  112 => 50,  108 => 49,  101 => 44,  98 => 43,  88 => 37,  81 => 32,  70 => 27,  66 => 26,  60 => 25,  57 => 24,  53 => 23,  32 => 4,  29 => 3,);
+        return array (  175 => 74,  171 => 73,  165 => 70,  161 => 69,  155 => 66,  151 => 65,  145 => 62,  141 => 61,  135 => 58,  131 => 57,  125 => 54,  121 => 53,  115 => 50,  111 => 49,  104 => 44,  101 => 43,  93 => 38,  80 => 31,  74 => 28,  70 => 27,  64 => 26,  61 => 25,  57 => 24,  37 => 7,  32 => 4,  29 => 3,);
     }
 }

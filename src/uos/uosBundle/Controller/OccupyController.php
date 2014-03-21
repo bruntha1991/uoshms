@@ -7,7 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use uos\uosBundle\Entity\Occupy;
 use uos\uosBundle\Form\OccupyType;
 use Doctrine\ORM\Query\ResultSetMapping;
-
+use uos\uosBundle\Entity\Hall;
+use uos\uosBundle\Entity\Room;
+use uos\uosBundle\Entity\Student;
 /**
  * Occupy controller.
  *
@@ -32,7 +34,7 @@ class OccupyController extends Controller {
      * Creates a new Occupy entity.
      *
      */
-public function createAction(Request $request) {
+    public function createAction(Request $request) {
         $entity = new Occupy();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
@@ -71,7 +73,7 @@ public function createAction(Request $request) {
               $users = $query->getResult();
              */
             $hall = $em->getRepository('uosuosBundle:Hall')->find($entity->getHall());
-            $hallname=$hall->getHallname();
+            $hallname = $hall->getHallname();
             if (($form->get('type')->getData()) == 'Single') {
                 $typeN = '1';
             } else {
@@ -92,20 +94,20 @@ public function createAction(Request $request) {
             (select hall_id,room_id
             from occupy
             where (A.hall_id,A.id)=(hall_id,room_id)))) as F on F.hall_id = hall.id where (type= :type and hallname= :hall) ');
-            $stmt->bindValue(':type',$typeN);
-            $stmt->bindValue(':hall',$hallname);
-   //         $stmt->bindValue(':hallname',$hallname);
+            $stmt->bindValue(':type', $typeN);
+            $stmt->bindValue(':hall', $hallname);
+            //         $stmt->bindValue(':hallname',$hallname);
             $stmt->execute();
             $users = $stmt->fetchAll();
- //           $users = $userss->findBy(array('hall' => $entity->getHall(), 'type' => $form->get('type')->getData()));
+            //           $users = $userss->findBy(array('hall' => $entity->getHall(), 'type' => $form->get('type')->getData()));
             return $this->render('uosuosBundle:Occupy:roomsearch.html.twig', array(
-                        'entities' => $users,'student_id' =>$entity->getStudent()
-            ));
+                        'entities' => $users, 'student_id' => $entity->getStudent()
+                    ));
         }
         return $this->render('uosuosBundle:Occupy:new.html.twig', array(
                     'entity' => $entity,
                     'form' => $form->createView(),
-        ));
+                ));
     }
 
     /**
@@ -124,6 +126,30 @@ public function createAction(Request $request) {
         $form->add('submit', 'submit', array('label' => 'Search'));
 
         return $form;
+    }
+
+    public function saveOccupyAction(Request $entity) {
+        $em = $this->getDoctrine()->getManager();
+        //$hall = new Hall();
+        $hall = $em->getRepository('uosuosBundle:Hall')->find($entity->get('hall_id'));
+        //$room = new Room();
+        $room = $em->getRepository('uosuosBundle:Room')->find($entity->get('room_id'));
+        //$student = new Student();
+        $student = $em->getRepository('uosuosBundle:Student')->find($entity->get('student_id'));;
+//            $hall=$entity->getHall();
+//            $room=$entity->getRoom();
+//            $student=$entity->getStudent();
+
+        $em = $this->getDoctrine()->getManager();
+        $occupy = new Occupy();
+        $occupy->setHall($hall);
+        $occupy->setRoom($room);
+        $occupy->setStudent($student);
+
+        $em->persist($occupy);
+        $em->flush();
+
+        return $this->render('uosuosBundle:Occupy:index.html.twig');
     }
 
     /**

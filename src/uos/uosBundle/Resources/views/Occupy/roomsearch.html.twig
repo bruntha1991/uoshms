@@ -3,7 +3,8 @@
 {% block container -%}
 <div class="span6">
     <div class="containerHome" >
-        <h1>Rooms Available</h1>
+        
+        <h1>Rooms Available {{student_id}}</h1>
         <script src="assets/js/jquery.tablesorter.min.js"></script>
         <script >
             $(function() {
@@ -22,23 +23,22 @@
 
         {% for entity in entities %}
                     <tr>
-                        <td ><a href="{{ path('room_show', { 'id': entity.id }) }}">{{ entity.roomNo }}</a></td>
-                        <td>{{entity.hallname}}</td>
-                        <td>{{ entity.monthlyCost }}</td>
-                        <td><button lass="btn btn-large btn-primary" type="submit">Check IN</button></td>
+                        <td class="roomno"><a href="{{ path('room_show', { 'id': entity.id }) }}">{{ entity.roomNo }}</a></td>
+                        <td class="hallname">{{entity.hallname}}</td>
+                        <td class="cost">{{ entity.monthlyCost }}</td>
+                        <ul>
+                    <li class="nav-header">
+                        <a href="{{ path('saveOccupy', {'room_id': entity.room_id,'hall_id': entity.hall_id,'student_id':student_id }) }}">Choose</a>
+                    </li>
+                    
+                </ul>
 
                     </tr>
         {% endfor %}
                 </tbody>
             </table>
-
-            <ul>
-                <li class="nav-header">
-                    <a href="{{ path('room_new') }}">
-
-                    </a>
-                </li>
-            </ul>
+        
+            
     {% endblock %}
 {%block sideMenu %}
 

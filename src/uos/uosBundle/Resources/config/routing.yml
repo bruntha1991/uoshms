@@ -46,3 +46,4 @@ uosuos_hall_room:
 uosuosBundle_users:
         resource: "@uosuosBundle/Resources/config/routing/users.yml"
         prefix:   /users
+

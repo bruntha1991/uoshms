@@ -28,3 +28,7 @@ occupy_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "uosuosBundle:Occupy:delete" }
     requirements: { _method: post|delete }
+
+saveOccupy:
+    pattern:  /saveOccupy
+    defaults: { _controller: "uosuosBundle:Occupy:saveOccupy" }
