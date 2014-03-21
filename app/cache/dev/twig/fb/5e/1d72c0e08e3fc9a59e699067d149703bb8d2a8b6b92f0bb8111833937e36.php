@@ -126,11 +126,11 @@ class __TwigTemplate_fb5e1d72c0e08e3fc9a59e699067d149703bb8d2a8b6b92f0bb81118339
             <li class=\"nav-header\">UOS Accounts </li>
             <li><a href=\"";
         // line 50
-        echo $this->env->getExtension('routing')->getPath("student");
+        echo $this->env->getExtension('routing')->getPath("finance");
         echo "\">Account Details</a></li>
             <li><a href=\"";
         // line 51
-        echo $this->env->getExtension('routing')->getPath("student");
+        echo $this->env->getExtension('routing')->getPath("finance");
         echo "\">Add Account</a></li>
 
         </ul>

@@ -37,12 +37,12 @@ class __TwigTemplate_8842fc4e9a29b4821ea87d099442def3f731388de0a48552548299c3035
         // line 8
         if (array_key_exists("error", $context)) {
             // line 9
-            echo "    
-    <h2> ";
+            echo "
+        <h2> ";
             // line 10
             echo twig_escape_filter($this->env, $this->getContext($context, "error"), "html", null, true);
             echo "</h2>
-    
+
     ";
         }
         // line 13
@@ -133,15 +133,15 @@ class __TwigTemplate_8842fc4e9a29b4821ea87d099442def3f731388de0a48552548299c3035
         echo $this->env->getExtension('routing')->getPath("student");
         echo "\">Add Position</a></li>
 
-            <li class=\"nav-header\">UOS Accounts </li>
+            <li class=\"nav-header\">UOS Finance Details </li>
             <li><a href=\"";
         // line 56
-        echo $this->env->getExtension('routing')->getPath("student");
-        echo "\">Account Details</a></li>
+        echo $this->env->getExtension('routing')->getPath("finance");
+        echo "\">Finance Details</a></li>
             <li><a href=\"";
         // line 57
-        echo $this->env->getExtension('routing')->getPath("student");
-        echo "\">Add Account</a></li>
+        echo $this->env->getExtension('routing')->getPath("finance_new");
+        echo "\">Make A New Payment</a></li>
 
         </ul>
 ";
