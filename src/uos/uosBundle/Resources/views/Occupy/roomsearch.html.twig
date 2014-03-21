@@ -4,7 +4,7 @@
 <div class="span6">
     <div class="containerHome" >
         
-        <h1>Rooms Available {{student_id}}</h1>
+        <h1>Rooms Available</h1>
         <script src="assets/js/jquery.tablesorter.min.js"></script>
         <script >
             $(function() {
@@ -31,7 +31,7 @@
                     
                 <ul>
                     <li class="nav-header">
-                        <a href="{{ path('saveOccupy', { 'room_id': entity.room_id,'hall_id': entity.hall_id,'student':student }) }}">Choose</a>
+                        <a href="{{ path('saveOccupy', { 'room_id': entity.room_id,'hall_id': entity.hall_id,'student':student}) }}">Choose</a>
                     </li>
                     {{student}}
                 </ul>

@@ -499,11 +499,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
             not_occupy_delete:
 
-            // saveOccupy
-            if ($pathinfo === '/occupy/saveOccupy') {
-                return array (  '_controller' => 'uos\\uosBundle\\Controller\\OccupyController::saveOccupyAction',  '_route' => 'saveOccupy',);
-            }
-
         }
 
         if (0 === strpos($pathinfo, '/student')) {

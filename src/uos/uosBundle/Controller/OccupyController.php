@@ -5,14 +5,9 @@ namespace uos\uosBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use uos\uosBundle\Entity\Occupy;
-use uos\uosBundle\Entity\Student;
-use uos\uosBundle\Entity\Room;
-use uos\uosBundle\Entity\Hall;
 use uos\uosBundle\Form\OccupyType;
 use Doctrine\ORM\Query\ResultSetMapping;
-use uos\uosBundle\Entity\Hall;
-use uos\uosBundle\Entity\Room;
-use uos\uosBundle\Entity\Student;
+
 /**
  * Occupy controller.
  *
@@ -117,31 +112,6 @@ class OccupyController extends Controller {
                 ));
     }
     
-    
-    public function saveOccupyAction(Request $entity) {
-        $em = $this->getDoctrine()->getManager();
-        //$hall = new Hall();
-        $hall = $em->getRepository('uosuosBundle:Hall')->find($entity->get('hall_id'));
-        //$room = new Room();
-        $room = $em->getRepository('uosuosBundle:Room')->find($entity->get('room_id'));
-        //$student = new Student();
-        $student = $em->getRepository('uosuosBundle:Student')->find($entity->get('student'));
-        
-//            $hall=$entity->getHall();
-//            $room=$entity->getRoom();
-//            $student=$entity->getStudent();
-
-        $em = $this->getDoctrine()->getManager();
-        $occupy = new Occupy();
-        $occupy->setHall($hall);
-        $occupy->setRoom($room);
-        $occupy->setStudent($student);
-
-        $em->persist($occupy);
-        $em->flush();
-
-        return $this->render('uosuosBundle:Occupy:new.html.twig');
-    }
     /*
     public function saveOccupyAction($room_id,$hall_id,$student_id){
         
@@ -199,12 +169,11 @@ class OccupyController extends Controller {
         //$room = new Room();
         $room = $em->getRepository('uosuosBundle:Room')->find($entity->get('room_id'));
         //$student = new Student();
-        $student = $em->getRepository('uosuosBundle:Student')->find($entity->get('student_id'));;
+        $student = $em->getRepository('uosuosBundle:Student')->find($entity->get('student'));;
 //            $hall=$entity->getHall();
 //            $room=$entity->getRoom();
 //            $student=$entity->getStudent();
 
-        $em = $this->getDoctrine()->getManager();
         $occupy = new Occupy();
         $occupy->setHall($hall);
         $occupy->setRoom($room);
