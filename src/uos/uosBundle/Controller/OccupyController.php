@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use uos\uosBundle\Entity\Occupy;
 use uos\uosBundle\Form\OccupyType;
+use Doctrine\ORM\Query\ResultSetMapping;
 
 /**
  * Occupy controller.
@@ -25,28 +26,76 @@ class OccupyController extends Controller {
         return $this->render('uosuosBundle:Occupy:index.html.twig', array(
                     'entities' => $entities,
                 ));
-    }    /**
+    }
+
+    /**
      * Creates a new Occupy entity.
      *
      */
-    public function createAction(Request $request) {
+   public function createAction(Request $request) {
         $entity = new Occupy();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
-
+        
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            $em = $this->getDoctrine()->getManager();          
+           
+            $hall = $em->getRepository('uosuosBundle:Hall')->find($entity->getHall());
+            $genderH =$hall->getGender();
+            $hname = $entity->getHall();
+            $student = $em->getRepository('uosuosBundle:Student')->find($entity->getStudent());
+            $genderS =$student->getGender();
             
-            $entities = $em->getRepository('uosuosBundle:Room')->findBy(array('hall' => $entity->getHall(),'type'=> $form->get('type')->getData()));
+            if($genderH == $genderS)
+            {
+ 
+             if(($form->get('type')->getData())=='Single'){
+                 $typeN='1';
+             }
+             else
+             {
+                 $typeN='2';
+             }
+             
+ //           $isEmpty = $em->getRepository('uosuosBundle:Occupy')->findOneBy(array('hall' => $username, 'room' => $password));
+            $rsm = new ResultSetMapping;
+            $rsm->addEntityResult('uos\uosBundle\Entity\Room', 'r');
+            $rsm->addFieldResult('r', 'id', 'id');
+            $rsm->addFieldResult('r', 'roomNo', 'roomno');
+            $rsm->addFieldResult('r', 'type', 'type');
+            $rsm->addFieldResult('r', 'monthlyCost', 'monthlycost');
+  //          $rsm->addFieldResult('r', 'hall', 'hallname');
+            
+            $query = $em->createNativeQuery('select id,roomNo,type,monthlyCost,hallname
+                from hall inner join((select roomNo,type,monthlyCost,room.hall_id
+                from room inner join ( (
+                select hall_id,room_id, count(student_id) as count
+                from occupy 
+                group by hall_id,room_id) as J) on (room.hall_id,room.id)=(J.hall_id,J.room_id)
+                where J.count <type) as F) on hall.id=F.hall_id
+                union 
+                select id,roomNo,type,monthlyCost,hallname
+                from hall inner join(select roomNo,type,monthlyCost,A.hall_id
+                from room as A
+                WHERE (NOT EXISTS
+                (select hall_id,room_id
+                from occupy
+                where (A.hall_id,A.id)=(hall_id,room_id)))) as F on F.hall_id = hall.id WHERE type = ? and hallname = ?', $rsm);
+            $query->setParameter(1,$typeN );
+            $query->setParameter(2,$hname );
+            $users = $query->getResult();
+            
+ //           $users = $em->getRepository('uosuosBundle:Room')->findBy(array('hall' => $entity->getHall(), 'type' => $form->get('type')->getData()));
             return $this->render('uosuosBundle:Occupy:roomsearch.html.twig', array(
-                    'entities' => $entities
-                ));
+                        'entities' => $users
+            ));
+            
         }
-
         return $this->render('uosuosBundle:Occupy:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
+                    'entity' => $entity,
+                    'form' => $form->createView(),
         ));
+        }
     }
 
     /**
@@ -80,6 +129,7 @@ class OccupyController extends Controller {
                     'form' => $form->createView(),
                 ));
     }
+
     /**
      * Finds and displays a Occupy entity.
      *
@@ -145,7 +195,7 @@ class OccupyController extends Controller {
      * Edits an existing Occupy entity.
      *
      */
-    public function updateAction(Request $request, $id) {
+    public function updateAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('uosuosBundle:Occupy')->find($id);
@@ -175,7 +225,7 @@ class OccupyController extends Controller {
      * Deletes a Occupy entity.
      *
      */
-    public function deleteAction(Request $request, $id) {
+    public function deleteAction($id) {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
@@ -208,6 +258,12 @@ class OccupyController extends Controller {
                         ->add('submit', 'submit', array('label' => 'Delete'))
                         ->getForm()
         ;
+    }
+
+    public
+
+    function saveEntry() {
+        
     }
 
 }
