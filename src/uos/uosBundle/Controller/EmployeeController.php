@@ -45,7 +45,7 @@ class EmployeeController extends Controller
         $user->setRole('Employee');
         $user->setPassword('uoshms');
         $user->setFirstName($entity->getName());
-        $user->setStudent($entity);
+        $user->setEmployee($entity);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();

@@ -33,25 +33,35 @@ class WorkController extends Controller
      * Creates a new Work entity.
      *
      */
-    public function createAction(Request $request)
-    {
+     public function createAction(Request $request) {
         $entity = new Work();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
+            $em1 = $this->getDoctrine()->getEntityManager();
 
-            return $this->redirect($this->generateUrl('work_show', array('id' => $entity->getId())));
+            $repository = $em1->getRepository('uosuosBundle:Work');
+
+            $work = $repository->findOneBy(array('employee' => $entity->getEmployee(), 'date' => $entity->getDate()));
+
+            if ($work) {
+                return $this->render('uosuosBundle:Work:new.html.twig', array('entity' => $entity, 'form' => $form->createView(), 'error' => 'Employee already has been selected.'));
+            } else {
+                $em->persist($entity);
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('work_show', array('id' => $entity->getId())));
+            }
         }
 
-        return $this->render('uosuosBundle:Work:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
+        return $this->render('uosuosBundle:Room:new.html.twig', array(
+                    'entity' => $entity,
+                    'form' => $form->createView(),
+                ));
     }
+    
 
     /**
     * Creates a form to create a Work entity.

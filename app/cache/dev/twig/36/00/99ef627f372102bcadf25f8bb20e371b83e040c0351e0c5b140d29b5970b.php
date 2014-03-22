@@ -64,38 +64,85 @@ class __TwigTemplate_360099ef627f372102bcadf25f8bb20e371b83e040c0351e0c5b140d29b
 ";
     }
 
-    // line 23
+    // line 25
     public function block_sideMenu($context, array $blocks = array())
     {
-        // line 24
+        // line 26
         echo "
-<ul class=\"nav nav-list\">
-                <li class=\"nav-header\"><b>Home</b></li>
-              <li class=\"active\"><a href=\"http://localhost:8080/uoshms/web/app_dev.php/home\">Home</a></li>
-              <li class=\"nav-header\">UOS Halls</li>
-              <li><a href=\"http://localhost:8080/uoshms/web/app_dev.php/hall\">Halls</a></li>
-              <li><a href=\"http://localhost:8080/uoshms/web/app_dev.php/hall/new\">Add Hall</a></li>
-              <li><a href=\"#\">Link</a></li>
-              <li class=\"nav-header\">UOS Rooms</li>
-              <li><a href=\"http://localhost:8080/uoshms/web/app_dev.php/room\">Rooms</a></li>
-              <li><a href=\"http://localhost:8080/uoshms/web/app_dev.php/room/new\">Add Room</a></li>
-              <li class=\"nav-header\">UOS Student Management </li>
-              <li><a href=\"http://localhost:8080/uoshms/web/app_dev.php/student\">Students</a></li>
-              <li><a href=\"http://localhost:8080/uoshms/web/app_dev.php/student/new\">Add Student</a></li>
-              <li class=\"nav-header\">UOS Student Accomodation </li>
-              <li><a href=\"http://localhost:8080/uoshms/web/app_dev.php/occupy\">Accomodation</a></li>
-              <li><a href=\"http://localhost:8080/uoshms/web/app_dev.php/occupy/new\">Add Accomodation</a></li>
-              <li class=\"nav-header\">UOS Employee Management </li>
-              <li><a href=\"http://localhost:8080/uoshms/web/app_dev.php/employee\">Employee</a></li>
-              <li><a href=\"http://localhost:8080/uoshms/web/app_dev.php/employee/new\">Add Employee</a></li>
-              <li class=\"nav-header\">UOS Employee Positining </li>
-              <li><a href=\"http://localhost:8080/uoshms/web/app_dev.php/work\">Positions</a></li>
-              <li><a href=\"http://localhost:8080/uoshms/web/app_dev.php/work/new\">Add Position</a></li>
-              <li class=\"nav-header\">UOS Accounts </li>
-              <li><a href=\"http://localhost:8080/uoshms/web/app_dev.php/finance\">Account Details</a></li>
-              <li><a href=\"http://localhost:8080/uoshms/web/app_dev.php/finance/new\">Add Account</a></li>
-              
-            </ul>
+                <ul class=\"nav nav-list\">
+                    <li  class=\"nav-header\" ><b>Home</b></li>
+
+                    <li class=\"nav-header\">UOS Halls</li>
+                    <li class=\"active\"><a  href=\"";
+        // line 31
+        echo $this->env->getExtension('routing')->getPath("hall");
+        echo "\">View All </a></li>
+                    <li><a href=\"";
+        // line 32
+        echo $this->env->getExtension('routing')->getPath("hall_new");
+        echo "\">Add Hall</a></li>
+
+                    <li class=\"nav-header\">UOS Rooms</li>
+                    <li><a href=\"";
+        // line 35
+        echo $this->env->getExtension('routing')->getPath("room");
+        echo "\">View All</a></li>
+                    <li><a href=\"";
+        // line 36
+        echo $this->env->getExtension('routing')->getPath("room_new");
+        echo "\">Add Room</a></li>
+
+                    <li class=\"nav-header\">UOS Student Management </li>
+                    <li><a href=\"";
+        // line 39
+        echo $this->env->getExtension('routing')->getPath("student");
+        echo "\">View All Students</a></li>
+                    <li><a href=\"";
+        // line 40
+        echo $this->env->getExtension('routing')->getPath("student_new");
+        echo "\">Add Student</a></li>
+
+                    <li class=\"nav-header\">UOS Student Accomodation </li>
+                    <li><a href=\"";
+        // line 43
+        echo $this->env->getExtension('routing')->getPath("occupy");
+        echo "\">Accomodation</a></li>
+                    <li><a href=\"";
+        // line 44
+        echo $this->env->getExtension('routing')->getPath("occupy_new");
+        echo "\">Add Accomodation</a></li>
+
+                    <li class=\"nav-header\">UOS Employee Management </li>
+                    <li><a href=\"";
+        // line 47
+        echo $this->env->getExtension('routing')->getPath("employee");
+        echo "\">Employee</a></li>
+                    <li><a href=\"";
+        // line 48
+        echo $this->env->getExtension('routing')->getPath("employee_new");
+        echo "\">Add Employee</a></li>
+
+                    <li class=\"nav-header\">UOS Employee Positining </li>
+                    <li><a href=\"";
+        // line 51
+        echo $this->env->getExtension('routing')->getPath("work");
+        echo "\">Positions</a></li>
+                    <li><a href=\"";
+        // line 52
+        echo $this->env->getExtension('routing')->getPath("work_new");
+        echo "\">Add Position</a></li>
+
+                    <li class=\"nav-header\">UOS Finance Details </li>
+                    <li><a href=\"";
+        // line 55
+        echo $this->env->getExtension('routing')->getPath("finance");
+        echo "\">Finance Details</a></li>
+                    <li><a href=\"";
+        // line 56
+        echo $this->env->getExtension('routing')->getPath("finance_new");
+        echo "\">Make A New Payment</a></li>
+
+                </ul>
 ";
     }
 
@@ -111,6 +158,6 @@ class __TwigTemplate_360099ef627f372102bcadf25f8bb20e371b83e040c0351e0c5b140d29b
 
     public function getDebugInfo()
     {
-        return array (  71 => 24,  68 => 23,  58 => 17,  52 => 14,  49 => 13,  43 => 10,  40 => 9,  38 => 8,  32 => 4,  29 => 3,);
+        return array (  142 => 56,  138 => 55,  132 => 52,  128 => 51,  122 => 48,  118 => 47,  112 => 44,  108 => 43,  102 => 40,  98 => 39,  92 => 36,  88 => 35,  82 => 32,  78 => 31,  71 => 26,  68 => 25,  58 => 17,  52 => 14,  49 => 13,  43 => 10,  40 => 9,  38 => 8,  32 => 4,  29 => 3,);
     }
 }
