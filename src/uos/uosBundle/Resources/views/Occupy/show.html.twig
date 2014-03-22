@@ -9,12 +9,25 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <th>Id</th>
-                    <td>{{ entity.id }}</td>
+                    <th>Student ID</th>
+                    <td>{{ entity.student }}</td>
                 </tr>
+                <tr>
+                    <th>Hall Name</th>
+                    <td>{{ entity.hall}}</td>
+                </tr>
+                <tr>
+                    <th>Room Number</th>
+                    <td>{{ entity.room}}</td>
+                </tr>
+                
+               
+               
             </tbody>
         </table>
 
+        
+        
         <ul class="record_actions">
             <li class="nav-header">
                 <a href="{{ path('occupy') }}">
