@@ -45,51 +45,46 @@ class __TwigTemplate_7b5c55307d3644c5ac75325838bee0a5c9e29010ce293f780168c5b1cb7
                         <th>Room Number</th>
                         <th>Type</th>
                         <th>Monthly cost</th>
-                        <th>Id</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
         ";
-        // line 25
+        // line 24
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "entities"));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 26
+            // line 25
             echo "                        <tr>
                             <td>";
-            // line 27
+            // line 26
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "hall"), "html", null, true);
             echo "</td>
                             <td><a href=\"";
-            // line 28
+            // line 27
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("room_show", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "roomno"), "html", null, true);
             echo "</a></td>
                             <td>";
-            // line 29
+            // line 28
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "type"), "html", null, true);
             echo "</td>
                             <td>";
-            // line 30
+            // line 29
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "monthlycost"), "html", null, true);
             echo "</td>
-                            <td>";
-            // line 31
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "id"), "html", null, true);
-            echo "</td>
-                            <td>
+                           <td>
                                 <ul>
                                     <li class=\"nav-header\">
                                         <a href=\"";
-            // line 35
+            // line 33
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("room_show", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">show</a>
                                     </li>
                                     <li class=\"nav-header\">
                                         <a href=\"";
-            // line 38
+            // line 36
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("room_edit", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">edit</a>
                                     </li>
@@ -101,14 +96,14 @@ class __TwigTemplate_7b5c55307d3644c5ac75325838bee0a5c9e29010ce293f780168c5b1cb7
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 44
+        // line 42
         echo "                    </tbody>
                 </table>
 
                 <ul>
                     <li class=\"nav-header\">
                         <a href=\"";
-        // line 49
+        // line 47
         echo $this->env->getExtension('routing')->getPath("room_new");
         echo "\">
                             Create a new entry
@@ -118,81 +113,81 @@ class __TwigTemplate_7b5c55307d3644c5ac75325838bee0a5c9e29010ce293f780168c5b1cb7
     ";
     }
 
-    // line 55
+    // line 53
     public function block_sideMenu($context, array $blocks = array())
     {
-        // line 56
+        // line 54
         echo "
                 <ul class=\"nav nav-list\">
                     <li  class=\"nav-header\" ><b>Home</b></li>
 
                     <li class=\"nav-header\">UOS Halls</li>
                     <li ><a  href=\"";
-        // line 61
+        // line 59
         echo $this->env->getExtension('routing')->getPath("hall");
         echo "\">View All </a></li>
                     <li ><a href=\"";
-        // line 62
+        // line 60
         echo $this->env->getExtension('routing')->getPath("hall_new");
         echo "\">Add Hall</a></li>
 
                     <li class=\"nav-header\">UOS Rooms</li>
                     <li><a href=\"";
-        // line 65
+        // line 63
         echo $this->env->getExtension('routing')->getPath("room");
         echo "\">View All</a></li>
                     <li><a href=\"";
-        // line 66
+        // line 64
         echo $this->env->getExtension('routing')->getPath("room_new");
         echo "\">Add Room</a></li>
 
                     <li class=\"nav-header\">UOS Student Management </li>
                     <li><a href=\"";
-        // line 69
+        // line 67
         echo $this->env->getExtension('routing')->getPath("student");
         echo "\">View All Students</a></li>
                     <li><a href=\"";
-        // line 70
+        // line 68
         echo $this->env->getExtension('routing')->getPath("student_new");
         echo "\">Add Student</a></li>
 
                     <li class=\"nav-header\">UOS Student Accomodation </li>
                     <li><a href=\"";
-        // line 73
+        // line 71
         echo $this->env->getExtension('routing')->getPath("student");
         echo "\">Accomodation</a></li>
                     <li><a href=\"";
-        // line 74
+        // line 72
         echo $this->env->getExtension('routing')->getPath("student");
         echo "\">Add Accomodation</a></li>
 
                     <li class=\"nav-header\">UOS Employee Management </li>
                     <li><a href=\"";
-        // line 77
+        // line 75
         echo $this->env->getExtension('routing')->getPath("employee");
         echo "\">Employee</a></li>
                     <li><a href=\"";
-        // line 78
+        // line 76
         echo $this->env->getExtension('routing')->getPath("employee_new");
         echo "\">Add Employee</a></li>
 
                     <li class=\"nav-header\">UOS Employee Positining </li>
                     <li><a href=\"";
-        // line 81
+        // line 79
         echo $this->env->getExtension('routing')->getPath("student");
         echo "\">Positions</a></li>
                     <li><a href=\"";
-        // line 82
+        // line 80
         echo $this->env->getExtension('routing')->getPath("student");
         echo "\">Add Position</a></li>
 
                     <li class=\"nav-header\">UOS Finance Details </li>
                     <li><a href=\"";
-        // line 85
+        // line 83
         echo $this->env->getExtension('routing')->getPath("finance");
         echo "\">Finance Details</a></li>
                     <li><a href=\"";
-        // line 86
+        // line 84
         echo $this->env->getExtension('routing')->getPath("finance_new");
         echo "\">Make A New Payment</a></li>
 
@@ -212,6 +207,6 @@ class __TwigTemplate_7b5c55307d3644c5ac75325838bee0a5c9e29010ce293f780168c5b1cb7
 
     public function getDebugInfo()
     {
-        return array (  196 => 86,  192 => 85,  186 => 82,  182 => 81,  176 => 78,  172 => 77,  166 => 74,  162 => 73,  156 => 70,  152 => 69,  146 => 66,  142 => 65,  136 => 62,  132 => 61,  125 => 56,  122 => 55,  112 => 49,  105 => 44,  93 => 38,  87 => 35,  80 => 31,  76 => 30,  72 => 29,  66 => 28,  62 => 27,  59 => 26,  55 => 25,  32 => 4,  29 => 3,);
+        return array (  191 => 84,  187 => 83,  181 => 80,  177 => 79,  171 => 76,  167 => 75,  161 => 72,  157 => 71,  151 => 68,  147 => 67,  141 => 64,  137 => 63,  131 => 60,  127 => 59,  120 => 54,  117 => 53,  107 => 47,  100 => 42,  88 => 36,  82 => 33,  75 => 29,  71 => 28,  65 => 27,  61 => 26,  58 => 25,  54 => 24,  32 => 4,  29 => 3,);
     }
 }

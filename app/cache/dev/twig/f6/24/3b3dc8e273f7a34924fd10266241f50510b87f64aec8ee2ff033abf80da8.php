@@ -46,48 +46,48 @@ class __TwigTemplate_f6243b3dc8e273f7a34924fd10266241f50510b87f64aec8ee2ff033abf
                         <th>Balance Payment</th>
                         <th>Amount Transferred</th>
                         <th>Last Payment Date</th>
-                        <th>Id</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
         ";
-        // line 26
+        // line 25
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "entities"));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 27
+            // line 26
             echo "                        <tr>
                             <td><a href=\"";
-            // line 28
+            // line 27
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("finance_show", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "student"), "html", null, true);
             echo "</a></td>
                             <td>";
-            // line 29
+            // line 28
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "balance"), "html", null, true);
             echo "</td>
                             <td>";
-            // line 30
+            // line 29
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "transferred"), "html", null, true);
             echo "</td>
                             <td>";
-            // line 31
+            // line 30
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "payDate"), "Y/m/d"), "html", null, true);
-            echo "</td>
-
-                            <td>";
-            // line 33
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "id"), "html", null, true);
             echo "</td>
                             <td>
                                 <ul>
                                     <li class=\"nav-header\">
                                         <a href=\"";
-            // line 37
+            // line 34
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("finance_show", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">show</a>
+                                    </li>
+                                    <li class=\"nav-header\">
+                                        <a href=\"";
+            // line 37
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("finance_edit", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
+            echo "\">Edit</a>
                                     </li>
                                 </ul>
                             </td>
@@ -208,6 +208,6 @@ class __TwigTemplate_f6243b3dc8e273f7a34924fd10266241f50510b87f64aec8ee2ff033abf
 
     public function getDebugInfo()
     {
-        return array (  192 => 85,  188 => 84,  182 => 81,  178 => 80,  172 => 77,  168 => 76,  162 => 73,  158 => 72,  152 => 69,  148 => 68,  142 => 65,  138 => 64,  132 => 61,  128 => 60,  121 => 55,  118 => 54,  108 => 48,  101 => 43,  89 => 37,  82 => 33,  77 => 31,  73 => 30,  69 => 29,  63 => 28,  60 => 27,  56 => 26,  32 => 4,  29 => 3,);
+        return array (  192 => 85,  188 => 84,  182 => 81,  178 => 80,  172 => 77,  168 => 76,  162 => 73,  158 => 72,  152 => 69,  148 => 68,  142 => 65,  138 => 64,  132 => 61,  128 => 60,  121 => 55,  118 => 54,  108 => 48,  101 => 43,  89 => 37,  83 => 34,  76 => 30,  72 => 29,  68 => 28,  62 => 27,  59 => 26,  55 => 25,  32 => 4,  29 => 3,);
     }
 }

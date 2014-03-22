@@ -17,7 +17,6 @@
                         <th>Room Number</th>
                         <th>Type</th>
                         <th>Monthly cost</th>
-                        <th>Id</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -28,8 +27,7 @@
                             <td><a href="{{ path('room_show', { 'id': entity.id }) }}">{{ entity.roomno }}</a></td>
                             <td>{{ entity.type }}</td>
                             <td>{{ entity.monthlycost }}</td>
-                            <td>{{ entity.id }}</td>
-                            <td>
+                           <td>
                                 <ul>
                                     <li class="nav-header">
                                         <a href="{{ path('room_show', { 'id': entity.id }) }}">show</a>
