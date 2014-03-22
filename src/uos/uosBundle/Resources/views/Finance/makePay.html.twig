@@ -29,7 +29,7 @@
                         <td><a href="{{ path('finance_show', { 'id': finance.id }) }}">{{ finance.student}}</a></td>
                         <td>{{ (finance.balance)}}</td>
                         <td>{{ finance.transferred }}</td>
-                        <td>{{ finance.payDate|date("Y/m/d") }}</td>
+                        <td>{{ finance.paydate|date("Y/m/d") }}</td>
                         
 
                         </ul>

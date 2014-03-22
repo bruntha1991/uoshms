@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use uos\uosBundle\Entity\Occupy;
 use uos\uosBundle\Form\OccupyType;
 use Doctrine\ORM\Query\ResultSetMapping;
-
+use uos\uosBundle\Entity\Finance;
 /**
  * Occupy controller.
  *
@@ -181,8 +181,14 @@ class OccupyController extends Controller {
         $occupy->setStudent($student);
 
         $em->persist($occupy);
+        
+        
+        $bal = $room->getMonthlycost();
+        $finance = new Finance();
+        $finance->setStudent($student);
+        $finance->setBalance($bal);
+        $em->persist($finance);
         $em->flush();
-
         return $this->redirect($this->generateUrl('occupy'));
     }
 
@@ -321,7 +327,7 @@ class OccupyController extends Controller {
             $em = $this->getDoctrine()->getManager();
             //$studentid = $request->get('studentid');
 
-            $student = $em->getRepository('uosuosBundle:Student')->findOneBy(array('studentid'=>"110037E"));
+            $student = $em->getRepository('uosuosBundle:Student')->findOneBy(array('studentid'=>$request->get('studentid')));
             if (!$student) {
                 throw $this->createNotFoundException('Unable to find STube entity.');
             }

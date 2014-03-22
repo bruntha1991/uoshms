@@ -37,27 +37,17 @@ class FinanceController extends Controller
     {
         $entity = new Finance();
         $form = $this->createCreateForm($entity);
-        $form->handleRequest($request);
-        
-        
-
+        $form->handleRequest($request);  
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            //$finance= $em->getRepository('uosuosBundle:Finance')->find($entity->getStudent());
-            
-           // $balance=$finance->getBalance();
-            //$em->persist($entity);
-            //$em->flush();
-            $student = $em->getRepository('uosuosBundle:Student')->find($entity->getStudent());
-
-            if($finance!=null)
-                
-             
-            return $this->render('uosuosBundle:Finance:makePay.html.twig', array('finance'=>$finance,'student'=>$student->getId()));
+            $student = $em->getRepository('uosuosBundle:Student')->findOneBy(array('studentid'=>$entity->getStudent()));
+            $id = $student->getId();
+            $finance= $em->getRepository('uosuosBundle:Finance')->findOneBy(array('student'=>$id));
+            if($finance!=null)              
+                return $this->render('uosuosBundle:Finance:makePay.html.twig',array('finance'=>$finance,'student'=>$student->getId()));
             //return $this->redirect($this->generateUrl('finance_show', array('finance'=>$finance)));
             //return $this->redirect($this->generateUrl('finance_show', array('id' => $entity->getId())));
         }
-
         return $this->render('uosuosBundle:Finance:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
