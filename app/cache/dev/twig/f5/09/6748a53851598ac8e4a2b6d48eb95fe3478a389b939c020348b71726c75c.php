@@ -87,59 +87,91 @@ class __TwigTemplate_f5096748a53851598ac8e4a2b6d48eb95fe3478a389b939c020348b7172
             echo $this->env->getExtension('routing')->getPath("employee_new");
             echo "\">Add Employee</a></li>
     
+    <li class=\"nav-header\">UOS Managers </li>
+    <li><a href=\"";
+            // line 32
+            echo $this->env->getExtension('routing')->getPath("employee");
+            echo "\">View Managers</a></li>
+    <li><a href=\"";
+            // line 33
+            echo $this->env->getExtension('routing')->getPath("employee_new");
+            echo "\">Add Manager</a></li>
+    
 ";
         }
-        // line 32
+        // line 36
         echo "    
 ";
-        // line 33
+        // line 37
         if (($this->getContext($context, "role") == "Manager")) {
-            // line 34
+            // line 38
             echo "    <li class=\"nav-header\">UOS Student Accomodation </li>
     <li><a href=\"";
-            // line 35
+            // line 39
             echo $this->env->getExtension('routing')->getPath("occupy");
             echo "\">Accomodation</a></li>
     <li><a href=\"";
-            // line 36
+            // line 40
             echo $this->env->getExtension('routing')->getPath("occupy_new");
             echo "\">Check IN</a></li>
     <li><a href=\"";
-            // line 37
+            // line 41
             echo $this->env->getExtension('routing')->getPath("checkOut");
             echo "\">Check OUT</a></li>
 
     <li class=\"nav-header\">UOS Employee Positining </li>
     <li><a href=\"";
-            // line 40
+            // line 44
             echo $this->env->getExtension('routing')->getPath("work");
             echo "\">Positions</a></li>
     <li><a href=\"";
-            // line 41
+            // line 45
             echo $this->env->getExtension('routing')->getPath("work_new");
             echo "\">Add Position</a></li>
 
     <li class=\"nav-header\">UOS Finance Details </li>
     <li><a href=\"";
-            // line 44
+            // line 48
             echo $this->env->getExtension('routing')->getPath("finance");
             echo "\">Finance Details</a></li>
     <li><a href=\"";
-            // line 45
+            // line 49
             echo $this->env->getExtension('routing')->getPath("finance_new");
             echo "\">Make A New Payment</a></li>
 ";
         }
-        // line 47
+        // line 51
         echo "    
     <li class=\"nav-header\">User Settings </li>
+ ";
+        // line 53
+        if (($this->getContext($context, "role") == "Student")) {
+            echo "   
     <li><a href=\"";
-        // line 49
-        echo $this->env->getExtension('routing')->getPath("occupy");
-        echo "\">Edit Personal Infomation</a></li>
+            // line 54
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("student_edit", array("id" => $this->getContext($context, "student_id"))), "html", null, true);
+            echo "\">Edit Personal Infomation</a></li>
     <li><a href=\"";
-        // line 50
-        echo $this->env->getExtension('routing')->getPath("occupy_new");
+            // line 55
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("edit_info", array("id" => $this->getContext($context, "id"))), "html", null, true);
+            echo "\">View Payment Details</a></li>
+ ";
+        }
+        // line 57
+        echo " ";
+        if (($this->getContext($context, "role") == "Employee")) {
+            echo "   
+    <li><a href=\"";
+            // line 58
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("student_edit", array("id" => $this->getContext($context, "student_id"))), "html", null, true);
+            echo "\">Edit Personal Infomation</a></li>
+ ";
+        }
+        // line 60
+        echo "
+    <li><a href=\"";
+        // line 61
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("users_edit", array("id" => $this->getContext($context, "id"))), "html", null, true);
         echo "\">Change Password</a></li>
     
     
@@ -159,6 +191,6 @@ class __TwigTemplate_f5096748a53851598ac8e4a2b6d48eb95fe3478a389b939c020348b7172
 
     public function getDebugInfo()
     {
-        return array (  142 => 50,  138 => 49,  134 => 47,  129 => 45,  125 => 44,  119 => 41,  115 => 40,  109 => 37,  105 => 36,  101 => 35,  98 => 34,  96 => 33,  93 => 32,  87 => 29,  83 => 28,  77 => 25,  73 => 24,  67 => 21,  63 => 20,  57 => 17,  53 => 16,  48 => 14,  42 => 10,  39 => 9,  32 => 4,  29 => 3,);
+        return array (  174 => 61,  171 => 60,  166 => 58,  161 => 57,  156 => 55,  152 => 54,  148 => 53,  144 => 51,  139 => 49,  135 => 48,  129 => 45,  125 => 44,  119 => 41,  115 => 40,  111 => 39,  108 => 38,  106 => 37,  103 => 36,  97 => 33,  93 => 32,  87 => 29,  83 => 28,  77 => 25,  73 => 24,  67 => 21,  63 => 20,  57 => 17,  53 => 16,  48 => 14,  42 => 10,  39 => 9,  32 => 4,  29 => 3,);
     }
 }

@@ -28,6 +28,10 @@
     <li><a href="{{ path('employee')}}">Employee</a></li>
     <li><a href="{{ path('employee_new')}}">Add Employee</a></li>
     
+    <li class="nav-header">UOS Managers </li>
+    <li><a href="{{ path('employee')}}">View Managers</a></li>
+    <li><a href="{{ path('employee_new')}}">Add Manager</a></li>
+    
 {% endif %}
     
 {% if role== 'Manager' %}
@@ -46,8 +50,15 @@
 {% endif %}
     
     <li class="nav-header">User Settings </li>
-    <li><a href="{{ path('occupy')}}">Edit Personal Infomation</a></li>
-    <li><a href="{{ path('occupy_new')}}">Change Password</a></li>
+ {% if role== 'Student' %}   
+    <li><a href="{{ path('student_edit', {'id' : student_id} ) }}">Edit Personal Infomation</a></li>
+    <li><a href="{{ path('edit_info', {'id' : id} ) }}">View Payment Details</a></li>
+ {% endif %}
+ {% if role== 'Employee' %}   
+    <li><a href="{{ path('employee_edit', {'id' : employee_id} ) }}">Edit Personal Infomation</a></li>
+ {% endif %}
+
+    <li><a href="{{ path('users_edit', {'id' : id} ) }}">Change Password</a></li>
     
     
 </ul>
