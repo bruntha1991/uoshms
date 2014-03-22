@@ -183,7 +183,7 @@ class OccupyController extends Controller {
         $em->persist($occupy);
         
         
-        $bal = $room->getMonthlycost();
+        $bal = $room->getMonthlycost()*12;
         $finance = new Finance();
         $finance->setStudent($student);
         $finance->setBalance($bal);
