@@ -17,9 +17,7 @@
                         <th>Balance Payment</th>
                         <th>transferred Amount</th>
                         <th>Payment Date</th>
-                        <th>ID</th>
-                        <th>Action</th>
-
+               
                     </tr>
                 </thead>
                 <tbody>
@@ -52,12 +50,13 @@
             <label for="student_id" >Student_id :</label> {{finance.student}}
             <label for="balance" >Balance Amount :</label> {{finance.balance}}
             <label for="transfer" >Tranferring Amount :</label> 
-            <input type="transferred" name="transferred" id="trans" value="{{finance.transferred}}"><br>    
+            <input type="transferred" name="transferred" id="transferred" value="{{finance.transferred}}"><br>    
 
-                                <li class="nav-header">
-                                    <a href="{{ path('saveFinance', {'balance':finance.balance,'transferred':finance.transferred,'student':student}) }}">Pay</a>
-                                </li>
-                                
+            <ul>                    
+                <li class="nav-header"> <a href="{{ path('saveFinance', {'balance':finance.balance,'transferred':finance.transferred,'student':student}) }}">Pay</a>
+                </li>
+                    {{student}}
+           </ul>
                                 
                 <li class="nav-header">
                     <a href="{{ path('finance_new') }}">
@@ -66,14 +65,6 @@
                 </li>
             </ul>
     {% endblock %}
-
-
-
-
-
-
-
-
 
 
 {%block sideMenu %}
