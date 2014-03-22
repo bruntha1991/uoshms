@@ -29,7 +29,7 @@ class __TwigTemplate_c4a08e66180cb228e0ea8baf1eec135a43512d3e72a06e39020e2b41c41
     public function block_container($context, array $blocks = array())
     {
         // line 5
-        echo "<div class=\"span8\">
+        echo "<div class=\"span6\">
     <div class=\"containerHome\" >
     <h1>Work list</h1>
 <script src=\"assets/js/jquery.tablesorter.min.js\"></script>
@@ -42,40 +42,43 @@ class __TwigTemplate_c4a08e66180cb228e0ea8baf1eec135a43512d3e72a06e39020e2b41c41
     <table class=\"table\">
         <thead>
             <tr>
+                <th>Employe Name</th>
                 <th>Date</th>
-                <th>Id</th>
+                
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         ";
-        // line 24
+        // line 25
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "entities"));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 25
+            // line 26
             echo "            <tr>
                 <td><a href=\"";
-            // line 26
+            // line 27
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("work_show", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "date"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "employee"), "html", null, true);
             echo "</a></td>
                 <td>";
-            // line 27
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "id"), "html", null, true);
+            // line 28
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "date"), "m/d/Y"), "html", null, true);
             echo "</td>
+                
+                
                 <td>
                 <ul>
                     <li>
                         <a href=\"";
-            // line 31
+            // line 34
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("work_show", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">show</a>
                     </li>
                     <li>
                         <a href=\"";
-            // line 34
+            // line 37
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("work_edit", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">edit</a>
                     </li>
@@ -87,14 +90,14 @@ class __TwigTemplate_c4a08e66180cb228e0ea8baf1eec135a43512d3e72a06e39020e2b41c41
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 40
+        // line 43
         echo "        </tbody>
     </table>
 
         <ul>
         <li>
             <a href=\"";
-        // line 45
+        // line 48
         echo $this->env->getExtension('routing')->getPath("work_new");
         echo "\">
                 Create a new entry
@@ -104,10 +107,10 @@ class __TwigTemplate_c4a08e66180cb228e0ea8baf1eec135a43512d3e72a06e39020e2b41c41
     ";
     }
 
-    // line 52
+    // line 55
     public function block_sideMenu($context, array $blocks = array())
     {
-        // line 53
+        // line 56
         echo "
 <ul class=\"nav nav-list\">
                 <li class=\"nav-header\"><b>Home</b></li>
@@ -151,6 +154,6 @@ class __TwigTemplate_c4a08e66180cb228e0ea8baf1eec135a43512d3e72a06e39020e2b41c41
 
     public function getDebugInfo()
     {
-        return array (  111 => 53,  108 => 52,  98 => 45,  91 => 40,  79 => 34,  73 => 31,  66 => 27,  60 => 26,  57 => 25,  53 => 24,  32 => 5,  29 => 4,);
+        return array (  114 => 56,  111 => 55,  101 => 48,  94 => 43,  82 => 37,  76 => 34,  67 => 28,  61 => 27,  58 => 26,  54 => 25,  32 => 5,  29 => 4,);
     }
 }

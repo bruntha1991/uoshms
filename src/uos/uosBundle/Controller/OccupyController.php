@@ -138,7 +138,13 @@ public function createAction(Request $request) {
         $em->persist($occupy);
         $em->flush();
 
-        return $this->render('uosuosBundle:Occupy:new.html.twig');
+        $entity = new Occupy();
+        $form = $this->createCreateForm($entity);
+
+        return $this->render('uosuosBundle:Occupy:new.html.twig', array(
+                    'entity' => $entity,
+                    'form' => $form->createView(),
+                ));
     }
     /*
     public function saveOccupyAction($room_id,$hall_id,$student_id){
