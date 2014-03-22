@@ -67,6 +67,12 @@
               <input class="span2" name="user_id" type="text" placeholder="User ID">
               <input class="span2" name="password" type="password" placeholder="Password">
               <button type="submit" class="btn">Sign in</button>
+              
+              {% if error is defined%}
+        
+              {{error}}
+
+    {%endif%}
             </form>
 
 
