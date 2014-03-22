@@ -91,9 +91,16 @@ class __TwigTemplate_13a38f01130b314a071cf3eb180287ed177fd3226de838a59ade9c20335
               <li class=\"nav-header\">UOS Employee Positining </li>
               <li><a href=\"http://localhost:8080/uoshms/web/app_dev.php/work\">Positions</a></li>
               <li><a href=\"http://localhost:8080/uoshms/web/app_dev.php/work/new\">Add Position</a></li>
-              <li class=\"nav-header\">UOS Accounts </li>
-              <li><a href=\"http://localhost:8080/uoshms/web/app_dev.php/finance\">Account Details</a></li>
-              <li><a href=\"http://localhost:8080/uoshms/web/app_dev.php/finance/new\">Add Account</a></li>
+
+            <li class=\"nav-header\">UOS Accounts </li>
+            <li><a href=\"";
+        // line 49
+        echo $this->env->getExtension('routing')->getPath("finance");
+        echo "\">Account Details</a></li>
+            <li><a href=\"";
+        // line 50
+        echo $this->env->getExtension('routing')->getPath("finance_new");
+        echo "\">Add Account</a></li>
               
             </ul>
 ";
@@ -111,6 +118,6 @@ class __TwigTemplate_13a38f01130b314a071cf3eb180287ed177fd3226de838a59ade9c20335
 
     public function getDebugInfo()
     {
-        return array (  71 => 24,  68 => 23,  58 => 17,  52 => 14,  49 => 13,  43 => 10,  40 => 9,  38 => 8,  32 => 4,  29 => 3,);
+        return array (  102 => 50,  98 => 49,  71 => 24,  68 => 23,  58 => 17,  52 => 14,  49 => 13,  43 => 10,  40 => 9,  38 => 8,  32 => 4,  29 => 3,);
     }
 }
