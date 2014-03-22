@@ -165,4 +165,32 @@ class Finance
     {
         return $this->transferred;
     }
+    /**
+     * @var integer
+     */
+    private $studentId;
+
+
+    /**
+     * Set studentId
+     *
+     * @param integer $studentId
+     * @return Finance
+     */
+    public function setStudentId($studentId)
+    {
+        $this->studentId = $studentId;
+
+        return $this;
+    }
+
+    /**
+     * Get studentId
+     *
+     * @return integer 
+     */
+    public function getStudentId()
+    {
+        return $this->studentId;
+    }
 }

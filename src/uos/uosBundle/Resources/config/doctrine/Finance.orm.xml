@@ -11,7 +11,7 @@
       <generator strategy="IDENTITY"/>
     </id>
     <field name="balance" type="float" column="balance" precision="10" scale="0" nullable="false"/>
-    <field name="transferred" type="float" column="Transferred" precision="10" scale="0" nullable="false"/>
+    <field name="transferred" type="float" column="transferred" precision="10" scale="0" nullable="false"/>
     <field name="paydate" type="datetime" column="paydate" nullable="false"/>
     <many-to-one field="student" target-entity="Student">
       <join-columns>

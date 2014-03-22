@@ -404,9 +404,14 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
             not_finance_create:
 
-            // saveFinance
+            // makePay
             if ($pathinfo === '/finance/n') {
-                return array (  '_controller' => 'uos\\uosBundle\\Controller\\FinanceController::saveFinanceAction',  '_route' => 'saveFinance',);
+                return array (  '_controller' => 'uos\\uosBundle\\Controller\\FinanceController::makePayAction',  '_route' => 'makePay',);
+            }
+
+            // editPay
+            if ($pathinfo === '/finance/e') {
+                return array (  '_controller' => 'uos\\uosBundle\\Controller\\FinanceController::editPayAction',  '_route' => 'editPay',);
             }
 
             // finance_edit

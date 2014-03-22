@@ -11,16 +11,20 @@
             });
             </script>
             <table class="table">
+            <!--
                 <thead>
                     <tr>
                         <th>Student ID</th>
                         <th>Balance Payment</th>
                         <th>transferred Amount</th>
                         <th>Payment Date</th>
-               
+
                     </tr>
                 </thead>
-                <tbody>
+            -->  
+            
+            <!--
+            <tbody>
 
                     <tr>
 
@@ -28,7 +32,7 @@
                         <td>{{ (finance.balance)}}</td>
                         <td>{{ finance.transferred }}</td>
                         <td>{{ finance.payDate|date("Y/m/d") }}</td>
-                        
+
 
                         </ul>
                 <ul>
@@ -46,23 +50,26 @@
 
 
                 </tbody>
+            -->
             </table>
-            <label for="student_id" >Student_id :</label> {{finance.student}}
-            <label for="balance" >Balance Amount :</label> {{finance.balance}}
-            <label for="transfer" >Tranferring Amount :</label> 
-            <input type="transferred" name="transferred" id="transferred" value="{{finance.transferred}}"><br>    
+            
+            
+            <form id="form" class="well" method="POST" action="{{path('makePay')}}" data-validate="parsley">
+                    <label>Student_id :</label>
+                    <input type="text" name="student_id" class="input-xlarge" data-trigger="change" data-required="true" value="{{finance.student}}"> 
+                    <label>Balance Amount :</label> 
+                    <input type="text" name="balance" class="input-xlarge" data-trigger="change" data-required="true"  readonly="true" value="{{finance.balance}}">
+                    <label>Tranferring Amount :</label> 
+                    <input type="text" name="transferred" id="transferred" value="{{finance.transferred}}"><br>   
+                    <input type="hidden" name="id" value="{{finance.id}}">
 
-            <ul>                    
-                <li class="nav-header"> <a href="{{ path('saveFinance', {'balance':finance.balance,'transferred':finance.transferred,'student':student}) }}">Pay</a>
-                </li>
-                    {{student}}
-           </ul>
-                                
-                <li class="nav-header">
-                    <a href="{{ path('finance_new') }}">
-                        Transfer Money
-                    </a>
-                </li>
+                    <div>
+                        <button class="btn btn-primary" type="submit" >Pay</button>
+                    </div>
+                </form>
+            
+  
+           
             </ul>
     {% endblock %}
 
