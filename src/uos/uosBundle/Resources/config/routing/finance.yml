@@ -15,9 +15,9 @@ finance_create:
     defaults: { _controller: "uosuosBundle:Finance:create" }
     requirements: { _method: post }
 
-saveFinance:
+makePay:
     pattern:  /n
-    defaults: { _controller: "uosuosBundle:Finance:saveFinance" }
+    defaults: { _controller: "uosuosBundle:Finance:makePay" }
     
 finance_edit:
     pattern:  /{id}/edit
@@ -32,3 +32,4 @@ finance_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "uosuosBundle:Finance:delete" }
     requirements: { _method: post|delete }
+

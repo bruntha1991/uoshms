@@ -187,6 +187,7 @@ class OccupyController extends Controller {
         $finance = new Finance();
         $finance->setStudent($student);
         $finance->setBalance($bal);
+        $finance->setTransferred('0');
         $em->persist($finance);
         $em->flush();
         return $this->redirect($this->generateUrl('occupy'));

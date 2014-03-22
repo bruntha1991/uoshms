@@ -4,7 +4,6 @@ namespace uos\uosBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use uos\uosBundle\Entity\Finance;
 use uos\uosBundle\Form\FinanceType;
 
@@ -12,82 +11,89 @@ use uos\uosBundle\Form\FinanceType;
  * Finance controller.
  *
  */
-class FinanceController extends Controller
-{
+class FinanceController extends Controller {
 
     /**
      * Lists all Finance entities.
      *
      */
-    public function indexAction()
-    {
+    public function indexAction() {
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('uosuosBundle:Finance')->findAll();
 
         return $this->render('uosuosBundle:Finance:index.html.twig', array(
-            'entities' => $entities,
-        ));
+                    'entities' => $entities,
+                ));
     }
+
     /**
      * Creates a new Finance entity.
      *
      */
-    public function createAction(Request $request)
-    {
+    public function createAction(Request $request) {
         $entity = new Finance();
         $form = $this->createCreateForm($entity);
-        $form->handleRequest($request);  
+        $form->handleRequest($request);
+
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $student = $em->getRepository('uosuosBundle:Student')->findOneBy(array('studentid'=>$entity->getStudent()));
-            $id = $student->getId();
-            $finance= $em->getRepository('uosuosBundle:Finance')->findOneBy(array('student'=>$id));
-            if($finance!=null)              
-                return $this->render('uosuosBundle:Finance:makePay.html.twig',array('finance'=>$finance,'student'=>$student->getId()));
-            //return $this->redirect($this->generateUrl('finance_show', array('finance'=>$finance)));
-            //return $this->redirect($this->generateUrl('finance_show', array('id' => $entity->getId())));
+            $finance = $em->getRepository('uosuosBundle:Finance')->findOneBy(array('student' => $entity->getStudent()));
+            if (!$finance) {
+                throw $this->createNotFoundException('Unable to find STube entity.');
+            }
+            //$finance= $em->getRepository('uosuosBundle:Finance')->find($entity->getStudent());
+            //$em->persist($entity);
+            //$em->flush();
+
+            return $this->render('uosuosBundle:Finance:makePay.html.twig', array('finance' => $finance));
+            return $this->redirect($this->generateUrl('finance_show', array('id' => $entity->getId())));
         }
+
         return $this->render('uosuosBundle:Finance:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
+                    'entity' => $entity,
+                    'form' => $form->createView(),
+                ));
     }
 
-    
-    public function saveFinanceAction(Request $entity) {
-               
-        $em = $this->getDoctrine()->getManager();
-        $student = $em->getRepository('uosuosBundle:Student')->find($entity->get('student'));
-        
-        $em = $this->getDoctrine()->getManager();
-        $finance = new Finance();
-        $finance->setBalance('balance');
-        $finance->setTransferred('transferred');
-        $finance->setStudent($student);
-        
-       // $finance->setPaydate($finance->getPaydate());
-        
-        $em->persist($finance);
-        $em->flush();
+    public function makePayAction(Request $entity) {
+        if ($entity->getMethod() == 'POST') {
+            $em = $this->getDoctrine()->getManager();
+            $finance = $em->getRepository('uosuosBundle:Finance')->find($entity->get('id'));
+            if (!$finance) {
+                throw $this->createNotFoundException('Unable to find Stud entity.');
+            }
+            $bal = $entity->get('balance');
+            $trans = $entity->get('transferred');
+            if (!$trans) {
+                throw $this->createNotFoundException('Unable to find Stud entity.');
+            }
+            $finance->setBalance(($bal-$trans));
+            $finance->setTransferred($trans);
 
-        return $this->render('uosuosBundle:Finance:new.html.twig');
+            //$finance->setBalance('balance'-'transferred');
+            //$finance->setTransferred('transferred');
+            // $finance->setPaydate($finance->getPaydate());
+
+            $em->persist($finance);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('finance'));
+        }
     }
-    
-    
+
     /**
-    * Creates a form to create a Finance entity.
-    *
-    * @param Finance $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createCreateForm(Finance $entity)
-    {
+     * Creates a form to create a Finance entity.
+     *
+     * @param Finance $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createCreateForm(Finance $entity) {
         $form = $this->createForm(new FinanceType(), $entity, array(
             'action' => $this->generateUrl('finance_create'),
             'method' => 'POST',
-        ));
+                ));
 
         $form->add('submit', 'submit', array('label' => 'Pay'));
 
@@ -98,23 +104,21 @@ class FinanceController extends Controller
      * Displays a form to create a new Finance entity.
      *
      */
-    public function newAction()
-    {
+    public function newAction() {
         $entity = new Finance();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('uosuosBundle:Finance:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
+                    'entity' => $entity,
+                    'form' => $form->createView(),
+                ));
     }
 
     /**
      * Finds and displays a Finance entity.
      *
      */
-    public function showAction($id)
-    {
+    public function showAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('uosuosBundle:Finance')->find($id);
@@ -126,16 +130,15 @@ class FinanceController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('uosuosBundle:Finance:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+                    'entity' => $entity,
+                    'delete_form' => $deleteForm->createView(),));
     }
 
     /**
      * Displays a form to edit an existing Finance entity.
      *
      */
-    public function editAction($id)
-    {
+    public function editAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('uosuosBundle:Finance')->find($id);
@@ -148,36 +151,35 @@ class FinanceController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('uosuosBundle:Finance:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
+                    'entity' => $entity,
+                    'edit_form' => $editForm->createView(),
+                    'delete_form' => $deleteForm->createView(),
+                ));
     }
 
     /**
-    * Creates a form to edit a Finance entity.
-    *
-    * @param Finance $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createEditForm(Finance $entity)
-    {
+     * Creates a form to edit a Finance entity.
+     *
+     * @param Finance $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createEditForm(Finance $entity) {
         $form = $this->createForm(new FinanceType(), $entity, array(
             'action' => $this->generateUrl('finance_update', array('id' => $entity->getId())),
             'method' => 'PUT',
-        ));
+                ));
 
         $form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
     }
+
     /**
      * Edits an existing Finance entity.
      *
      */
-    public function updateAction(Request $request, $id)
-    {
+    public function updateAction(Request $request, $id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('uosuosBundle:Finance')->find($id);
@@ -197,17 +199,17 @@ class FinanceController extends Controller
         }
 
         return $this->render('uosuosBundle:Finance:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
+                    'entity' => $entity,
+                    'edit_form' => $editForm->createView(),
+                    'delete_form' => $deleteForm->createView(),
+                ));
     }
+
     /**
      * Deletes a Finance entity.
      *
      */
-    public function deleteAction(Request $request, $id)
-    {
+    public function deleteAction(Request $request, $id) {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
@@ -233,13 +235,13 @@ class FinanceController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id)
-    {
+    private function createDeleteForm($id) {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('finance_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
+                        ->setAction($this->generateUrl('finance_delete', array('id' => $id)))
+                        ->setMethod('DELETE')
+                        ->add('submit', 'submit', array('label' => 'Delete'))
+                        ->getForm()
         ;
     }
+
 }
