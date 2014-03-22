@@ -10,66 +10,7 @@
                 $("table#sortTableExample").tablesorter({sortList: [[1, 0]]});
             });
             </script>
-            <table class="table">
-            <!--
-                <thead>
-                    <tr>
-                        <th>Student ID</th>
-                        <th>Balance Payment</th>
-                        <th>transferred Amount</th>
-                        <th>Payment Date</th>
-
-                        <tr>
-
-                            <td><a href="{{ path('finance_show', { 'id': finance.id }) }}">{{ finance.student}}</a></td>
-                            <td>{{ (finance.balance)}}</td>
-                            <td>{{ finance.transferred }}</td>
-                            <td>{{ finance.paydate|date("Y/m/d") }}</td>
-                        </td>
-                    </tr>
-                </thead>
-            -->  
             
-            <!--
-            <tbody>
-
-                    <tr>
-
-                        <td><a href="{{ path('finance_show', { 'id': finance.id }) }}">{{ finance.student}}</a></td>
-                        <td>{{ (finance.balance)}}</td>
-                        <td>{{ finance.transferred }}</td>
-                        <td>{{ finance.payDate|date("Y/m/d") }}</td>
-
-
-                        </ul>
-                <ul>
-                    <li class="nav-header">
-                        <a href="{{ path('finance_show', { 'id': finance.id }) }}">show</a>
-                    </li>
-                    <li class="nav-header">
-                        <a href="{{ path('finance_edit', { 'id': finance.id }) }}">Pay</a>
-                    </li>
-                </ul>
-
-
-                    </tbody>
-                </table>                    
-                    <label>Student_id :</label>
-                    <input type="text" name="student_id" class="input-xlarge" data-trigger="change" data-required="true" value="{{finance.student}}"> 
-                    <label>Balance Amount :</label> 
-                    <input type="text" name="balance" class="input-xlarge" data-trigger="change" data-required="true" value="{{finance.balance}}">
-                    <label>Tranferring Amount :</label> 
-                    <input type="text" name="transferred" id="transferred" value="{{finance.transferred}}"><br>   
-                    <input type="hidden" name="id" value="{{finance.id}}">
-
-                    <div>
-                        <button class="btn btn-primary" type="submit" >Pay</button>
-                    </div>
-                </form>
-
-                </tbody>
-            -->
-            </table>
             
             
             <form id="form" class="well" method="POST" action="{{path('makePay')}}" data-validate="parsley">

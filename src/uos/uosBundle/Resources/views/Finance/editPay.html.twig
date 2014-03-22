@@ -10,49 +10,6 @@
                 $("table#sortTableExample").tablesorter({sortList: [[1, 0]]});
             });
             </script>
-            <table class="table">
-            <!--
-                <thead>
-                    <tr>
-                        <th>Student ID</th>
-                        <th>Balance Payment</th>
-                        <th>transferred Amount</th>
-                        <th>Payment Date</th>
-
-                    </tr>
-                </thead>
-            -->  
-            
-            <!--
-            <tbody>
-
-                    <tr>
-
-                        <td><a href="{{ path('finance_show', { 'id': finance.id }) }}">{{ finance.student}}</a></td>
-                        <td>{{ (finance.balance)}}</td>
-                        <td>{{ finance.transferred }}</td>
-                        <td>{{ finance.payDate|date("Y/m/d") }}</td>
-
-
-                        </ul>
-                <ul>
-                    <li class="nav-header">
-                        <a href="{{ path('finance_show', { 'id': finance.id }) }}">show</a>
-                    </li>
-                    <li class="nav-header">
-                        <a href="{{ path('finance_edit', { 'id': finance.id }) }}">Pay</a>
-                    </li>
-                </ul>
-
-
-                </td>
-                </tr>
-
-
-                </tbody>
-            -->
-            </table>
-            
             
             <form id="form" class="well" method="POST" action="{{path('editPay')}}" data-validate="parsley">
                     <label>Student_id :</label>
