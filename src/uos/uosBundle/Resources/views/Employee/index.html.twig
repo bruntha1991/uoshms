@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block container -%}
-<div class="span8">
+<div class="span6">
     <div class="containerHome" >
         <h1>Employee list</h1>
         <script src="assets/js/jquery.tablesorter.min.js"></script>
@@ -10,17 +10,16 @@
                 $("table#sortTableExample").tablesorter({sortList: [[1, 0]]});
             });
             </script>
-
-
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Employeeid</th>
+                        <th>Employee Id</th>
                         <th>Name</th>
-                        <th>Salary</th>
                         <th>Position</th>
-                        <th>Id</th>
-                        <th>Actions</th>
+                        <th>Salary</th>
+
+
+
                     </tr>
                 </thead>
                 <tbody>
@@ -28,17 +27,18 @@
                         <tr>
                             <td><a href="{{ path('employee_show', { 'id': entity.id }) }}">{{ entity.employeeid }}</a></td>
                             <td>{{ entity.name }}</td>
-                            <td>{{ entity.salary }}</td>
                             <td>{{ entity.position }}</td>
-                            <td>{{ entity.id }}</td>
+                            <td>{{ entity.salary }}</td>
+
                             <td>
                                 <ul>
-                                    <li>
+                                    <li class="nav-header">
                                         <a href="{{ path('employee_show', { 'id': entity.id }) }}">show</a>
                                     </li>
-                                    <li>
+                                    <li class="nav-header">
                                         <a href="{{ path('employee_edit', { 'id': entity.id }) }}">edit</a>
                                     </li>
+                                   
                                 </ul>
                             </td>
                         </tr>
@@ -47,41 +47,46 @@
                 </table>
 
                 <ul>
-                    <li>
+                    <li class="nav-header">
                         <a href="{{ path('employee_new') }}">
                             Create a new entry
                         </a>
                     </li>
                 </ul>
     {% endblock %}
-{%block sideMenu %}
+
+    {%block sideMenu %}
 
                 <ul class="nav nav-list">
-                    <li class="nav-header"><b>Home</b></li>
-                    <li class="active"><a href="http://localhost:8080/uoshms/web/app_dev.php/home">Home</a></li>
-                    <li class="nav-header">UOS Halls</li>
-                    <li><a href="http://localhost:8080/uoshms/web/app_dev.php/hall">Halls</a></li>
-                    <li><a href="http://localhost:8080/uoshms/web/app_dev.php/hall/new">Add Hall</a></li>
-                    <li><a href="#">Link</a></li>
-                    <li class="nav-header">UOS Rooms</li>
-                    <li><a href="http://localhost:8080/uoshms/web/app_dev.php/room">Rooms</a></li>
-                    <li><a href="http://localhost:8080/uoshms/web/app_dev.php/room/new">Add Room</a></li>
-                    <li class="nav-header">UOS Student Management </li>
-                    <li><a href="http://localhost:8080/uoshms/web/app_dev.php/student">Students</a></li>
-                    <li><a href="http://localhost:8080/uoshms/web/app_dev.php/student/new">Add Student</a></li>
-                    <li class="nav-header">UOS Student Accomodation </li>
-                    <li><a href="http://localhost:8080/uoshms/web/app_dev.php/occupy">Accomodation</a></li>
-                    <li><a href="http://localhost:8080/uoshms/web/app_dev.php/occupy/new">Add Accomodation</a></li>
-                    <li class="nav-header">UOS Employee Management </li>
-                    <li><a href="http://localhost:8080/uoshms/web/app_dev.php/employee">Employee</a></li>
-                    <li><a href="http://localhost:8080/uoshms/web/app_dev.php/employee/new">Add Employee</a></li>
-                    <li class="nav-header">UOS Employee Positining </li>
-                    <li><a href="http://localhost:8080/uoshms/web/app_dev.php/work">Positions</a></li>
-                    <li><a href="http://localhost:8080/uoshms/web/app_dev.php/work/new">Add Position</a></li>
+                    <li  class="nav-header" ><b>Home</b></li>
 
-                    <li class="nav-header">UOS Accounts </li>
-                    <li><a href="{{ path('finance')}}">Account Details</a></li>
-                    <li><a href="{{ path('finance_new')}}">Add Account</a></li>
+                    <li class="nav-header">UOS Halls</li>
+                    <li class="active"><a  href="{{ path('hall')}}">View All </a></li>
+                    <li><a href="{{ path('hall_new')}}">Add Hall</a></li>
+
+                    <li class="nav-header">UOS Rooms</li>
+                    <li><a href="{{ path('room')}}">View All</a></li>
+                    <li><a href="{{ path('room_new')}}">Add Room</a></li>
+
+                    <li class="nav-header">UOS Student Management </li>
+                    <li><a href="{{ path('student')}}">View All Students</a></li>
+                    <li><a href="{{ path('student_new')}}">Add Student</a></li>
+
+                    <li class="nav-header">UOS Student Accomodation </li>
+                    <li><a href="{{ path('occupy')}}">Accomodation</a></li>
+                    <li><a href="{{ path('occupy_new')}}">Add Accomodation</a></li>
+
+                    <li class="nav-header">UOS Employee Management </li>
+                    <li><a href="{{ path('employee')}}">Employee</a></li>
+                    <li><a href="{{ path('employee_new')}}">Add Employee</a></li>
+
+                    <li class="nav-header">UOS Employee Positining </li>
+                    <li><a href="{{ path('work')}}">Positions</a></li>
+                    <li><a href="{{ path('work_new')}}">Add Position</a></li>
+
+                    <li class="nav-header">UOS Finance Details </li>
+                    <li><a href="{{ path('finance')}}">Finance Details</a></li>
+                    <li><a href="{{ path('finance_new')}}">Make A New Payment</a></li>
 
                 </ul>
 {%endblock%}

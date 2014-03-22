@@ -471,16 +471,32 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
-            // occupy_create
-            if ($pathinfo === '/occupy/create') {
-                if ($this->context->getMethod() != 'POST') {
-                    $allow[] = 'POST';
-                    goto not_occupy_create;
+            if (0 === strpos($pathinfo, '/occupy/c')) {
+                if (0 === strpos($pathinfo, '/occupy/check')) {
+                    // checkOutStudent
+                    if ($pathinfo === '/occupy/checkOut') {
+                        return array (  '_controller' => 'uos\\uosBundle\\Controller\\OccupyController::checkOutAction',  '_route' => 'checkOutStudent',);
+                    }
+
+                    // checkOut
+                    if ($pathinfo === '/occupy/check') {
+                        return array (  '_controller' => 'uos\\uosBundle\\Controller\\OccupyController::checkOutAction',  '_route' => 'checkOut',);
+                    }
+
                 }
 
-                return array (  '_controller' => 'uos\\uosBundle\\Controller\\OccupyController::createAction',  '_route' => 'occupy_create',);
+                // occupy_create
+                if ($pathinfo === '/occupy/create') {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_occupy_create;
+                    }
+
+                    return array (  '_controller' => 'uos\\uosBundle\\Controller\\OccupyController::createAction',  '_route' => 'occupy_create',);
+                }
+                not_occupy_create:
+
             }
-            not_occupy_create:
 
             // occupy_edit
             if (preg_match('#^/occupy/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {

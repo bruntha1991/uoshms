@@ -5,12 +5,9 @@ namespace uos\uosBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use uos\uosBundle\Entity\Occupy;
-use uos\uosBundle\Entity\Student;
-use uos\uosBundle\Entity\Room;
-use uos\uosBundle\Entity\Hall;
 use uos\uosBundle\Form\OccupyType;
 use Doctrine\ORM\Query\ResultSetMapping;
-
+use uos\uosBundle\Entity\Finance;
 /**
  * Occupy controller.
  *
@@ -35,7 +32,7 @@ class OccupyController extends Controller {
      * Creates a new Occupy entity.
      *
      */
-public function createAction(Request $request) {
+    public function createAction(Request $request) {
         $entity = new Occupy();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
@@ -74,7 +71,7 @@ public function createAction(Request $request) {
               $users = $query->getResult();
              */
             $hall = $em->getRepository('uosuosBundle:Hall')->find($entity->getHall());
-            $hallname=$hall->getHallname();
+            $hallname = $hall->getHallname();
             if (($form->get('type')->getData()) == 'Single') {
                 $typeN = '1';
             } else {
@@ -95,82 +92,57 @@ public function createAction(Request $request) {
             (select hall_id,room_id
             from occupy
             where (A.hall_id,A.id)=(hall_id,room_id)))) as F on F.hall_id = hall.id where (type= :type and hallname= :hall) ');
-            $stmt->bindValue(':type',$typeN);
-            $stmt->bindValue(':hall',$hallname);
-   //         $stmt->bindValue(':hallname',$hallname);
+            $stmt->bindValue(':type', $typeN);
+            $stmt->bindValue(':hall', $hallname);
+            //         $stmt->bindValue(':hallname',$hallname);
             $stmt->execute();
             $users = $stmt->fetchAll();
- //           $users = $userss->findBy(array('hall' => $entity->getHall(), 'type' => $form->get('type')->getData()));
-            
+            //           $users = $userss->findBy(array('hall' => $entity->getHall(), 'type' => $form->get('type')->getData()));
+
             $student = $em->getRepository('uosuosBundle:Student')->find($entity->getStudent());
 
-            
+
             return $this->render('uosuosBundle:Occupy:roomsearch.html.twig', array(
-                        'entities' => $users,'student' => $student->getId()
-            ));
+                        'entities' => $users, 'student' => $student->getId()
+                    ));
         }
         return $this->render('uosuosBundle:Occupy:new.html.twig', array(
                     'entity' => $entity,
                     'form' => $form->createView(),
-        ));
+                ));
     }
-    
-    
-    public function saveOccupyAction(Request $entity) {
-        $em = $this->getDoctrine()->getManager();
-        //$hall = new Hall();
-        $hall = $em->getRepository('uosuosBundle:Hall')->find($entity->get('hall_id'));
-        //$room = new Room();
-        $room = $em->getRepository('uosuosBundle:Room')->find($entity->get('room_id'));
-        //$student = new Student();
-        $student = $em->getRepository('uosuosBundle:Student')->find($entity->get('student'));
-        
-//            $hall=$entity->getHall();
-//            $room=$entity->getRoom();
-//            $student=$entity->getStudent();
 
-        $em = $this->getDoctrine()->getManager();
-        $occupy = new Occupy();
-        $occupy->setHall($hall);
-        $occupy->setRoom($room);
-        $occupy->setStudent($student);
-
-        $em->persist($occupy);
-        $em->flush();
-
-        return $this->render('uosuosBundle:Occupy:new.html.twig');
-    }
     /*
-    public function saveOccupyAction($room_id,$hall_id,$student_id){
-        
-        $occupy=new Occupy();
-        $em = $this->getDoctrine()->getManager();
-        
-  //      $student =new Student();
-    //    $hall =new Hall();
+      public function saveOccupyAction($room_id,$hall_id,$student_id){
+
+      $occupy=new Occupy();
+      $em = $this->getDoctrine()->getManager();
+
+      //      $student =new Student();
+      //    $hall =new Hall();
       //  $room=new Room();
-        
-        $student = $em->getRepository('uosuosBundle:Student')->find($student_id);
-        $hall = $em->getRepository('uosuosBundle:Hall')->find($hall_id);
-        $room = $em->getRepository('uosuosBundle:Room')->find($room_id);
-                
-        $occupy->setStudent($student);
-        $occupy->setHall($hall);
-        $occupy->setRoom($room);
-        
-        $em->persist($occupy);
-        $em->flush();
-        
-          
-        return $this->render('uosuosBundle:Occupy:new.html.twig', array(
-                    'entity' => $entity,
-                    'form' => $form->createView(),
-        ));
-    }
-	
-	
-	
-	*/
+
+      $student = $em->getRepository('uosuosBundle:Student')->find($student_id);
+      $hall = $em->getRepository('uosuosBundle:Hall')->find($hall_id);
+      $room = $em->getRepository('uosuosBundle:Room')->find($room_id);
+
+      $occupy->setStudent($student);
+      $occupy->setHall($hall);
+      $occupy->setRoom($room);
+
+      $em->persist($occupy);
+      $em->flush();
+
+
+      return $this->render('uosuosBundle:Occupy:new.html.twig', array(
+      'entity' => $entity,
+      'form' => $form->createView(),
+      ));
+      }
+
+
+
+     */
 
     /**
      * Creates a form to create a Occupy entity.
@@ -188,6 +160,37 @@ public function createAction(Request $request) {
         $form->add('submit', 'submit', array('label' => 'Search'));
 
         return $form;
+    }
+
+    public function saveOccupyAction(Request $entity) {
+        $em = $this->getDoctrine()->getManager();
+        //$hall = new Hall();
+        $hall = $em->getRepository('uosuosBundle:Hall')->find($entity->get('hall_id'));
+        //$room = new Room();
+        $room = $em->getRepository('uosuosBundle:Room')->find($entity->get('room_id'));
+        //$student = new Student();
+        $student = $em->getRepository('uosuosBundle:Student')->find($entity->get('student'));
+        ;
+//            $hall=$entity->getHall();
+//            $room=$entity->getRoom();
+//            $student=$entity->getStudent();
+
+        $occupy = new Occupy();
+        $occupy->setHall($hall);
+        $occupy->setRoom($room);
+        $occupy->setStudent($student);
+
+        $em->persist($occupy);
+        
+        
+        $bal = $room->getMonthlycost()*12;
+        $finance = new Finance();
+        $finance->setStudent($student);
+        $finance->setBalance($bal);
+        $finance->setTransferred('0');
+        $em->persist($finance);
+        $em->flush();
+        return $this->redirect($this->generateUrl('occupy'));
     }
 
     /**
@@ -316,6 +319,30 @@ public function createAction(Request $request) {
         }
 
         return $this->redirect($this->generateUrl('occupy'));
+    }
+
+    public function checkOutAction(Request $request) {
+        if ($request->getMethod() == 'POST') {
+//            $form = $this->createDeleteForm($id);
+//            $form->handleRequest($request);
+            $em = $this->getDoctrine()->getManager();
+            //$studentid = $request->get('studentid');
+
+            $student = $em->getRepository('uosuosBundle:Student')->findOneBy(array('studentid'=>$request->get('studentid')));
+            if (!$student) {
+                throw $this->createNotFoundException('Unable to find STube entity.');
+            }
+            $id = $student->getId();
+            $entity = $em->getRepository('uosuosBundle:Occupy')->findOneBy(array('student'=>$id));
+            if (!$entity) {
+                throw $this->createNotFoundException('Unable to find Occupy entity.');
+            }
+
+            $em->remove($entity);
+            $em->flush();
+        return $this->redirect($this->generateUrl('occupy'));
+        }
+         return $this->render('uosuosBundle:Occupy:checkOutStudent.html.twig');
     }
 
     /**

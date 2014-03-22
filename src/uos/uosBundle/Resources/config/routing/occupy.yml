@@ -13,6 +13,14 @@ occupy_new:
 saveOccupy:
     pattern:  /n
     defaults: { _controller: "uosuosBundle:Occupy:saveOccupy" }
+    
+checkOutStudent:
+    pattern:  /checkOut
+    defaults: { _controller: "uosuosBundle:Occupy:checkOut" }
+    
+checkOut:
+    pattern:  /check
+    defaults: { _controller: "uosuosBundle:Occupy:checkOut" }
 
 occupy_create:
     pattern:  /create
@@ -32,3 +40,4 @@ occupy_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "uosuosBundle:Occupy:delete" }
     requirements: { _method: post|delete }
+
