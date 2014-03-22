@@ -380,17 +380,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return $this->redirect($pathinfo.'/', 'finance');
                 }
 
-                return array (  '_controller' => 'uos\\uosBundle\\Controller\\FinanceController::indexAction',  '_route' => 'finance',);
+                return array (  '_controller' => 'uosuosBundle:Finance:index',  '_route' => 'finance',);
             }
 
             // finance_show
             if (preg_match('#^/finance/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'finance_show')), array (  '_controller' => 'uos\\uosBundle\\Controller\\FinanceController::showAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'finance_show')), array (  '_controller' => 'uosuosBundle:Finance:show',));
             }
 
             // finance_new
             if ($pathinfo === '/finance/new') {
-                return array (  '_controller' => 'uos\\uosBundle\\Controller\\FinanceController::newAction',  '_route' => 'finance_new',);
+                return array (  '_controller' => 'uosuosBundle:Finance:new',  '_route' => 'finance_new',);
             }
 
             // finance_create
@@ -400,7 +400,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     goto not_finance_create;
                 }
 
-                return array (  '_controller' => 'uos\\uosBundle\\Controller\\FinanceController::createAction',  '_route' => 'finance_create',);
+                return array (  '_controller' => 'uosuosBundle:Finance:create',  '_route' => 'finance_create',);
             }
             not_finance_create:
 
@@ -411,7 +411,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             // finance_edit
             if (preg_match('#^/finance/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'finance_edit')), array (  '_controller' => 'uos\\uosBundle\\Controller\\FinanceController::editAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'finance_edit')), array (  '_controller' => 'uosuosBundle:Finance:edit',));
             }
 
             // finance_update
@@ -421,7 +421,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     goto not_finance_update;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'finance_update')), array (  '_controller' => 'uos\\uosBundle\\Controller\\FinanceController::updateAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'finance_update')), array (  '_controller' => 'uosuosBundle:Finance:update',));
             }
             not_finance_update:
 
@@ -432,7 +432,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     goto not_finance_delete;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'finance_delete')), array (  '_controller' => 'uos\\uosBundle\\Controller\\FinanceController::deleteAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'finance_delete')), array (  '_controller' => 'uosuosBundle:Finance:delete',));
             }
             not_finance_delete:
 
@@ -453,9 +453,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'occupy_show')), array (  '_controller' => 'uos\\uosBundle\\Controller\\OccupyController::showAction',));
             }
 
-            // occupy_new
-            if ($pathinfo === '/occupy/new') {
-                return array (  '_controller' => 'uos\\uosBundle\\Controller\\OccupyController::newAction',  '_route' => 'occupy_new',);
+            if (0 === strpos($pathinfo, '/occupy/n')) {
+                // occupy_new
+                if ($pathinfo === '/occupy/new') {
+                    return array (  '_controller' => 'uos\\uosBundle\\Controller\\OccupyController::newAction',  '_route' => 'occupy_new',);
+                }
+
+                // saveOccupy
+                if ($pathinfo === '/occupy/n') {
+                    return array (  '_controller' => 'uos\\uosBundle\\Controller\\OccupyController::saveOccupyAction',  '_route' => 'saveOccupy',);
+                }
+
             }
 
             // occupy_create

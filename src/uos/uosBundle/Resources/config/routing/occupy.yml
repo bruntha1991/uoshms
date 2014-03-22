@@ -9,6 +9,10 @@ occupy_show:
 occupy_new:
     pattern:  /new
     defaults: { _controller: "uosuosBundle:Occupy:new" }
+    
+saveOccupy:
+    pattern:  /n
+    defaults: { _controller: "uosuosBundle:Occupy:saveOccupy" }
 
 occupy_create:
     pattern:  /create
