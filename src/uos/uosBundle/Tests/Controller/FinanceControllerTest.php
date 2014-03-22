@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class FinanceControllerTest extends WebTestCase
 {
-    /*
+  /*  
     public function testCompleteScenario()
     {
         // Create a new client to browse the application

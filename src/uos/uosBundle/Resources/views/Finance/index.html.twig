@@ -7,7 +7,7 @@
         <script src="assets/js/jquery.tablesorter.min.js"></script>
         <script >
             $(function() {
-                $("table#sortTableExample").tablesorter({sortList: [[1, 0]]});
+                $("table#sortTableExample").tablesorter( {sortList: [[1, 0]]});
             });
             </script>
 
@@ -15,7 +15,9 @@
                 <thead>
                     <tr>
                         <th>Studentno</th>
-                        <th>Balance</th>
+                        <th>Balance Payment</th>
+                        <th>Amount Transferred</th>
+                        <th>Last Payment Date</th>
                         <th>Id</th>
                         <th>Actions</th>
                     </tr>
@@ -24,7 +26,10 @@
         {% for entity in entities %}
                         <tr>
                             <td><a href="{{ path('finance_show', { 'id': entity.id }) }}">{{ entity.student}}</a></td>
-                            <td>{{ entity.balance }}</td>
+                            <td>{{ (entity.balance)-(entity.transferred) }}</td>
+                            <td>{{ entity.transferred }}</td>
+                            <td>{{ entity.payDate|date("Y/m/d") }}</td>
+
                             <td>{{ entity.id }}</td>
                             <td>
                                 <ul>
@@ -32,7 +37,7 @@
                                         <a href="{{ path('finance_show', { 'id': entity.id }) }}">show</a>
                                     </li>
                                     <li class="nav-header">
-                                        <a href="{{ path('finance_edit', { 'id': entity.id }) }}">edit</a>
+                                        <a href="{{ path('finance_edit', { 'id': entity.id }) }}">Pay</a>
                                     </li>
                                 </ul>
                             </td>
@@ -44,7 +49,7 @@
                 <ul>
                     <li class="nav-header">
                         <a href="{{ path('finance_new') }}">
-                            Create a new entry
+                            Make A New Payment
                         </a>
                     </li>
                 </ul>
@@ -78,9 +83,9 @@
                     <li><a href="{{ path('student')}}">Positions</a></li>
                     <li><a href="{{ path('student')}}">Add Position</a></li>
 
-                    <li class="nav-header">UOS Accounts </li>
-                    <li><a href="{{ path('student')}}">Account Details</a></li>
-                    <li><a href="{{ path('student')}}">Add Account</a></li>
+                    <li class="nav-header">UOS Finance Details </li>
+                    <li><a href="{{ path('finance')}}">Finance Details</a></li>
+                    <li><a href="{{ path('finance_new')}}">Make A New Payment</a></li>
 
                 </ul>
 {%endblock%}

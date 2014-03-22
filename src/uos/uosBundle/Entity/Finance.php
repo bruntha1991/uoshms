@@ -137,4 +137,32 @@ class Finance
     {
         return $this->occupy;
     }
+    /**
+     * @var float
+     */
+    private $transferred;
+
+
+    /**
+     * Set transferred
+     *
+     * @param float $transferred
+     * @return Finance
+     */
+    public function setTransferred($transferred)
+    {
+        $this->transferred = $transferred;
+
+        return $this;
+    }
+
+    /**
+     * Get transferred
+     *
+     * @return float 
+     */
+    public function getTransferred()
+    {
+        return $this->transferred;
+    }
 }

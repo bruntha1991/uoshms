@@ -12,14 +12,28 @@
                     <td>{{ entity.student }}</td>
                 </tr>
                 <tr>
-                    <th>Balance</th>
+                    <th>Room Rent </th>
                     <td>{{ entity.balance }}</td>
                 </tr>
+                <tr>
+                    <th>Amount Transferred</th>
+                    <td>{{ entity.transferred }}</td>
+                </tr>
+                <tr>
+                    <th>Balance Payment</th>
+                    <td>{{ entity.balance - entity.transferred }}</td>
+                </tr>
+
+                <tr>
+                    <th>Trasferred Date</th>
+                    <td>{{ entity.payDate|date("Y/m/d") }}</td>
+                </tr>
+
                 <tr>
                     <th>Id</th>
                     <td>{{ entity.id }}</td>
                 </tr>
-                
+
             </tbody>
         </table>
 
@@ -66,9 +80,9 @@
             <li><a href="{{ path('student')}}">Positions</a></li>
             <li><a href="{{ path('student')}}">Add Position</a></li>
 
-            <li class="nav-header">UOS Accounts </li>
-            <li><a href="{{ path('student')}}">Account Details</a></li>
-            <li><a href="{{ path('student')}}">Add Account</a></li>
+            <li class="nav-header">UOS Finance Details </li>
+            <li><a href="{{ path('finance')}}">Finance Details</a></li>
+            <li><a href="{{ path('finance_new')}}">Make A New Payment</a></li>
 
         </ul>
 {%endblock%}
