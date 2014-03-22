@@ -63,7 +63,7 @@ class __TwigTemplate_2ce30e0d0de2e09d061b3afb851376076b5679858f162929cd1e8309883
         echo twig_escape_filter($this->env, ($this->getAttribute($this->getContext($context, "entity"), "balance") - $this->getAttribute($this->getContext($context, "entity"), "transferred")), "html", null, true);
         echo "</td>
                 </tr>
-                
+
                 <tr>
                     <th>Trasferred Date</th>
                     <td>";
@@ -71,7 +71,7 @@ class __TwigTemplate_2ce30e0d0de2e09d061b3afb851376076b5679858f162929cd1e8309883
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "payDate"), "Y/m/d"), "html", null, true);
         echo "</td>
                 </tr>
-                
+
                 <tr>
                     <th>Id</th>
                     <td>";
@@ -79,7 +79,7 @@ class __TwigTemplate_2ce30e0d0de2e09d061b3afb851376076b5679858f162929cd1e8309883
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "id"), "html", null, true);
         echo "</td>
                 </tr>
-                
+
             </tbody>
         </table>
 
@@ -176,15 +176,15 @@ class __TwigTemplate_2ce30e0d0de2e09d061b3afb851376076b5679858f162929cd1e8309883
         echo $this->env->getExtension('routing')->getPath("student");
         echo "\">Add Position</a></li>
 
-            <li class=\"nav-header\">UOS Accounts </li>
+            <li class=\"nav-header\">UOS Finance Details </li>
             <li><a href=\"";
         // line 84
         echo $this->env->getExtension('routing')->getPath("finance");
-        echo "\">Account Details</a></li>
+        echo "\">Finance Details</a></li>
             <li><a href=\"";
         // line 85
         echo $this->env->getExtension('routing')->getPath("finance_new");
-        echo "\">Add Account</a></li>
+        echo "\">Make A New Payment</a></li>
 
         </ul>
 ";
