@@ -161,34 +161,38 @@ class __TwigTemplate_c9aee423b95a62b98c35939e87fc0a4afae7e21adf86b6f9814b6bce28c
         // line 75
         echo $this->env->getExtension('routing')->getPath("occupy_new");
         echo "\">Add Accomodation</a></li>
+              <li><a href=\"";
+        // line 76
+        echo $this->env->getExtension('routing')->getPath("checkOutStudent");
+        echo "\">Add Accomodation</a></li>
               
               <li class=\"nav-header\">UOS Employee Management </li>
               <li><a href=\"";
-        // line 78
+        // line 79
         echo $this->env->getExtension('routing')->getPath("employee");
         echo "\">Employee</a></li>
               <li><a href=\"";
-        // line 79
+        // line 80
         echo $this->env->getExtension('routing')->getPath("employee_new");
         echo "\">Add Employee</a></li>
               
               <li class=\"nav-header\">UOS Employee Positining </li>
               <li><a href=\"";
-        // line 82
+        // line 83
         echo $this->env->getExtension('routing')->getPath("student");
         echo "\">Positions</a></li>
               <li><a href=\"";
-        // line 83
+        // line 84
         echo $this->env->getExtension('routing')->getPath("student");
         echo "\">Add Position</a></li>
               
               <li class=\"nav-header\">UOS Accounts </li>
               <li><a href=\"";
-        // line 86
+        // line 87
         echo $this->env->getExtension('routing')->getPath("student");
         echo "\">Account Details</a></li>
               <li><a href=\"";
-        // line 87
+        // line 88
         echo $this->env->getExtension('routing')->getPath("student");
         echo "\">Add Account</a></li>
               
@@ -208,6 +212,6 @@ class __TwigTemplate_c9aee423b95a62b98c35939e87fc0a4afae7e21adf86b6f9814b6bce28c
 
     public function getDebugInfo()
     {
-        return array (  192 => 87,  188 => 86,  182 => 83,  178 => 82,  172 => 79,  168 => 78,  162 => 75,  158 => 74,  152 => 71,  148 => 70,  142 => 67,  138 => 66,  132 => 63,  128 => 62,  121 => 57,  118 => 56,  108 => 48,  101 => 43,  89 => 37,  83 => 34,  74 => 30,  70 => 29,  66 => 28,  62 => 27,  59 => 26,  55 => 25,  32 => 4,  29 => 3,);
+        return array (  196 => 88,  192 => 87,  186 => 84,  182 => 83,  176 => 80,  172 => 79,  166 => 76,  162 => 75,  158 => 74,  152 => 71,  148 => 70,  142 => 67,  138 => 66,  132 => 63,  128 => 62,  121 => 57,  118 => 56,  108 => 48,  101 => 43,  89 => 37,  83 => 34,  74 => 30,  70 => 29,  66 => 28,  62 => 27,  59 => 26,  55 => 25,  32 => 4,  29 => 3,);
     }
 }
