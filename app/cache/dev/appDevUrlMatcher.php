@@ -380,17 +380,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return $this->redirect($pathinfo.'/', 'finance');
                 }
 
-                return array (  '_controller' => 'uosuosBundle:Finance:index',  '_route' => 'finance',);
+                return array (  '_controller' => 'uos\\uosBundle\\Controller\\FinanceController::indexAction',  '_route' => 'finance',);
             }
 
             // finance_show
             if (preg_match('#^/finance/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'finance_show')), array (  '_controller' => 'uosuosBundle:Finance:show',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'finance_show')), array (  '_controller' => 'uos\\uosBundle\\Controller\\FinanceController::showAction',));
             }
 
             // finance_new
             if ($pathinfo === '/finance/new') {
-                return array (  '_controller' => 'uosuosBundle:Finance:new',  '_route' => 'finance_new',);
+                return array (  '_controller' => 'uos\\uosBundle\\Controller\\FinanceController::newAction',  '_route' => 'finance_new',);
             }
 
             // finance_create
@@ -400,7 +400,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     goto not_finance_create;
                 }
 
-                return array (  '_controller' => 'uosuosBundle:Finance:create',  '_route' => 'finance_create',);
+                return array (  '_controller' => 'uos\\uosBundle\\Controller\\FinanceController::createAction',  '_route' => 'finance_create',);
             }
             not_finance_create:
 
@@ -411,7 +411,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             // finance_edit
             if (preg_match('#^/finance/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'finance_edit')), array (  '_controller' => 'uosuosBundle:Finance:edit',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'finance_edit')), array (  '_controller' => 'uos\\uosBundle\\Controller\\FinanceController::editAction',));
             }
 
             // finance_update
@@ -421,7 +421,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     goto not_finance_update;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'finance_update')), array (  '_controller' => 'uosuosBundle:Finance:update',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'finance_update')), array (  '_controller' => 'uos\\uosBundle\\Controller\\FinanceController::updateAction',));
             }
             not_finance_update:
 
@@ -432,7 +432,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     goto not_finance_delete;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'finance_delete')), array (  '_controller' => 'uosuosBundle:Finance:delete',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'finance_delete')), array (  '_controller' => 'uos\\uosBundle\\Controller\\FinanceController::deleteAction',));
             }
             not_finance_delete:
 
