@@ -3,7 +3,6 @@
 {% block container -%}
 <div class="span6">
     <div class="containerHome" >
-        
         <h1>Rooms Available</h1>
         <script src="assets/js/jquery.tablesorter.min.js"></script>
         <script >
@@ -31,7 +30,7 @@
                     
                 <ul>
                     <li class="nav-header">
-                        <a href="{{ path('saveOccupy', { 'room_id': entity.room_id,'hall_id': entity.hall_id,'student':student}) }}">Choose</a>
+                        <a href="{{ path('saveOccupy', { 'room_id': entity.room_id,'hall_id': entity.hall_id,'student':student }) }}">Choose</a>
                     </li>
                     {{student}}
                 </ul>
@@ -40,8 +39,14 @@
         {% endfor %}
                 </tbody>
             </table>
-        
-            
+
+            <ul>
+                <li class="nav-header">
+                    <a href="{{ path('room_new') }}">
+
+                    </a>
+                </li>
+            </ul>
     {% endblock %}
 {%block sideMenu %}
 
@@ -72,9 +77,9 @@
                 <li><a href="{{ path('student')}}">Positions</a></li>
                 <li><a href="{{ path('student')}}">Add Position</a></li>
 
-                <li class="nav-header">UOS Accounts </li>
-                <li><a href="{{ path('student')}}">Account Details</a></li>
-                <li><a href="{{ path('student')}}">Add Account</a></li>
+                <li class="nav-header">UOS Finance Details </li>
+                <li><a href="{{ path('finance')}}">Finance Details</a></li>
+                <li><a href="{{ path('finance_new')}}">Make A New Payment</a></li>
 
             </ul>
 {%endblock%}

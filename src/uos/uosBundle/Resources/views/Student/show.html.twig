@@ -3,18 +3,18 @@
 <div class="span2">
     <div class="containerHome" >
         <h1>Student</h1>
-        <table class="record_properties">
+        <table class="table">
             <tbody>
                 <tr>
-                    <th>Studentid</th>
+                    <th>Student Id</th>
                     <td>{{ entity.studentid }}</td>
                 </tr>
                 <tr>
-                    <th>Firstname</th>
+                    <th>First Name</th>
                     <td>{{ entity.firstname }}</td>
                 </tr>
                 <tr>
-                    <th>Lastname</th>
+                    <th>Last Name</th>
                     <td>{{ entity.lastname }}</td>
                 </tr>
                 <tr>
@@ -22,17 +22,14 @@
                     <td>{{ entity.gender }}</td>
                 </tr>
                 <tr>
-                    <th>Deptname</th>
+                    <th>Dept Name</th>
                     <td>{{ entity.deptName }}</td>
                 </tr>
                 <tr>
                     <th>Year</th>
                     <td>{{ entity.year|date("m/d/Y") }}</td>
                 </tr>
-                <tr>
-                    <th>Id</th>
-                    <td>{{ entity.id }}</td>
-                </tr>
+                
             </tbody>
         </table>
         <ul class="record_actions">
@@ -77,9 +74,9 @@
               <li><a href="{{ path('student')}}">Positions</a></li>
               <li><a href="{{ path('student')}}">Add Position</a></li>
               
-              <li class="nav-header">UOS Accounts </li>
-              <li><a href="{{ path('student')}}">Account Details</a></li>
-              <li><a href="{{ path('student')}}">Add Account</a></li>
+            <li class="nav-header">UOS Finance Details </li>
+            <li><a href="{{ path('finance')}}">Finance Details</a></li>
+            <li><a href="{{ path('finance_new')}}">Make A New Payment</a></li>
               
             </ul>
 {%endblock%}

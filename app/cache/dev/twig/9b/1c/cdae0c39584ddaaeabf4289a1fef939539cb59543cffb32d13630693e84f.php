@@ -47,8 +47,8 @@ class __TwigTemplate_9b1ccdae0c39584ddaaeabf4289a1fef939539cb59543cffb32d1363069
                         <th>Gender </th>
                         <th>Department </th>
                         <th>Year </th>
-                        <th>Id </th>
-                        <th>Actions </th>
+                        
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -85,10 +85,7 @@ class __TwigTemplate_9b1ccdae0c39584ddaaeabf4289a1fef939539cb59543cffb32d1363069
             // line 33
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "year"), "html", null, true);
             echo "</td>
-                            <td>";
-            // line 34
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "id"), "html", null, true);
-            echo "</td>
+                            
                             <td>
                                 <ul>
                                     <li class=\"nav-header\">
@@ -220,6 +217,6 @@ class __TwigTemplate_9b1ccdae0c39584ddaaeabf4289a1fef939539cb59543cffb32d1363069
 
     public function getDebugInfo()
     {
-        return array (  204 => 88,  200 => 87,  194 => 84,  190 => 83,  184 => 80,  180 => 79,  174 => 76,  170 => 75,  164 => 72,  160 => 71,  154 => 68,  150 => 67,  144 => 64,  140 => 63,  134 => 59,  131 => 58,  121 => 51,  115 => 47,  103 => 41,  97 => 38,  90 => 34,  86 => 33,  82 => 32,  78 => 31,  74 => 30,  70 => 29,  64 => 28,  61 => 27,  57 => 26,  32 => 3,  29 => 2,);
+        return array (  201 => 88,  197 => 87,  191 => 84,  187 => 83,  181 => 80,  177 => 79,  171 => 76,  167 => 75,  161 => 72,  157 => 71,  151 => 68,  147 => 67,  141 => 64,  137 => 63,  131 => 59,  128 => 58,  118 => 51,  112 => 47,  100 => 41,  94 => 38,  86 => 33,  82 => 32,  78 => 31,  74 => 30,  70 => 29,  64 => 28,  61 => 27,  57 => 26,  32 => 3,  29 => 2,);
     }
 }

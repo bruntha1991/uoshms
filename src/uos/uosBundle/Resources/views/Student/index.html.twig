@@ -18,8 +18,8 @@
                         <th>Gender </th>
                         <th>Department </th>
                         <th>Year </th>
-                        <th>Id </th>
-                        <th>Actions </th>
+                        
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -31,7 +31,7 @@
                             <td>{{ entity.gender }}</td>
                             <td>{{ entity.deptName }}</td>
                             <td>{{ entity.year}}</td>
-                            <td>{{ entity.id }}</td>
+                            
                             <td>
                                 <ul>
                                     <li class="nav-header">
@@ -83,9 +83,9 @@
               <li><a href="{{ path('student')}}">Positions</a></li>
               <li><a href="{{ path('student')}}">Add Position</a></li>
               
-              <li class="nav-header">UOS Accounts </li>
-              <li><a href="{{ path('student')}}">Account Details</a></li>
-              <li><a href="{{ path('student')}}">Add Account</a></li>
+            <li class="nav-header">UOS Finance Details </li>
+            <li><a href="{{ path('finance')}}">Finance Details</a></li>
+            <li><a href="{{ path('finance_new')}}">Make A New Payment</a></li>
               
             </ul>
 {%endblock%}

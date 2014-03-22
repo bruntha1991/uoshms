@@ -3,56 +3,56 @@
 {% block container -%}
 <div class="span8">
     <div class="containerHome" >
-    <h1>Occupy list</h1>
-<script src="assets/js/jquery.tablesorter.min.js"></script>
+        <h1>Occupy list</h1>
+        <script src="assets/js/jquery.tablesorter.min.js"></script>
         <script >
             $(function() {
                 $("table#sortTableExample").tablesorter({sortList: [[1, 0]]});
             });
-        </script>
-        
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Student ID</th>
-                <th>Hall Name</th>
-                <th>Room No</th>
-                <th>Id</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+            </script>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Hall Name</th>
+                        <th>Room No</th>
+                        <th>Id</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
         {% for entity in entities %}
-            <tr>
-                <td>{{ entity.student}}</td>
-                <td>{{ entity.hall}}</td>
-                <td>{{ entity.room}}</td>
-                <td><a href="{{ path('occupy_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>
+                        <tr>
+                            <td>{{ entity.student}}</td>
+                            <td>{{ entity.hall}}</td>
+                            <td>{{ entity.room}}</td>
+                            <td><a href="{{ path('occupy_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                            <td>
+                                <ul>
+                                    <li class="nav-header">
+                                        <a href="{{ path('occupy_show', { 'id': entity.id }) }}">show</a>
+                                    </li>
+                                    <li class="nav-header">
+                                        <a href="{{ path('occupy_edit', { 'id': entity.id }) }}">edit</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+        {% endfor %}
+                    </tbody>
+                </table>
+
                 <ul>
-                    <li class="nav-header">
-                        <a href="{{ path('occupy_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li class="nav-header">
-                        <a href="{{ path('occupy_edit', { 'id': entity.id }) }}">edit</a>
+                    <li>
+                        <a href="{{ path('occupy_new') }}">
+                            Create a new entry
+                        </a>
                     </li>
                 </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('occupy_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
     {% endblock %}
 
-        
+
 {%block sideMenu %}
         
 <ul class="nav nav-list">

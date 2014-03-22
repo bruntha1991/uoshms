@@ -123,14 +123,15 @@ class __TwigTemplate_fb5e1d72c0e08e3fc9a59e699067d149703bb8d2a8b6b92f0bb81118339
         echo $this->env->getExtension('routing')->getPath("student");
         echo "\">Add Position</a></li>
 
+
             <li class=\"nav-header\">UOS Accounts </li>
             <li><a href=\"";
-        // line 50
-        echo $this->env->getExtension('routing')->getPath("student");
+        // line 51
+        echo $this->env->getExtension('routing')->getPath("finance");
         echo "\">Account Details</a></li>
             <li><a href=\"";
-        // line 51
-        echo $this->env->getExtension('routing')->getPath("student");
+        // line 52
+        echo $this->env->getExtension('routing')->getPath("finance_new");
         echo "\">Add Account</a></li>
 
         </ul>
@@ -149,6 +150,6 @@ class __TwigTemplate_fb5e1d72c0e08e3fc9a59e699067d149703bb8d2a8b6b92f0bb81118339
 
     public function getDebugInfo()
     {
-        return array (  133 => 51,  129 => 50,  123 => 47,  119 => 46,  113 => 43,  109 => 42,  103 => 39,  99 => 38,  93 => 35,  89 => 34,  83 => 31,  79 => 30,  73 => 27,  69 => 26,  62 => 21,  59 => 20,  52 => 16,  45 => 12,  38 => 8,  32 => 4,  29 => 3,);
+        return array (  134 => 52,  130 => 51,  123 => 47,  119 => 46,  113 => 43,  109 => 42,  103 => 39,  99 => 38,  93 => 35,  89 => 34,  83 => 31,  79 => 30,  73 => 27,  69 => 26,  62 => 21,  59 => 20,  52 => 16,  45 => 12,  38 => 8,  32 => 4,  29 => 3,);
     }
 }
