@@ -51,3 +51,6 @@ uosuosBundle_users:
         resource: "@uosuosBundle/Resources/config/routing/users.yml"
         prefix:   /users
 
+uosuos_student_finance:
+    pattern:  /student_finance
+    defaults: { _controller: uosuosBundle:Default:student_finance }
