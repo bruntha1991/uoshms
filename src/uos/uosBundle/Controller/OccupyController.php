@@ -45,38 +45,7 @@ class OccupyController extends Controller {
         $form->handleRequest($request);
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            /*           $hall = $em->getRepository('uosuosBundle:Hall')->find($entity->getHall());
-              $genderH =$hall->getGender();
-              $student = $em->getRepository('uosuosBundle:Student')->find($entity->getStudent());
-              $genderS =$student->getGender();
-              if($genderH == $genderS)
-              {
-              if(($form->get('type')->getData())=='Single')
-              {
-              $typeN='1';
-              }
-              else
-              {
-              $typeN='2';
-              }
-              //           $isEmpty = $em->getRepository('uosuosBundle:Occupy')->findOneBy(array('hall' => $username, 'room' => $password));
-              $rsm = new ResultSetMapping;
-              $rsm->addEntityResult('uos\uosBundle\Entity\Room', 'r');
-              $rsm->addFieldResult('r', 'id', 'id');
-              $rsm->addFieldResult('r', 'roomNo', 'roomno');
-              $rsm->addFieldResult('r', 'type', 'type');
-              $rsm->addFieldResult('r', 'monthlyCost', 'monthlycost');
-              //          $rsm->addFieldResult('r', 'hall', 'hallname');
-              $query = $em->createNativeQuery('select id,roomNo,type,monthlyCost,hallname
-              from hall inner join((select roomNo,type,monthlyCost,room.hall_id
-              from room inner join ( (
-              select hall_id,room_id, count(student_id) as count
-              from occupy
-              group by hall_id,room_id) as J) on (room.hall_id,room.id)=(J.hall_id,J.room_id)
-              where J.count <type) as F) on hall.id=F.hall_id', $rsm);
-              //          $query->setParameter(1,$typeN );
-              $users = $query->getResult();
-             */
+            
             $hall = $em->getRepository('uosuosBundle:Hall')->find($entity->getHall());
             $hallname = $hall->getHallname();
             if (($form->get('type')->getData()) == 'Single') {
@@ -127,45 +96,7 @@ class OccupyController extends Controller {
         ));
     }
 
-    /*
-      public function saveOccupyAction($room_id,$hall_id,$student_id){
-
-      $occupy=new Occupy();
-      $em = $this->getDoctrine()->getManager();
-
-      //      $student =new Student();
-      //    $hall =new Hall();
-      //  $room=new Room();
-
-      $student = $em->getRepository('uosuosBundle:Student')->find($student_id);
-      $hall = $em->getRepository('uosuosBundle:Hall')->find($hall_id);
-      $room = $em->getRepository('uosuosBundle:Room')->find($room_id);
-
-      $occupy->setStudent($student);
-      $occupy->setHall($hall);
-      $occupy->setRoom($room);
-
-      $em->persist($occupy);
-      $em->flush();
-
-
-      return $this->render('uosuosBundle:Occupy:new.html.twig', array(
-      'entity' => $entity,
-      'form' => $form->createView(),
-      ));
-      }
-
-
-
-     */
-
-    /**
-     * Creates a form to create a Occupy entity.
-     *
-     * @param Occupy $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
+   
     private function createCreateForm(Occupy $entity) {
         $session = $this->get("session");
         $form = $this->createForm(new OccupyType(), $entity, array(
@@ -200,7 +131,12 @@ class OccupyController extends Controller {
          $occupychk = $em->getRepository('uosuosBundle:Occupy')->findOneBy(array('hall' => $hall, 'roomn' => $room, 'student' => $student));
 
         if ($occupychk) {
-            return $this->render('uosuosBundle:Occupy:new.html.twig', array('entity' => $entity, 'form' => $form->createView(), 'error' => 'Already checked in'));
+            return $this->render('uosuosBundle:Occupy:new.html.twig', array('entity' => $entity, 
+                'name' => $session->get('name'),
+                    'u_id' => $session->get('id'),
+                    'role' => $session->get('role'),
+                    'stud_emp_id' => $session->get('stud_emp_id'),
+                'form' => $form->createView(), 'error' => 'Already checked in'));
         } else {
             $em->persist($occupy);
 
@@ -400,7 +336,11 @@ class OccupyController extends Controller {
                                 'role' => $session->get('role'),
                                 'stud_emp_id' => $session->get('stud_emp_id'))));
         }
-        return $this->render('uosuosBundle:Occupy:checkOutStudent.html.twig');
+        return $this->render('uosuosBundle:Occupy:checkOutStudent.html.twig',array(
+                                'name' => $session->get('name'),
+                                'u_id' => $session->get('id'),
+                                'role' => $session->get('role'),
+                                'stud_emp_id' => $session->get('stud_emp_id')));
     }
 
     /**

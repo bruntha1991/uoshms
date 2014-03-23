@@ -92,6 +92,10 @@ class DefaultController extends Controller {
                 } else if ($user->getEmployee() != null) {
                     $stud_emp_id = $user->getEmployee()->getId();
                 }
+                else
+                {
+                    $stud_emp_id='br';
+                }
                 /*                   $login = new Login();
                   $login->setUsername($user_id);
                   $login->setPassword($password);
