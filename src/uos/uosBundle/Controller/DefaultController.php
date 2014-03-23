@@ -191,5 +191,21 @@ class DefaultController extends Controller {
                     'entities' => $entities, 'hallname' => $hallname,
         ));
     }
+    
+    public function student_financeAction(Request $request) {
+
+        $studentid= $request->get('studentid');
+        
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('uosuosBundle:Finance')->findAll();
+        if(!$entities){
+            throw $this->createNotFoundException('Unable to find entity.');
+        }
+
+        return $this->render('uosuosBundle:Finance:index_student.html.twig', array(
+                    'entities' => $entities, 'studentid' => $studentid,
+        ));
+    }
 
 }

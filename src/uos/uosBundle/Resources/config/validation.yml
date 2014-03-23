@@ -1,0 +1,7 @@
+parameters:
+#    uosuos.example.class: uos\uosBundle\Example
+
+services:
+#    uosuos.example:
+#        class: %uosuos.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

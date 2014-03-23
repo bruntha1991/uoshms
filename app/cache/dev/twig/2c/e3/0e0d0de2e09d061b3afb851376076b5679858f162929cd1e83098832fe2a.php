@@ -43,10 +43,10 @@ class __TwigTemplate_2ce30e0d0de2e09d061b3afb851376076b5679858f162929cd1e8309883
         echo "</td>
                 </tr>
                 <tr>
-                    <th>Room Rent </th>
+                    <th>Amount Before transfer </th>
                     <td>";
         // line 16
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "balance"), "html", null, true);
+        echo twig_escape_filter($this->env, ($this->getAttribute($this->getContext($context, "entity"), "balance") + $this->getAttribute($this->getContext($context, "entity"), "transferred")), "html", null, true);
         echo "</td>
                 </tr>
                 <tr>
@@ -60,7 +60,7 @@ class __TwigTemplate_2ce30e0d0de2e09d061b3afb851376076b5679858f162929cd1e8309883
                     <th>Balance Payment</th>
                     <td>";
         // line 24
-        echo twig_escape_filter($this->env, ($this->getAttribute($this->getContext($context, "entity"), "balance") - $this->getAttribute($this->getContext($context, "entity"), "transferred")), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "balance"), "html", null, true);
         echo "</td>
                 </tr>
 

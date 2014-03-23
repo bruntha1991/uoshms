@@ -12,8 +12,8 @@
                     <td>{{ entity.student }}</td>
                 </tr>
                 <tr>
-                    <th>Room Rent </th>
-                    <td>{{ entity.balance }}</td>
+                    <th>Amount Before transfer </th>
+                    <td>{{ entity.balance + entity.transferred}}</td>
                 </tr>
                 <tr>
                     <th>Amount Transferred</th>
@@ -21,7 +21,7 @@
                 </tr>
                 <tr>
                     <th>Balance Payment</th>
-                    <td>{{ entity.balance - entity.transferred }}</td>
+                    <td>{{ entity.balance }}</td>
                 </tr>
 
                 <tr>
