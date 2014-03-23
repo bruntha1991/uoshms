@@ -18,13 +18,18 @@ class RoomController extends Controller {
      *
      */
     public function indexAction() {
+        $session = $this->get("session");
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('uosuosBundle:Room')->findAll();
 
         return $this->render('uosuosBundle:Room:index.html.twig', array(
-                    'entities' => $entities
-                ));
+                    'entities' => $entities,
+                    'name' => $session->get('name'),
+                    'u_id' => $session->get('id'),
+                    'role' => $session->get('role'),
+                    'stud_emp_id' => $session->get('stud_emp_id'),
+        ));
     }
 
     /**
@@ -32,6 +37,7 @@ class RoomController extends Controller {
      *
      */
     public function createAction(Request $request) {
+        $session = $this->get("session");
         $entity = new Room();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
@@ -45,19 +51,32 @@ class RoomController extends Controller {
             $room = $repository->findOneBy(array('hall' => $entity->getHall(), 'roomno' => $entity->getRoomno()));
 
             if ($room) {
-                return $this->render('uosuosBundle:Room:new.html.twig', array('entity' => $entity, 'form' => $form->createView(), 'error' => 'Room already exist.'));
+                return $this->render('uosuosBundle:Room:new.html.twig', array('entity' => $entity,
+                            'name' => $session->get('name'),
+                            'u_id' => $session->get('id'),
+                            'role' => $session->get('role'),
+                            'stud_emp_id' => $session->get('stud_emp_id'),
+                            'form' => $form->createView(), 'error' => 'Room already exist.'));
             } else {
                 $em->persist($entity);
                 $em->flush();
 
-                return $this->redirect($this->generateUrl('room_show', array('id' => $entity->getId())));
+                return $this->redirect($this->generateUrl('room_show', array('id' => $entity->getId(),
+                                    'name' => $session->get('name'),
+                                    'u_id' => $session->get('id'),
+                                    'role' => $session->get('role'),
+                                    'stud_emp_id' => $session->get('stud_emp_id'),)));
             }
         }
 
         return $this->render('uosuosBundle:Room:new.html.twig', array(
                     'entity' => $entity,
                     'form' => $form->createView(),
-                ));
+                    'name' => $session->get('name'),
+                    'u_id' => $session->get('id'),
+                    'role' => $session->get('role'),
+                    'stud_emp_id' => $session->get('stud_emp_id'),
+        ));
     }
 
     /**
@@ -68,10 +87,15 @@ class RoomController extends Controller {
      * @return \Symfony\Component\Form\Form The form
      */
     private function createCreateForm(Room $entity) {
+        $session = $this->get("session");
         $form = $this->createForm(new RoomType(), $entity, array(
-            'action' => $this->generateUrl('room_create'),
+            'action' => $this->generateUrl('room_create', array(
+                'name' => $session->get('name'),
+                'u_id' => $session->get('id'),
+                'role' => $session->get('role'),
+                'stud_emp_id' => $session->get('stud_emp_id'))),
             'method' => 'POST',
-                ));
+        ));
 
         $form->add('submit', 'submit', array('label' => 'Create'));
 
@@ -83,13 +107,18 @@ class RoomController extends Controller {
      *
      */
     public function newAction() {
+        $session = $this->get("session");
         $entity = new Room();
         $form = $this->createCreateForm($entity);
 
         return $this->render('uosuosBundle:Room:new.html.twig', array(
                     'entity' => $entity,
                     'form' => $form->createView(),
-                ));
+                    'name' => $session->get('name'),
+                    'u_id' => $session->get('id'),
+                    'role' => $session->get('role'),
+                    'stud_emp_id' => $session->get('stud_emp_id'),
+        ));
     }
 
     /**
@@ -97,6 +126,7 @@ class RoomController extends Controller {
      *
      */
     public function showAction($id) {
+        $session = $this->get("session");
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('uosuosBundle:Room')->find($id);
@@ -109,7 +139,11 @@ class RoomController extends Controller {
 
         return $this->render('uosuosBundle:Room:show.html.twig', array(
                     'entity' => $entity,
-                    'delete_form' => $deleteForm->createView(),));
+                    'delete_form' => $deleteForm->createView(),
+                    'name' => $session->get('name'),
+                    'u_id' => $session->get('id'),
+                    'role' => $session->get('role'),
+                    'stud_emp_id' => $session->get('stud_emp_id'),));
     }
 
     /**
@@ -117,6 +151,7 @@ class RoomController extends Controller {
      *
      */
     public function editAction($id) {
+        $session = $this->get("session");
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('uosuosBundle:Room')->find($id);
@@ -132,7 +167,11 @@ class RoomController extends Controller {
                     'entity' => $entity,
                     'edit_form' => $editForm->createView(),
                     'delete_form' => $deleteForm->createView(),
-                ));
+                    'name' => $session->get('name'),
+                    'u_id' => $session->get('id'),
+                    'role' => $session->get('role'),
+                    'stud_emp_id' => $session->get('stud_emp_id'),
+        ));
     }
 
     /**
@@ -143,10 +182,15 @@ class RoomController extends Controller {
      * @return \Symfony\Component\Form\Form The form
      */
     private function createEditForm(Room $entity) {
+        $session = $this->get("session");
         $form = $this->createForm(new RoomType(), $entity, array(
             'action' => $this->generateUrl('room_update', array('id' => $entity->getId())),
             'method' => 'PUT',
-                ));
+            'name' => $session->get('name'),
+            'u_id' => $session->get('id'),
+            'role' => $session->get('role'),
+            'stud_emp_id' => $session->get('stud_emp_id'),
+        ));
 
         $form->add('submit', 'submit', array('label' => 'Update'));
 
@@ -158,6 +202,7 @@ class RoomController extends Controller {
      *
      */
     public function updateAction(Request $request, $id) {
+        $session = $this->get("session");
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('uosuosBundle:Room')->find($id);
@@ -173,14 +218,22 @@ class RoomController extends Controller {
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('room_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('room_edit', array('id' => $id,
+                                'name' => $session->get('name'),
+                                'u_id' => $session->get('id'),
+                                'role' => $session->get('role'),
+                                'stud_emp_id' => $session->get('stud_emp_id'),)));
         }
 
         return $this->render('uosuosBundle:Room:edit.html.twig', array(
                     'entity' => $entity,
                     'edit_form' => $editForm->createView(),
                     'delete_form' => $deleteForm->createView(),
-                ));
+                    'name' => $session->get('name'),
+                    'u_id' => $session->get('id'),
+                    'role' => $session->get('role'),
+                    'stud_emp_id' => $session->get('stud_emp_id'),
+        ));
     }
 
     /**
@@ -188,6 +241,7 @@ class RoomController extends Controller {
      *
      */
     public function deleteAction(Request $request, $id) {
+        $session = $this->get("session");
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
@@ -203,7 +257,11 @@ class RoomController extends Controller {
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('room'));
+        return $this->redirect($this->generateUrl('room', array(
+                            'name' => $session->get('name'),
+                            'u_id' => $session->get('id'),
+                            'role' => $session->get('role'),
+                            'stud_emp_id' => $session->get('stud_emp_id'))));
     }
 
     /**
@@ -214,8 +272,12 @@ class RoomController extends Controller {
      * @return \Symfony\Component\Form\Form The form
      */
     private function createDeleteForm($id) {
+        $session = $this->get("session");
         return $this->createFormBuilder()
-                        ->setAction($this->generateUrl('room_delete', array('id' => $id)))
+                        ->setAction($this->generateUrl('room_delete', array('id' => $id, 'name' => $session->get('name'),
+                                    'u_id' => $session->get('id'),
+                                    'role' => $session->get('role'),
+                                    'stud_emp_id' => $session->get('stud_emp_id'),)))
                         ->setMethod('DELETE')
                         ->add('submit', 'submit', array('label' => 'Delete'))
                         ->getForm()

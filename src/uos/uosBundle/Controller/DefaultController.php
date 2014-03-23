@@ -169,6 +169,7 @@ class DefaultController extends Controller {
      */
 
     private function createEditForm(Student $entity) {
+        $session  = $this->get("session");
         $form = $this->createForm(new StudentType(), $entity, array(
             'action' => $this->generateUrl('student_update', array('id' => $entity->getId())),
             'method' => 'PUT',
@@ -185,12 +186,13 @@ class DefaultController extends Controller {
         
         return $this->redirect($this->generateUrl('users_show', array(
             'name' => $session->get('name'),
-            'id'=>$session->get('id'),
+            'u_id' => $session->get('id'),
             'role'=>$session->get('role'),
-            'stud_emp_id'=>$session->get('stud_emp_id'),)));
+            'stud_emp_id'=>$session->get('stud_emp_id'))));
     }
     
     public function hall_roomAction(Request $request) {
+        $session  = $this->get("session");
 
         $hallname = $request->get('hallname');
 
@@ -204,6 +206,7 @@ class DefaultController extends Controller {
     }
     
     public function student_financeAction(Request $request) {
+        $session  = $this->get("session");
 
         $studentid= $request->get('studentid');
         

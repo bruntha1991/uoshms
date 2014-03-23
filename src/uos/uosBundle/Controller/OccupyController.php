@@ -19,12 +19,17 @@ class OccupyController extends Controller {
      *
      */
     public function indexAction() {
+        $session  = $this->get("session");
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('uosuosBundle:Occupy')->findAll();
 
         return $this->render('uosuosBundle:Occupy:index.html.twig', array(
                     'entities' => $entities,
+            'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),
                 ));
     }
 
@@ -33,6 +38,7 @@ class OccupyController extends Controller {
      *
      */
     public function createAction(Request $request) {
+        $session  = $this->get("session");
         $entity = new Occupy();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
@@ -103,12 +109,20 @@ class OccupyController extends Controller {
 
 
             return $this->render('uosuosBundle:Occupy:roomsearch.html.twig', array(
-                        'entities' => $users, 'student' => $student->getId()
+                        'entities' => $users, 'student' => $student->getId(),
+                'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),
                     ));
         }
         return $this->render('uosuosBundle:Occupy:new.html.twig', array(
                     'entity' => $entity,
                     'form' => $form->createView(),
+            'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),
                 ));
     }
 
@@ -152,9 +166,14 @@ class OccupyController extends Controller {
      * @return \Symfony\Component\Form\Form The form
      */
     private function createCreateForm(Occupy $entity) {
+        $session  = $this->get("session");
         $form = $this->createForm(new OccupyType(), $entity, array(
             'action' => $this->generateUrl('occupy_create'),
             'method' => 'POST',
+            'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),
                 ));
 
         $form->add('submit', 'submit', array('label' => 'Search'));
@@ -163,6 +182,7 @@ class OccupyController extends Controller {
     }
 
     public function saveOccupyAction(Request $entity) {
+        $session  = $this->get("session");
         $em = $this->getDoctrine()->getManager();
         //$hall = new Hall();
         $hall = $em->getRepository('uosuosBundle:Hall')->find($entity->get('hall_id'));
@@ -190,7 +210,11 @@ class OccupyController extends Controller {
         $finance->setTransferred('0');
         $em->persist($finance);
         $em->flush();
-        return $this->redirect($this->generateUrl('occupy'));
+        return $this->redirect($this->generateUrl('occupy',array(
+            'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'))));
     }
 
     /**
@@ -198,12 +222,17 @@ class OccupyController extends Controller {
      *
      */
     public function newAction() {
+        $session  = $this->get("session");
         $entity = new Occupy();
         $form = $this->createCreateForm($entity);
 
         return $this->render('uosuosBundle:Occupy:new.html.twig', array(
                     'entity' => $entity,
                     'form' => $form->createView(),
+            'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),
                 ));
     }
 
@@ -212,6 +241,7 @@ class OccupyController extends Controller {
      *
      */
     public function showAction($id) {
+        $session  = $this->get("session");
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('uosuosBundle:Occupy')->find($id);
@@ -224,7 +254,11 @@ class OccupyController extends Controller {
 
         return $this->render('uosuosBundle:Occupy:show.html.twig', array(
                     'entity' => $entity,
-                    'delete_form' => $deleteForm->createView(),));
+                    'delete_form' => $deleteForm->createView(),
+            'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),));
     }
 
     /**
@@ -232,6 +266,7 @@ class OccupyController extends Controller {
      *
      */
     public function editAction($id) {
+        $session  = $this->get("session");
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('uosuosBundle:Occupy')->find($id);
@@ -247,6 +282,10 @@ class OccupyController extends Controller {
                     'entity' => $entity,
                     'edit_form' => $editForm->createView(),
                     'delete_form' => $deleteForm->createView(),
+            'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),
                 ));
     }
 
@@ -258,9 +297,14 @@ class OccupyController extends Controller {
      * @return \Symfony\Component\Form\Form The form
      */
     private function createEditForm(Occupy $entity) {
+        $session  = $this->get("session");
         $form = $this->createForm(new OccupyType(), $entity, array(
             'action' => $this->generateUrl('occupy_update', array('id' => $entity->getId())),
             'method' => 'PUT',
+            'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),
                 ));
 
         $form->add('submit', 'submit', array('label' => 'Update'));
@@ -273,6 +317,7 @@ class OccupyController extends Controller {
      *
      */
     public function updateAction($id) {
+        $session  = $this->get("session");
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('uosuosBundle:Occupy')->find($id);
@@ -288,13 +333,21 @@ class OccupyController extends Controller {
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('occupy_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('occupy_edit', array('id' => $id,
+                'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),)));
         }
 
         return $this->render('uosuosBundle:Occupy:edit.html.twig', array(
                     'entity' => $entity,
                     'edit_form' => $editForm->createView(),
                     'delete_form' => $deleteForm->createView(),
+            'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),
                 ));
     }
 
@@ -303,6 +356,7 @@ class OccupyController extends Controller {
      *
      */
     public function deleteAction($id) {
+        $session  = $this->get("session");
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
@@ -318,10 +372,15 @@ class OccupyController extends Controller {
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('occupy'));
+        return $this->redirect($this->generateUrl('occupy',array(
+            'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'))));
     }
 
     public function checkOutAction(Request $request) {
+        $session  = $this->get("session");
         if ($request->getMethod() == 'POST') {
 //            $form = $this->createDeleteForm($id);
 //            $form->handleRequest($request);
@@ -340,7 +399,11 @@ class OccupyController extends Controller {
 
             $em->remove($entity);
             $em->flush();
-        return $this->redirect($this->generateUrl('occupy'));
+        return $this->redirect($this->generateUrl('occupy',array(
+            'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'))));
         }
          return $this->render('uosuosBundle:Occupy:checkOutStudent.html.twig');
     }
@@ -353,8 +416,13 @@ class OccupyController extends Controller {
      * @return \Symfony\Component\Form\Form The form
      */
     private function createDeleteForm($id) {
+        $session  = $this->get("session");
         return $this->createFormBuilder()
-                        ->setAction($this->generateUrl('occupy_delete', array('id' => $id)))
+                        ->setAction($this->generateUrl('occupy_delete', array('id' => $id,
+                            'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),)))
                         ->setMethod('DELETE')
                         ->add('submit', 'submit', array('label' => 'Delete'))
                         ->getForm()

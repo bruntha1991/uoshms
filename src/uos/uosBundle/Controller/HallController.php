@@ -20,6 +20,7 @@ class HallController extends Controller
      */
     public function indexAction()
     {
+        $session  = $this->get("session");
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('uosuosBundle:Hall')->findAll();
@@ -34,6 +35,7 @@ class HallController extends Controller
      */
     public function createAction(Request $request)
     {
+        $session  = $this->get("session");
         $entity = new Hall();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
@@ -74,6 +76,7 @@ class HallController extends Controller
     */
     private function createCreateForm(Hall $entity)
     {
+        $session  = $this->get("session");
         $form = $this->createForm(new HallType(), $entity, array(
             'action' => $this->generateUrl('hall_create'),
             'method' => 'POST',
@@ -90,6 +93,7 @@ class HallController extends Controller
      */
     public function newAction()
     {
+        $session  = $this->get("session");
         $entity = new Hall();
         $form   = $this->createCreateForm($entity);
 
@@ -105,6 +109,7 @@ class HallController extends Controller
      */
     public function showAction($id)
     {
+        $session  = $this->get("session");
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('uosuosBundle:Hall')->find($id);
@@ -126,6 +131,7 @@ class HallController extends Controller
      */
     public function editAction($id)
     {
+        $session  = $this->get("session");
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('uosuosBundle:Hall')->find($id);
@@ -153,6 +159,7 @@ class HallController extends Controller
     */
     private function createEditForm(Hall $entity)
     {
+        $session  = $this->get("session");
         $form = $this->createForm(new HallType(), $entity, array(
             'action' => $this->generateUrl('hall_update', array('id' => $entity->getId())),
             'method' => 'PUT',
@@ -168,6 +175,7 @@ class HallController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
+        $session  = $this->get("session");
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('uosuosBundle:Hall')->find($id);
@@ -198,6 +206,7 @@ class HallController extends Controller
      */
     public function deleteAction(Request $request, $id)
     {
+        $session  = $this->get("session");
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
@@ -225,6 +234,7 @@ class HallController extends Controller
      */
     private function createDeleteForm($id)
     {
+        $session  = $this->get("session");
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('hall_delete', array('id' => $id)))
             ->setMethod('DELETE')
