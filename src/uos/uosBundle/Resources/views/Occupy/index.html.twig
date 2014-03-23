@@ -17,6 +17,7 @@
                         <th>Student ID</th>
                         <th>Hall Name</th>
                         <th>Room No</th>
+                        <th>Notice</th>                            
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -26,6 +27,7 @@
                             <td>{{ entity.student}}</td>
                             <td>{{ entity.hall}}</td>
                             <td>{{ entity.room}}</td>
+                            <td> {%if (entity.date)|date('Y-m-d')<" -360 days"|date("Y-m-d")%}<font color="RED"> Check IN Period Expired{%endif%}</td>
                             <td>
                                 <ul>
                                     <li class="nav-header">
