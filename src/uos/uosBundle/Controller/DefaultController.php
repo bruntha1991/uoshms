@@ -81,12 +81,20 @@ class DefaultController extends Controller {
             $password = $request->get('password');
 
             $user = $repository->findOneBy(array('user' => $user_id, 'password' => $password));
+       
+            if($user->getStudent()!=null)
+            {
+                $stud_emp_id=$user->getStudent()->getId();
+            }
+            else if ($user->getEmployee()!=null)
+            {
+                $stud_emp_id=$user->getEmployee()->getId();
+            }
             
-            $student_id=$user->getStudent()->getId();
-            $employee_id=$user->getEmployee()->getId();
+//            
             if ($user) {
                 return $this->render('uosuosBundle:Default:home.html.twig', array('name' => $user->getFirstname(), 
-                    'id' => $user->getId(), 'role' => $user->getRole(),'student_id'=>$student_id,'employee_id'=>$employee_id));
+                    'id' => $user->getId(), 'role' => $user->getRole(),'stud_emp_id'=>$stud_emp_id));
             } else {
                 return $this->render('uosuosBundle:Default:uos.html.twig', array('error' => 'Login Error'));
             }

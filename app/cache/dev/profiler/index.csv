@@ -1647,3 +1647,13 @@ ae0f6d,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/edit_info?id=3,1395
 3e2d77,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/users/new,1395523417,
 ec36e1,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/users/new,1395523514,
 196d76,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/users/new,1395523546,
+8717f0,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/uos,1395545158,
+abebfd,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/uos,1395545367,
+dbb1ad,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/uos,1395545620,
+2e76b4,127.0.0.1,POST,http://127.0.0.1/uoshms/web/app_dev.php/uos,1395545636,
+872102,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/uos,1395545755,
+27335b,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/uos,1395545769,52d77c
+52d77c,127.0.0.1,POST,http://127.0.0.1/uoshms/web/app_dev.php/uos,1395545769,
+4d29b3,127.0.0.1,GET,http://127.0.0.1/uoshms/web/app_dev.php/uos,1395545877,7516b2
+7516b2,127.0.0.1,POST,http://127.0.0.1/uoshms/web/app_dev.php/uos,1395545877,
+0293b8,127.0.0.1,POST,http://127.0.0.1/uoshms/web/app_dev.php/uos,1395545922,

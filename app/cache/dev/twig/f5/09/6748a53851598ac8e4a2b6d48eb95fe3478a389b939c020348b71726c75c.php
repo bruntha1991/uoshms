@@ -149,7 +149,7 @@ class __TwigTemplate_f5096748a53851598ac8e4a2b6d48eb95fe3478a389b939c020348b7172
             echo "   
     <li><a href=\"";
             // line 54
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("student_edit", array("id" => $this->getContext($context, "student_id"))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("student_edit", array("id" => $this->getContext($context, "stud_emp_id"))), "html", null, true);
             echo "\">Edit Personal Infomation</a></li>
     <li><a href=\"";
             // line 55
@@ -163,7 +163,7 @@ class __TwigTemplate_f5096748a53851598ac8e4a2b6d48eb95fe3478a389b939c020348b7172
             echo "   
     <li><a href=\"";
             // line 58
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("student_edit", array("id" => $this->getContext($context, "student_id"))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("employee_edit", array("id" => $this->getContext($context, "stud_emp_id"))), "html", null, true);
             echo "\">Edit Personal Infomation</a></li>
  ";
         }
