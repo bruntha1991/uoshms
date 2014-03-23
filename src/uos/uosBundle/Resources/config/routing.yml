@@ -34,7 +34,11 @@ uosuosBundle_work:
 uosuos_uos:
     pattern:  /uos
     defaults: { _controller: uosuosBundle:Default:uos }
-    
+
+edit_info:
+    pattern:  /edit_info
+    defaults: { _controller: uosuosBundle:Default:edit_info }
+
 uosuos_home:
     pattern:  /home
     defaults: { _controller: uosuosBundle:Default:home }

@@ -109,7 +109,21 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
               <input class=\"span2\" name=\"user_id\" type=\"text\" placeholder=\"User ID\">
               <input class=\"span2\" name=\"password\" type=\"password\" placeholder=\"Password\">
               <button type=\"submit\" class=\"btn\">Sign in</button>
-            </form>
+              
+              ";
+        // line 71
+        if (array_key_exists("error", $context)) {
+            // line 72
+            echo "        
+              ";
+            // line 73
+            echo twig_escape_filter($this->env, $this->getContext($context, "error"), "html", null, true);
+            echo "
+
+    ";
+        }
+        // line 76
+        echo "            </form>
 
 
 
@@ -129,11 +143,11 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
         <div class=\"item active\">
             
       ";
-        // line 89
+        // line 95
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "e0c97ce_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_e0c97ce_0") : $this->env->getExtension('assets')->getAssetUrl("/images/example_slide-01_1.jpg");
-            // line 91
+            // line 97
             echo "    <img src=\"";
             echo twig_escape_filter($this->env, $this->getContext($context, "asset_url"), "html", null, true);
             echo "\" alt=\"Example\"/>
@@ -147,7 +161,7 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
 ";
         }
         unset($context["asset_url"]);
-        // line 93
+        // line 99
         echo " 
 <div class=\"container\">
             <div class=\"carousel-caption\">
@@ -159,11 +173,11 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
         </div>
         <div class=\"item\">
           ";
-        // line 103
+        // line 109
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "e8d2308_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_e8d2308_0") : $this->env->getExtension('assets')->getAssetUrl("/images/example_slide-02_1.jpg");
-            // line 105
+            // line 111
             echo "    <img src=\"";
             echo twig_escape_filter($this->env, $this->getContext($context, "asset_url"), "html", null, true);
             echo "\" alt=\"Example\"/>
@@ -177,7 +191,7 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
 ";
         }
         unset($context["asset_url"]);
-        // line 107
+        // line 113
         echo "          <div class=\"container\">
             <div class=\"carousel-caption\">
               <h1>Another example headline.</h1>
@@ -188,11 +202,11 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
         </div>
         <div class=\"item\">
           ";
-        // line 116
+        // line 122
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "b53d663_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_b53d663_0") : $this->env->getExtension('assets')->getAssetUrl("/images/example_slide-03_1.jpg");
-            // line 118
+            // line 124
             echo "    <img src=\"";
             echo twig_escape_filter($this->env, $this->getContext($context, "asset_url"), "html", null, true);
             echo "\" alt=\"Example\"/>
@@ -206,7 +220,7 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
 ";
         }
         unset($context["asset_url"]);
-        // line 120
+        // line 126
         echo "          <div class=\"container\">
             <div class=\"carousel-caption\">
               <h1>One more for good measure.</h1>
@@ -263,55 +277,55 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src=\"";
-        // line 175
+        // line 181
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/jquery.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 176
+        // line 182
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-transition.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 177
+        // line 183
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-alert.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 178
+        // line 184
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-modal.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 179
+        // line 185
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-dropdown.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 180
+        // line 186
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-scrollspy.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 181
+        // line 187
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-tab.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 182
+        // line 188
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-tooltip.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 183
+        // line 189
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-popover.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 184
+        // line 190
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-button.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 185
+        // line 191
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-collapse.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 186
+        // line 192
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-carousel.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 187
+        // line 193
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-typeahead.js"), "html", null, true);
         echo "\"></script>
 
@@ -332,6 +346,6 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
 
     public function getDebugInfo()
     {
-        return array (  315 => 187,  311 => 186,  307 => 185,  303 => 184,  299 => 183,  295 => 182,  291 => 181,  287 => 180,  283 => 179,  279 => 178,  275 => 177,  271 => 176,  267 => 175,  210 => 120,  196 => 118,  192 => 116,  181 => 107,  167 => 105,  163 => 103,  151 => 93,  137 => 91,  133 => 89,  107 => 66,  68 => 30,  64 => 29,  60 => 28,  56 => 27,  52 => 26,  41 => 18,  31 => 11,  19 => 1,);
+        return array (  329 => 193,  325 => 192,  321 => 191,  317 => 190,  313 => 189,  309 => 188,  305 => 187,  301 => 186,  297 => 185,  293 => 184,  289 => 183,  285 => 182,  281 => 181,  224 => 126,  210 => 124,  206 => 122,  195 => 113,  181 => 111,  177 => 109,  165 => 99,  151 => 97,  147 => 95,  126 => 76,  120 => 73,  117 => 72,  115 => 71,  107 => 66,  68 => 30,  64 => 29,  60 => 28,  56 => 27,  52 => 26,  41 => 18,  31 => 11,  19 => 1,);
     }
 }

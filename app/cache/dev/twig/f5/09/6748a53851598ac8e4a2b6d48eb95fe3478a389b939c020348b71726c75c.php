@@ -30,8 +30,8 @@ class __TwigTemplate_f5096748a53851598ac8e4a2b6d48eb95fe3478a389b939c020348b7172
     {
         // line 4
         echo "
-        
-        
+
+
         ";
     }
 
@@ -41,79 +41,141 @@ class __TwigTemplate_f5096748a53851598ac8e4a2b6d48eb95fe3478a389b939c020348b7172
         // line 10
         echo "
 <ul class=\"nav nav-list\">
-                <li class=\"active\" class=\"nav-header\" ><b>Home</b></li>
-              
-              <li class=\"nav-header\">UOS Halls</li>
-              <li ><a  href=\"";
-        // line 15
-        echo $this->env->getExtension('routing')->getPath("hall");
-        echo "\">View All </a></li>
-              <li ><a href=\"";
-        // line 16
-        echo $this->env->getExtension('routing')->getPath("hall_new");
-        echo "\">Add Hall</a></li>
-              
-              <li class=\"nav-header\">UOS Rooms</li>
-              <li><a href=\"";
-        // line 19
-        echo $this->env->getExtension('routing')->getPath("room");
-        echo "\">View All</a></li>
-              <li><a href=\"";
-        // line 20
-        echo $this->env->getExtension('routing')->getPath("room_new");
-        echo "\">Add Room</a></li>
-              
-              <li class=\"nav-header\">UOS Student Management </li>
-              <li><a href=\"";
-        // line 23
-        echo $this->env->getExtension('routing')->getPath("student");
-        echo "\">View All Students</a></li>
-              <li><a href=\"";
-        // line 24
-        echo $this->env->getExtension('routing')->getPath("student_new");
-        echo "\">Add Student</a></li>
-              
-              <li class=\"nav-header\">UOS Student Accomodation </li>
-              <li><a href=\"";
-        // line 27
-        echo $this->env->getExtension('routing')->getPath("student");
-        echo "\">Accomodation</a></li>
-              <li><a href=\"";
-        // line 28
-        echo $this->env->getExtension('routing')->getPath("student");
-        echo "\">Add Accomodation</a></li>
-              
-              <li class=\"nav-header\">UOS Employee Management </li>
-              <li><a href=\"";
-        // line 31
-        echo $this->env->getExtension('routing')->getPath("employee");
-        echo "\">Employee</a></li>
-              <li><a href=\"";
-        // line 32
-        echo $this->env->getExtension('routing')->getPath("employee_new");
-        echo "\">Add Employee</a></li>
-              
-              <li class=\"nav-header\">UOS Employee Positining </li>
-              <li><a href=\"";
-        // line 35
-        echo $this->env->getExtension('routing')->getPath("student");
-        echo "\">Positions</a></li>
-              <li><a href=\"";
+    <li  class=\"active\" class=\"nav-header\" ><b>Home</b></li>
+
+";
+        // line 14
+        if (($this->getContext($context, "role") == "SuperUser")) {
+            echo "     
+    <li class=\"nav-header\">UOS Halls</li>
+    <li ><a  href=\"";
+            // line 16
+            echo $this->env->getExtension('routing')->getPath("hall");
+            echo "\">View All </a></li>
+    <li ><a href=\"";
+            // line 17
+            echo $this->env->getExtension('routing')->getPath("hall_new");
+            echo "\">Add Hall</a></li>
+
+    <li class=\"nav-header\">UOS Rooms</li>
+    <li ><a href=\"";
+            // line 20
+            echo $this->env->getExtension('routing')->getPath("room");
+            echo "\">View All</a></li>
+    <li><a href=\"";
+            // line 21
+            echo $this->env->getExtension('routing')->getPath("room_new");
+            echo "\">Add Room</a></li>
+    
+    <li class=\"nav-header\">UOS Student Management </li>
+    <li ><a href=\"";
+            // line 24
+            echo $this->env->getExtension('routing')->getPath("student");
+            echo "\">View All Students</a></li>
+    <li><a href=\"";
+            // line 25
+            echo $this->env->getExtension('routing')->getPath("student_new");
+            echo "\">Add Student</a></li>
+    
+    <li class=\"nav-header\">UOS Employee Management </li>
+    <li><a href=\"";
+            // line 28
+            echo $this->env->getExtension('routing')->getPath("employee");
+            echo "\">Employee</a></li>
+    <li><a href=\"";
+            // line 29
+            echo $this->env->getExtension('routing')->getPath("employee_new");
+            echo "\">Add Employee</a></li>
+    
+    <li class=\"nav-header\">UOS Managers </li>
+    <li><a href=\"";
+            // line 32
+            echo $this->env->getExtension('routing')->getPath("employee");
+            echo "\">View Managers</a></li>
+    <li><a href=\"";
+            // line 33
+            echo $this->env->getExtension('routing')->getPath("employee_new");
+            echo "\">Add Manager</a></li>
+    
+";
+        }
         // line 36
-        echo $this->env->getExtension('routing')->getPath("student");
-        echo "\">Add Position</a></li>
-              
-              <li class=\"nav-header\">UOS Accounts </li>
-              <li><a href=\"";
-        // line 39
-        echo $this->env->getExtension('routing')->getPath("student");
-        echo "\">Account Details</a></li>
-              <li><a href=\"";
-        // line 40
-        echo $this->env->getExtension('routing')->getPath("student");
-        echo "\">Add Account</a></li>
-              
-            </ul>
+        echo "    
+";
+        // line 37
+        if (($this->getContext($context, "role") == "Manager")) {
+            // line 38
+            echo "    <li class=\"nav-header\">UOS Student Accomodation </li>
+    <li><a href=\"";
+            // line 39
+            echo $this->env->getExtension('routing')->getPath("occupy");
+            echo "\">Accomodation</a></li>
+    <li><a href=\"";
+            // line 40
+            echo $this->env->getExtension('routing')->getPath("occupy_new");
+            echo "\">Check IN</a></li>
+    <li><a href=\"";
+            // line 41
+            echo $this->env->getExtension('routing')->getPath("checkOut");
+            echo "\">Check OUT</a></li>
+
+    <li class=\"nav-header\">UOS Employee Positining </li>
+    <li><a href=\"";
+            // line 44
+            echo $this->env->getExtension('routing')->getPath("work");
+            echo "\">Positions</a></li>
+    <li><a href=\"";
+            // line 45
+            echo $this->env->getExtension('routing')->getPath("work_new");
+            echo "\">Add Position</a></li>
+
+    <li class=\"nav-header\">UOS Finance Details </li>
+    <li><a href=\"";
+            // line 48
+            echo $this->env->getExtension('routing')->getPath("finance");
+            echo "\">Finance Details</a></li>
+    <li><a href=\"";
+            // line 49
+            echo $this->env->getExtension('routing')->getPath("finance_new");
+            echo "\">Make A New Payment</a></li>
+";
+        }
+        // line 51
+        echo "    
+    <li class=\"nav-header\">User Settings </li>
+ ";
+        // line 53
+        if (($this->getContext($context, "role") == "Student")) {
+            echo "   
+    <li><a href=\"";
+            // line 54
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("student_edit", array("id" => $this->getContext($context, "stud_emp_id"))), "html", null, true);
+            echo "\">Edit Personal Infomation</a></li>
+    <li><a href=\"";
+            // line 55
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("edit_info", array("id" => $this->getContext($context, "id"))), "html", null, true);
+            echo "\">View Payment Details</a></li>
+ ";
+        }
+        // line 57
+        echo " ";
+        if (($this->getContext($context, "role") == "Employee")) {
+            echo "   
+    <li><a href=\"";
+            // line 58
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("employee_edit", array("id" => $this->getContext($context, "stud_emp_id"))), "html", null, true);
+            echo "\">Edit Personal Infomation</a></li>
+ ";
+        }
+        // line 60
+        echo "
+    <li><a href=\"";
+        // line 61
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("users_edit", array("id" => $this->getContext($context, "id"))), "html", null, true);
+        echo "\">Change Password</a></li>
+    
+    
+</ul>
 ";
     }
 
@@ -129,6 +191,6 @@ class __TwigTemplate_f5096748a53851598ac8e4a2b6d48eb95fe3478a389b939c020348b7172
 
     public function getDebugInfo()
     {
-        return array (  113 => 40,  109 => 39,  103 => 36,  99 => 35,  93 => 32,  89 => 31,  83 => 28,  79 => 27,  73 => 24,  69 => 23,  63 => 20,  59 => 19,  53 => 16,  49 => 15,  42 => 10,  39 => 9,  32 => 4,  29 => 3,);
+        return array (  174 => 61,  171 => 60,  166 => 58,  161 => 57,  156 => 55,  152 => 54,  148 => 53,  144 => 51,  139 => 49,  135 => 48,  129 => 45,  125 => 44,  119 => 41,  115 => 40,  111 => 39,  108 => 38,  106 => 37,  103 => 36,  97 => 33,  93 => 32,  87 => 29,  83 => 28,  77 => 25,  73 => 24,  67 => 21,  63 => 20,  57 => 17,  53 => 16,  48 => 14,  42 => 10,  39 => 9,  32 => 4,  29 => 3,);
     }
 }

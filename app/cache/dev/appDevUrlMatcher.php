@@ -662,6 +662,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'uos\\uosBundle\\Controller\\DefaultController::uosAction',  '_route' => 'uosuos_uos',);
         }
 
+        // edit_info
+        if ($pathinfo === '/edit_info') {
+            return array (  '_controller' => 'uos\\uosBundle\\Controller\\DefaultController::edit_infoAction',  '_route' => 'edit_info',);
+        }
+
         if (0 === strpos($pathinfo, '/h')) {
             // uosuos_home
             if ($pathinfo === '/home') {
