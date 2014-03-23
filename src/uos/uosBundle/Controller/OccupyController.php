@@ -197,21 +197,23 @@ class OccupyController extends Controller {
         $occupy->setRoom($room);
         $occupy->setStudent($student);
 
-        $em->persist($occupy);
+         $occupychk = $em->getRepository('uosuosBundle:Occupy')->findOneBy(array('hall' => $hall, 'roomn' => $room, 'student' => $student));
+
+        if ($occupychk) {
+            return $this->render('uosuosBundle:Occupy:new.html.twig', array('entity' => $entity, 'form' => $form->createView(), 'error' => 'Already checked in'));
+        } else {
+            $em->persist($occupy);
 
 
-        $bal = $room->getMonthlycost() * 12;
-        $finance = new Finance();
-        $finance->setStudent($student);
-        $finance->setBalance($bal);
-        $finance->setTransferred('0');
-        $em->persist($finance);
-        $em->flush();
-        return $this->redirect($this->generateUrl('occupy', array(
-                            'name' => $session->get('name'),
-                            'u_id' => $session->get('id'),
-                            'role' => $session->get('role'),
-                            'stud_emp_id' => $session->get('stud_emp_id'))));
+            $bal = $room->getMonthlycost() * 12;
+            $finance = new Finance();
+            $finance->setStudent($student);
+            $finance->setBalance($bal);
+            $finance->setTransferred('0');
+            $em->persist($finance);
+            $em->flush();
+        }
+        return $this->redirect($this->generateUrl('occupy'));
     }
 
     /**

@@ -65,25 +65,4 @@ return array (
       ),
     ),
   ),
-  'e8d2308' => 
-  array (
-    0 => 
-    array (
-      0 => '@uosuosBundle/Resources/public/img/slide-02.jpg',
-    ),
-    1 => 
-    array (
-      0 => 'jpegoptim',
-    ),
-    2 => 
-    array (
-      'output' => '/images/example.jpg',
-      'name' => 'e8d2308',
-      'debug' => NULL,
-      'combine' => NULL,
-      'vars' => 
-      array (
-      ),
-    ),
-  ),
 );
