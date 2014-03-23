@@ -1,7 +1,7 @@
 <?php
 
 namespace uos\uosBundle\Entity;
-
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,6 +21,7 @@ class Finance
 
     /**
      * @var float
+     *
      */
     private $transferred;
 

@@ -71,6 +71,8 @@ class FinanceController extends Controller {
 
             $em->persist($finance);
             $em->flush();
+            echo $app->getSession()->get('whatever');
+            //$this->get('session')->setFlash('notice', 'You have successfully added '.$bal.' '.$trans().' to the database!');
 
             return $this->redirect($this->generateUrl('finance'));
         }
