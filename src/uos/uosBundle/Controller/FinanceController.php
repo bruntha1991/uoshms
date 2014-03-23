@@ -114,10 +114,7 @@ class FinanceController extends Controller {
         $form = $this->createForm(new FinanceType(), $entity, array(
             'action' => $this->generateUrl('finance_create'),
             'method' => 'POST',
-            'name' => $session->get('name'),
-            'u_id' => $session->get('id'),
-            'role' => $session->get('role'),
-            'stud_emp_id' => $session->get('stud_emp_id'),
+            
         ));
 
         $form->add('submit', 'submit', array('label' => 'Create'));
@@ -209,10 +206,7 @@ class FinanceController extends Controller {
         $form = $this->createForm(new FinanceType(), $entity, array(
             'action' => $this->generateUrl('finance_update', array('id' => $entity->getId())),
             'method' => 'PUT',
-            'name' => $session->get('name'),
-            'u_id' => $session->get('id'),
-            'role' => $session->get('role'),
-            'stud_emp_id' => $session->get('stud_emp_id'),
+            
         ));
 
         $form->add('submit', 'submit', array('label' => 'Change'));

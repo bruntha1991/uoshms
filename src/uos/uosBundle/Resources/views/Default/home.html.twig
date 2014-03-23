@@ -52,13 +52,13 @@
     <li class="nav-header">User Settings </li>
  {% if role== 'Student' %}   
     <li><a href="{{ path('student_edit', {'id' : stud_emp_id} ) }}">Edit Personal Infomation</a></li>
-    <li><a href="{{ path('edit_info', {'id' : id} ) }}">View Payment Details</a></li>
+    <li><a href="{{ path('edit_info', {'id' : u_id} ) }}">View Payment Details</a></li>
  {% endif %}
  {% if role== 'Employee' %}   
     <li><a href="{{ path('employee_edit', {'id' : stud_emp_id} ) }}">Edit Personal Infomation</a></li>
  {% endif %}
 
-    <li><a href="{{ path('users_edit', {'id' : id} ) }}">Change Password</a></li>
+    <li><a href="{{ path('users_edit', {'id' : u_id} ) }}">Change Password</a></li>
     
     
 </ul>

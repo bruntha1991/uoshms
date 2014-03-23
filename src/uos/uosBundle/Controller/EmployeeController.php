@@ -86,10 +86,7 @@ class EmployeeController extends Controller {
         $form = $this->createForm(new EmployeeType(), $entity, array(
             'action' => $this->generateUrl('employee_create'),
             'method' => 'POST',
-            'name' => $session->get('name'),
-            'u_id' => $session->get('id'),
-            'role' => $session->get('role'),
-            'stud_emp_id' => $session->get('stud_emp_id'),
+            
         ));
 
         $form->add('submit', 'submit', array('label' => 'Create'));
@@ -181,10 +178,7 @@ class EmployeeController extends Controller {
         $form = $this->createForm(new EmployeeType(), $entity, array(
             'action' => $this->generateUrl('employee_update', array('id' => $entity->getId())),
             'method' => 'PUT',
-            'name' => $session->get('name'),
-            'u_id' => $session->get('id'),
-            'role' => $session->get('role'),
-            'stud_emp_id' => $session->get('stud_emp_id'),
+            
         ));
 
         $form->add('submit', 'submit', array('label' => 'Update'));
@@ -271,10 +265,7 @@ class EmployeeController extends Controller {
         $session = $this->get("session");
         return $this->createFormBuilder()
                         ->setAction($this->generateUrl('employee_delete', array('id' => $id,
-                                    'name' => $session->get('name'),
-                                    'u_id' => $session->get('id'),
-                                    'role' => $session->get('role'),
-                                    'stud_emp_id' => $session->get('stud_emp_id'),)))
+                                    )))
                         ->setMethod('DELETE')
                         ->add('submit', 'submit', array('label' => 'Delete'))
                         ->getForm()

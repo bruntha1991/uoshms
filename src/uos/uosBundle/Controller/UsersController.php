@@ -77,10 +77,7 @@ class UsersController extends Controller {
         $form = $this->createForm(new UsersType(), $entity, array(
             'action' => $this->generateUrl('users_create'),
             'method' => 'POST',
-            'name' => $session->get('name'),
-            'u_id' => $session->get('id'),
-            'role' => $session->get('role'),
-            'stud_emp_id' => $session->get('stud_emp_id'),
+            
         ));
 
         $form->add('submit', 'submit', array('label' => 'Create'));
@@ -140,6 +137,7 @@ class UsersController extends Controller {
      *
      */
     public function editAction($id) {
+        
         $session = $this->get("session");
         $em = $this->getDoctrine()->getManager();
 
@@ -177,10 +175,7 @@ class UsersController extends Controller {
         $form = $this->createForm(new UsersType(), $entity, array(
             'action' => $this->generateUrl('users_update', array('id' => $entity->getId())),
             'method' => 'PUT',
-            'name' => $session->get('name'),
-            'u_id' => $session->get('id'),
-            'role' => $session->get('role'),
-            'stud_emp_id' => $session->get('stud_emp_id'),
+            
         ));
 
         $form->add('submit', 'submit', array('label' => 'Update'));
@@ -267,11 +262,7 @@ class UsersController extends Controller {
         $session = $this->get("session");
 
         return $this->createFormBuilder()
-                        ->setAction($this->generateUrl('users_delete', array('id' => $id,
-                                    'name' => $session->get('name'),
-                                    'u_id' => $session->get('id'),
-                                    'role' => $session->get('role'),
-                                    'stud_emp_id' => $session->get('stud_emp_id'),)))
+                        ->setAction($this->generateUrl('users_delete', array('id' => $id)))
                         ->setMethod('DELETE')
                         ->add('submit', 'submit', array('label' => 'Delete'))
                         ->getForm()

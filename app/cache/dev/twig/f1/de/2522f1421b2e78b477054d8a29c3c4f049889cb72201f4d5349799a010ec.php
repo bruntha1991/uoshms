@@ -106,7 +106,7 @@ class __TwigTemplate_f1de2522f1421b2e78b477054d8a29c3c4f049889cb72201f4d5349799a
                         <p class=\"navbar-text pull-right\">
                             Logged in as <a href=\"";
         // line 62
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("users_edit", array("id" => $this->getContext($context, "id"))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("users_edit", array("id" => $this->getContext($context, "u_id"))), "html", null, true);
         echo "\" class=\"navbar-link\">";
         echo twig_escape_filter($this->env, $this->getContext($context, "name"), "html", null, true);
         echo "</a>

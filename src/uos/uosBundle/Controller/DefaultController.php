@@ -112,7 +112,7 @@ class DefaultController extends Controller {
                 //              
 
                 return $this->render('uosuosBundle:Default:home.html.twig',array('name' => $user->getFirstname(),
-                    'id'=>$user->getId(),'role'=>$user->getRole(),'stud_emp_id'=>$stud_emp_id));
+                    'u_id'=>$user->getId(),'role'=>$user->getRole(),'stud_emp_id'=>$stud_emp_id));
             } else {
                 return $this->render('uosuosBundle:Default:uos.html.twig', array('error' => 'Incorrect UserID or Password'));
             }
@@ -120,53 +120,7 @@ class DefaultController extends Controller {
         return $this->render('uosuosBundle:Default:uos.html.twig');
     }
 
-    /*   public function edit_infoAction(Request $request) {
-
-      $em = $this->getDoctrine()->getEntityManager();
-
-
-
-
-      $id = $request->get('id');
-
-      $user = $em->getRepository('uosuosBundle:Users')->find($id);
-
-      $student =$user->getStudent();//$em->getRepository('uosuosBundle:Student')->find($user->getStudent());
-      $employee = $user->getEmployee();//$em->getRepository('uosuosBundle:Employee')->findBy($user->getEmployee());
-
-
-      if ($student != null) {
-
-      $stc=new StudentController() ;
-
-      $stc->editAction($student->getId());
-      /*               $entity = $student;
-
-      $editForm = $this->createEditForm($entity
-      );
-      //               $deleteForm = $this->createDeleteForm($id);
-
-      return $this->render('uosuosBundle:Student:edit.html.twig', array(
-      'entity' => $entity,
-      'edit_form' => $editForm->createView(),
-      //                           'delete_form' => $deleteForm->createView(),
-      ));
-      } else if ($employee != null) {
-      $entity = $employee;
-      $editForm = $this->createEditForm($entity);
-      //             $deleteForm = $this->createDeleteForm($id);
-
-      return $this->render('uosuosBundle:Employee:edit.html.twig', array(
-      'entity' => $entity,
-      'edit_form' => $editForm->createView(),
-      //                          'delete_form' => $deleteForm->createView(),
-      ));
-      }
-
-
-      //       return $this->render('uosuosBundle:Defaule:uos.html.twig');
-      }
-     */
+   
 
     private function createEditForm(Student $entity) {
         $session  = $this->get("session");

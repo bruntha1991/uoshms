@@ -27,6 +27,10 @@ class HallController extends Controller
 
         return $this->render('uosuosBundle:Hall:index.html.twig', array(
             'entities' => $entities,
+            'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),
         ));
     }
     /**
@@ -55,14 +59,22 @@ class HallController extends Controller
                 return $this->render('uosuosBundle:Hall:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-                    'error'=>'Hall already exist'
+                    'error'=>'Hall already exist',
+                    'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),
         ));
             }
             else
             {
                 $em->persist($entity);
             $em->flush();
-                return $this->redirect($this->generateUrl('hall_show', array('id' => $entity->getId())));
+                return $this->redirect($this->generateUrl('hall_show', array('id' => $entity->getId(),
+                    'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),)));
             }
         }
     }
@@ -100,6 +112,10 @@ class HallController extends Controller
         return $this->render('uosuosBundle:Hall:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),
         ));
     }
 
@@ -122,7 +138,11 @@ class HallController extends Controller
 
         return $this->render('uosuosBundle:Hall:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+            'delete_form' => $deleteForm->createView(),  
+            'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),));
     }
 
     /**
@@ -147,6 +167,10 @@ class HallController extends Controller
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),
         ));
     }
 
@@ -191,13 +215,21 @@ class HallController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('hall_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('hall_edit', array('id' => $id,
+                'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),)));
         }
 
         return $this->render('uosuosBundle:Hall:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),
         ));
     }
     /**
@@ -222,7 +254,11 @@ class HallController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('hall'));
+        return $this->redirect($this->generateUrl('hall',array(
+            'name' => $session->get('name'),
+            'u_id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'))));
     }
 
     /**

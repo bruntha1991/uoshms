@@ -89,11 +89,7 @@ class RoomController extends Controller {
     private function createCreateForm(Room $entity) {
         $session = $this->get("session");
         $form = $this->createForm(new RoomType(), $entity, array(
-            'action' => $this->generateUrl('room_create', array(
-                'name' => $session->get('name'),
-                'u_id' => $session->get('id'),
-                'role' => $session->get('role'),
-                'stud_emp_id' => $session->get('stud_emp_id'))),
+            'action' => $this->generateUrl('room_create'),
             'method' => 'POST',
         ));
 
@@ -186,10 +182,7 @@ class RoomController extends Controller {
         $form = $this->createForm(new RoomType(), $entity, array(
             'action' => $this->generateUrl('room_update', array('id' => $entity->getId())),
             'method' => 'PUT',
-            'name' => $session->get('name'),
-            'u_id' => $session->get('id'),
-            'role' => $session->get('role'),
-            'stud_emp_id' => $session->get('stud_emp_id'),
+            
         ));
 
         $form->add('submit', 'submit', array('label' => 'Update'));
@@ -274,10 +267,7 @@ class RoomController extends Controller {
     private function createDeleteForm($id) {
         $session = $this->get("session");
         return $this->createFormBuilder()
-                        ->setAction($this->generateUrl('room_delete', array('id' => $id, 'name' => $session->get('name'),
-                                    'u_id' => $session->get('id'),
-                                    'role' => $session->get('role'),
-                                    'stud_emp_id' => $session->get('stud_emp_id'),)))
+                        ->setAction($this->generateUrl('room_delete', array('id' => $id, )))
                         ->setMethod('DELETE')
                         ->add('submit', 'submit', array('label' => 'Delete'))
                         ->getForm()

@@ -91,10 +91,7 @@ class StudentController extends Controller {
         $form = $this->createForm(new StudentType(), $entity, array(
             'action' => $this->generateUrl('student_create'),
             'method' => 'POST',
-            'name' => $session->get('name'),
-            'u_id' => $session->get('id'),
-            'role' => $session->get('role'),
-            'stud_emp_id' => $session->get('stud_emp_id'),
+            
         ));
 
         $form->add('submit', 'submit', array('label' => 'Create'));
@@ -186,10 +183,7 @@ class StudentController extends Controller {
         $form = $this->createForm(new StudentType(), $entity, array(
             'action' => $this->generateUrl('student_update', array('id' => $entity->getId())),
             'method' => 'PUT',
-            'name' => $session->get('name'),
-            'u_id' => $session->get('id'),
-            'role' => $session->get('role'),
-            'stud_emp_id' => $session->get('stud_emp_id'),
+            
         ));
 
         $form->add('submit', 'submit', array('label' => 'Update'));
@@ -275,10 +269,7 @@ class StudentController extends Controller {
         $session = $this->get("session");
         return $this->createFormBuilder()
                         ->setAction($this->generateUrl('student_delete', array('id' => $id,
-                                    'name' => $session->get('name'),
-                                    'u_id' => $session->get('id'),
-                                    'role' => $session->get('role'),
-                                    'stud_emp_id' => $session->get('stud_emp_id'),)))
+                                    )))
                         ->setMethod('DELETE')
                         ->add('submit', 'submit', array('label' => 'Delete'))
                         ->getForm()

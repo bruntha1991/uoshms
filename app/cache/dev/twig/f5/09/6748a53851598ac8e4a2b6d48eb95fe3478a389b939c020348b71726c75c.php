@@ -156,7 +156,7 @@ class __TwigTemplate_f5096748a53851598ac8e4a2b6d48eb95fe3478a389b939c020348b7172
             echo "\">Edit Personal Infomation</a></li>
     <li><a href=\"";
             // line 55
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("edit_info", array("id" => $this->getContext($context, "id"))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("edit_info", array("id" => $this->getContext($context, "u_id"))), "html", null, true);
             echo "\">View Payment Details</a></li>
  ";
         }
@@ -174,7 +174,7 @@ class __TwigTemplate_f5096748a53851598ac8e4a2b6d48eb95fe3478a389b939c020348b7172
         echo "
     <li><a href=\"";
         // line 61
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("users_edit", array("id" => $this->getContext($context, "id"))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("users_edit", array("id" => $this->getContext($context, "u_id"))), "html", null, true);
         echo "\">Change Password</a></li>
     
     

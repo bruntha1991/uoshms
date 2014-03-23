@@ -51,10 +51,7 @@ class FunctionsController extends Controller {
         $form = $this->createForm(new FunctionsType(), $entity, array(
             'action' => $this->generateUrl('hall_create'),
             'method' => 'POST',
-            'name' => $session->get('name'),
-            'u_id' => $session->get('id'),
-            'role' => $session->get('role'),
-            'stud_emp_id' => $session->get('stud_emp_id'),
+            
         ));
 
         $form->add('submit', 'submit', array('label' => 'Create'));
@@ -140,10 +137,7 @@ class FunctionsController extends Controller {
         $form = $this->createForm(new FunctionsType(), $entity, array(
             'action' => $this->generateUrl('hall_update', array('id' => $entity->getId())),
             'method' => 'PUT',
-            'name' => $session->get('name'),
-            'u_id' => $session->get('id'),
-            'role' => $session->get('role'),
-            'stud_emp_id' => $session->get('stud_emp_id'),
+            
         ));
 
         $form->add('submit', 'submit', array('label' => 'Update'));
@@ -228,10 +222,7 @@ class FunctionsController extends Controller {
     private function createDeleteForm($id) {
         $session = $this->get("session");
         return $this->createFormBuilder()
-                        ->setAction($this->generateUrl('hall_delete', array('id' => $id, 'name' => $session->get('name'),
-                                    'u_id' => $session->get('id'),
-                                    'role' => $session->get('role'),
-                                    'stud_emp_id' => $session->get('stud_emp_id'),)))
+                        ->setAction($this->generateUrl('hall_delete', array('id' => $id, )))
                         ->setMethod('DELETE')
                         ->add('submit', 'submit', array('label' => 'Delete'))
                         ->getForm()
