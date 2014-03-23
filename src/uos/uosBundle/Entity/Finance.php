@@ -1,14 +1,19 @@
 <?php
 
 namespace uos\uosBundle\Entity;
-use Symfony\Component\Validator\Constraints as Assert;
+
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Finance
  */
-class Finance
-{
+class Finance {
+
     /**
      * @var float
      */
@@ -35,6 +40,10 @@ class Finance
      */
     private $student;
 
+    public static function loadValidatorMetadata(ClassMetadata $metadata) {
+        // $addPropertyConstraint1 = $metadata->addPropertyConstraint('studentid', new NotBlank());
+        // $addPropertyConstraint2 = $metadata->addPropertyConstraint('studentid', new Length(array("min">=7)));//,"max"<=7,'message'=>'should contain 6 integers followed by a character')));
+    }
 
     /**
      * Set balance
@@ -42,10 +51,9 @@ class Finance
      * @param float $balance
      * @return Finance
      */
-    public function setBalance($balance)
-    {
+    public function setBalance($balance) {
         $this->balance = $balance;
-    
+
         return $this;
     }
 
@@ -54,8 +62,7 @@ class Finance
      *
      * @return float 
      */
-    public function getBalance()
-    {
+    public function getBalance() {
         return $this->balance;
     }
 
@@ -65,10 +72,9 @@ class Finance
      * @param \DateTime $paydate
      * @return Finance
      */
-    public function setPaydate($paydate)
-    {
+    public function setPaydate($paydate) {
         $this->paydate = $paydate;
-    
+
         return $this;
     }
 
@@ -77,8 +83,7 @@ class Finance
      *
      * @return \DateTime 
      */
-    public function getPaydate()
-    {
+    public function getPaydate() {
         return $this->paydate;
     }
 
@@ -88,10 +93,9 @@ class Finance
      * @param float $transferred
      * @return Finance
      */
-    public function setTransferred($transferred)
-    {
+    public function setTransferred($transferred) {
         $this->transferred = $transferred;
-    
+
         return $this;
     }
 
@@ -100,8 +104,7 @@ class Finance
      *
      * @return float 
      */
-    public function getTransferred()
-    {
+    public function getTransferred() {
         return $this->transferred;
     }
 
@@ -110,8 +113,7 @@ class Finance
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -121,10 +123,9 @@ class Finance
      * @param \uos\uosBundle\Entity\Student $student
      * @return Finance
      */
-    public function setStudent(\uos\uosBundle\Entity\Student $student = null)
-    {
+    public function setStudent(\uos\uosBundle\Entity\Student $student = null) {
         $this->student = $student;
-    
+
         return $this;
     }
 
@@ -133,8 +134,8 @@ class Finance
      *
      * @return \uos\uosBundle\Entity\Student 
      */
-    public function getStudent()
-    {
+    public function getStudent() {
         return $this->student;
     }
+
 }

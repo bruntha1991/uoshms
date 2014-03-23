@@ -73,7 +73,7 @@ class __TwigTemplate_c4fb7139bff6c847b038e79be8853e4a248d3330fa02adb907d726f17c5
                     <th>Year</th>
                     <td>";
         // line 30
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "year"), "m/d/Y"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "year"), "Y/m/d"), "html", null, true);
         echo "</td>
                 </tr>
                 
