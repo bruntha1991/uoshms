@@ -3,6 +3,10 @@ imports:
     - { resource: security.yml }
 
 framework:
+    session:
+        save_path: ~
+        
+framework:
     #esi:             ~
     #translator:      { fallback: "%locale%" }
     secret:          "%secret%"

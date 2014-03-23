@@ -4,6 +4,8 @@ namespace uos\uosBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use uos\uosBundle\Modals\Login;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class DefaultController extends Controller {
 
@@ -15,7 +17,7 @@ class DefaultController extends Controller {
             $session->clear();
             $username = $request->get('username');
             $password = sha1($request->get('password'));
-            $remember = $request->get('remember');
+            //           $remember = $request->get('remember');
             $user = $repository->findOneBy(array('userName' => $username, 'password' => $password));
             if ($user) {
                 if ($remember == 'remember-me') {
@@ -72,85 +74,101 @@ class DefaultController extends Controller {
     }
 
     public function uosAction(Request $request) {
+        //       $session = $this->getRequest()->getSession();
         $em = $this->getDoctrine()->getEntityManager();
         $repository = $em->getRepository('uosuosBundle:Users');
 
         if ($request->getMethod() == 'POST') {
-
+            //          $session->clear();
             $user_id = $request->get('user_id');
             $password = $request->get('password');
 
             $user = $repository->findOneBy(array('user' => $user_id, 'password' => $password));
-       
-            if($user->getStudent()!=null)
-            {
-                $stud_emp_id=$user->getStudent()->getId();
-            }
-            else if ($user->getEmployee()!=null)
-            {
-                $stud_emp_id=$user->getEmployee()->getId();
-            }
-            
-//            
+
             if ($user) {
-                return $this->render('uosuosBundle:Default:home.html.twig', array('name' => $user->getFirstname(), 
-                    'id' => $user->getId(), 'role' => $user->getRole(),'stud_emp_id'=>$stud_emp_id));
+
+                if ($user->getStudent() != null) {
+                    $stud_emp_id = $user->getStudent()->getId();
+                } else if ($user->getEmployee() != null) {
+                    $stud_emp_id = $user->getEmployee()->getId();
+                }
+                /*                   $login = new Login();
+                  $login->setUsername($user_id);
+                  $login->setPassword($password);
+                  $session->set('login', $login);
+                 */
+                $session = new Session();
+                $session->start();
+
+                // set and get session attributes
+                $session->set('name', $user->getFirstname());
+                $session->set('id', $user->getId());
+                $session->set('role', $user->getRole());
+                $session->set('stud_emp_id', $stud_emp_id);
+
+                $session->getFlashBag()->add('user', 'Loged In');
+  //              $twig->addGlobal("session", $_SESSION);
+
+                //              
+
+                return $this->render('uosuosBundle:Default:home.html.twig',array('name' => $user->getFirstname(),
+                    'id'=>$user->getId(),'role'=>$user->getRole(),'stud_emp_id'=>$stud_emp_id));
             } else {
-                return $this->render('uosuosBundle:Default:uos.html.twig', array('error' => 'Login Error'));
+                return $this->render('uosuosBundle:Default:uos.html.twig', array('error' => 'Incorrect UserID or Passeord'));
             }
         }
         return $this->render('uosuosBundle:Default:uos.html.twig');
     }
 
- /*   public function edit_infoAction(Request $request) {
-        
-        $em = $this->getDoctrine()->getEntityManager();
-        
+    /*   public function edit_infoAction(Request $request) {
 
-        
+      $em = $this->getDoctrine()->getEntityManager();
 
-            $id = $request->get('id');
 
-            $user = $em->getRepository('uosuosBundle:Users')->find($id);
 
-            $student =$user->getStudent();//$em->getRepository('uosuosBundle:Student')->find($user->getStudent());
-            $employee = $user->getEmployee();//$em->getRepository('uosuosBundle:Employee')->findBy($user->getEmployee());
 
-            
-            if ($student != null) {
-                
-                $stc=new StudentController() ;
-                
-                $stc->editAction($student->getId());
- /*               $entity = $student;
+      $id = $request->get('id');
 
-                $editForm = $this->createEditForm($entity
-                        );
- //               $deleteForm = $this->createDeleteForm($id);
+      $user = $em->getRepository('uosuosBundle:Users')->find($id);
 
-                return $this->render('uosuosBundle:Student:edit.html.twig', array(
-                            'entity' => $entity,
-                            'edit_form' => $editForm->createView(),
- //                           'delete_form' => $deleteForm->createView(),
-                ));  
-            } else if ($employee != null) {
-                $entity = $employee;
-                $editForm = $this->createEditForm($entity);
-   //             $deleteForm = $this->createDeleteForm($id);
+      $student =$user->getStudent();//$em->getRepository('uosuosBundle:Student')->find($user->getStudent());
+      $employee = $user->getEmployee();//$em->getRepository('uosuosBundle:Employee')->findBy($user->getEmployee());
 
-                return $this->render('uosuosBundle:Employee:edit.html.twig', array(
-                            'entity' => $entity,
-                            'edit_form' => $editForm->createView(),
-  //                          'delete_form' => $deleteForm->createView(),
-                ));
-            }
-            
-        
- //       return $this->render('uosuosBundle:Defaule:uos.html.twig');
-    }
-  */  
-    private function createEditForm(Student $entity)
-    {
+
+      if ($student != null) {
+
+      $stc=new StudentController() ;
+
+      $stc->editAction($student->getId());
+      /*               $entity = $student;
+
+      $editForm = $this->createEditForm($entity
+      );
+      //               $deleteForm = $this->createDeleteForm($id);
+
+      return $this->render('uosuosBundle:Student:edit.html.twig', array(
+      'entity' => $entity,
+      'edit_form' => $editForm->createView(),
+      //                           'delete_form' => $deleteForm->createView(),
+      ));
+      } else if ($employee != null) {
+      $entity = $employee;
+      $editForm = $this->createEditForm($entity);
+      //             $deleteForm = $this->createDeleteForm($id);
+
+      return $this->render('uosuosBundle:Employee:edit.html.twig', array(
+      'entity' => $entity,
+      'edit_form' => $editForm->createView(),
+      //                          'delete_form' => $deleteForm->createView(),
+      ));
+      }
+
+
+      //       return $this->render('uosuosBundle:Defaule:uos.html.twig');
+      }
+     */
+
+    private function createEditForm(Student $entity) {
         $form = $this->createForm(new StudentType(), $entity, array(
             'action' => $this->generateUrl('student_update', array('id' => $entity->getId())),
             'method' => 'PUT',
@@ -160,7 +178,6 @@ class DefaultController extends Controller {
 
         return $form;
     }
-    
 
     public function hall_roomAction(Request $request) {
 

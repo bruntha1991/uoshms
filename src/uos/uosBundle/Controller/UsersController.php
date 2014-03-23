@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use uos\uosBundle\Entity\Users;
 use uos\uosBundle\Form\UsersType;
+use Symfony\Component\HttpFoundation\Session\Session;
+
 
 /**
  * Users controller.
@@ -22,11 +24,16 @@ class UsersController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
+        $session  = $this->get("session");
 
         $entities = $em->getRepository('uosuosBundle:Users')->findAll();
 
         return $this->render('uosuosBundle:Users:index.html.twig', array(
             'entities' => $entities,
+            'name' => $session->get('name'),
+            'id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),
         ));
     }
     /**
@@ -80,10 +87,16 @@ class UsersController extends Controller
     {
         $entity = new Users();
         $form   = $this->createCreateForm($entity);
+        
+        $session  = $this->get("session");
 
         return $this->render('uosuosBundle:Users:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'name' => $session->get('name'),
+            'id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),
         ));
     }
 
@@ -94,6 +107,8 @@ class UsersController extends Controller
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
+        
+        $session  = $this->get("session");
 
         $entity = $em->getRepository('uosuosBundle:Users')->find($id);
 
@@ -105,7 +120,12 @@ class UsersController extends Controller
 
         return $this->render('uosuosBundle:Users:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+            'delete_form' => $deleteForm->createView(), 
+            'name' => $session->get('name'),
+            'id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),
+            ));
     }
 
     /**
@@ -125,10 +145,16 @@ class UsersController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
+        $session  = $this->get("session");          
+                     
         return $this->render('uosuosBundle:Users:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'name' => $session->get('name'),
+            'id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),
         ));
     }
 
@@ -159,7 +185,7 @@ class UsersController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('uosuosBundle:Users')->find($id);
-
+$session  = $this->get("session");
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Users entity.');
         }
@@ -178,6 +204,10 @@ class UsersController extends Controller
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'name' => $session->get('name'),
+            'id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),
         ));
     }
     /**

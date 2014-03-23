@@ -114,15 +114,16 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
         // line 71
         if (array_key_exists("error", $context)) {
             // line 72
-            echo "        
+            echo "              <br>
               ";
             // line 73
             echo twig_escape_filter($this->env, $this->getContext($context, "error"), "html", null, true);
             echo "
+              </br>
 
     ";
         }
-        // line 76
+        // line 77
         echo "            </form>
 
 
@@ -143,11 +144,11 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
         <div class=\"item active\">
             
       ";
-        // line 95
+        // line 96
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "e0c97ce_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_e0c97ce_0") : $this->env->getExtension('assets')->getAssetUrl("/images/example_slide-01_1.jpg");
-            // line 97
+            // line 98
             echo "    <img src=\"";
             echo twig_escape_filter($this->env, $this->getContext($context, "asset_url"), "html", null, true);
             echo "\" alt=\"Example\"/>
@@ -161,7 +162,7 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
 ";
         }
         unset($context["asset_url"]);
-        // line 99
+        // line 100
         echo " 
 <div class=\"container\">
             <div class=\"carousel-caption\">
@@ -173,11 +174,11 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
         </div>
         <div class=\"item\">
           ";
-        // line 109
+        // line 110
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "e8d2308_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_e8d2308_0") : $this->env->getExtension('assets')->getAssetUrl("/images/example_slide-02_1.jpg");
-            // line 111
+            // line 112
             echo "    <img src=\"";
             echo twig_escape_filter($this->env, $this->getContext($context, "asset_url"), "html", null, true);
             echo "\" alt=\"Example\"/>
@@ -191,7 +192,7 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
 ";
         }
         unset($context["asset_url"]);
-        // line 113
+        // line 114
         echo "          <div class=\"container\">
             <div class=\"carousel-caption\">
               <h1>Another example headline.</h1>
@@ -202,11 +203,11 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
         </div>
         <div class=\"item\">
           ";
-        // line 122
+        // line 123
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "b53d663_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_b53d663_0") : $this->env->getExtension('assets')->getAssetUrl("/images/example_slide-03_1.jpg");
-            // line 124
+            // line 125
             echo "    <img src=\"";
             echo twig_escape_filter($this->env, $this->getContext($context, "asset_url"), "html", null, true);
             echo "\" alt=\"Example\"/>
@@ -220,7 +221,7 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
 ";
         }
         unset($context["asset_url"]);
-        // line 126
+        // line 127
         echo "          <div class=\"container\">
             <div class=\"carousel-caption\">
               <h1>One more for good measure.</h1>
@@ -277,55 +278,55 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src=\"";
-        // line 181
+        // line 182
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/jquery.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 182
+        // line 183
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-transition.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 183
+        // line 184
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-alert.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 184
+        // line 185
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-modal.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 185
+        // line 186
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-dropdown.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 186
+        // line 187
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-scrollspy.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 187
+        // line 188
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-tab.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 188
+        // line 189
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-tooltip.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 189
+        // line 190
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-popover.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 190
+        // line 191
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-button.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 191
+        // line 192
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-collapse.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 192
+        // line 193
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-carousel.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 193
+        // line 194
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-typeahead.js"), "html", null, true);
         echo "\"></script>
 
@@ -346,6 +347,6 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
 
     public function getDebugInfo()
     {
-        return array (  329 => 193,  325 => 192,  321 => 191,  317 => 190,  313 => 189,  309 => 188,  305 => 187,  301 => 186,  297 => 185,  293 => 184,  289 => 183,  285 => 182,  281 => 181,  224 => 126,  210 => 124,  206 => 122,  195 => 113,  181 => 111,  177 => 109,  165 => 99,  151 => 97,  147 => 95,  126 => 76,  120 => 73,  117 => 72,  115 => 71,  107 => 66,  68 => 30,  64 => 29,  60 => 28,  56 => 27,  52 => 26,  41 => 18,  31 => 11,  19 => 1,);
+        return array (  330 => 194,  326 => 193,  322 => 192,  318 => 191,  314 => 190,  310 => 189,  306 => 188,  302 => 187,  298 => 186,  294 => 185,  290 => 184,  286 => 183,  282 => 182,  225 => 127,  211 => 125,  207 => 123,  196 => 114,  182 => 112,  178 => 110,  166 => 100,  152 => 98,  148 => 96,  127 => 77,  120 => 73,  117 => 72,  115 => 71,  107 => 66,  68 => 30,  64 => 29,  60 => 28,  56 => 27,  52 => 26,  41 => 18,  31 => 11,  19 => 1,);
     }
 }
