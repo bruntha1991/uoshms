@@ -740,6 +740,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // uosuos_student_finance
+        if ($pathinfo === '/student_finance') {
+            return array (  '_controller' => 'uos\\uosBundle\\Controller\\DefaultController::student_financeAction',  '_route' => 'uosuos_student_finance',);
+        }
+
         // _welcome
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
