@@ -115,15 +115,17 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
         if (array_key_exists("error", $context)) {
             // line 72
             echo "              <br>
+              <font color=\"red\">
               ";
-            // line 73
+            // line 74
             echo twig_escape_filter($this->env, $this->getContext($context, "error"), "html", null, true);
             echo "
+              </font>
               </br>
 
     ";
         }
-        // line 77
+        // line 79
         echo "            </form>
 
 
@@ -144,11 +146,11 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
         <div class=\"item active\">
             
       ";
-        // line 96
+        // line 98
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "e0c97ce_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_e0c97ce_0") : $this->env->getExtension('assets')->getAssetUrl("/images/example_slide-01_1.jpg");
-            // line 98
+            // line 100
             echo "    <img src=\"";
             echo twig_escape_filter($this->env, $this->getContext($context, "asset_url"), "html", null, true);
             echo "\" alt=\"Example\"/>
@@ -162,52 +164,25 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
 ";
         }
         unset($context["asset_url"]);
-        // line 100
+        // line 102
         echo " 
 <div class=\"container\">
             <div class=\"carousel-caption\">
-              <h1>Example headline.</h1>
-              <p class=\"lead\">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class=\"btn btn-large btn-primary\" href=\"#\">Sign up today</a>
-            </div>
+              <!--<h1></h1>
+              -->
+              <p class=\"lead\">Welcome to University of Sumanadasa</p>
+             <!-- <a class=\"btn btn-large btn-primary\" href=\"#\">Sign up today</a>
+            -->
+             </div>
           </div>
         </div>
         <div class=\"item\">
           ";
-        // line 110
-        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "e8d2308_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_e8d2308_0") : $this->env->getExtension('assets')->getAssetUrl("/images/example_slide-02_1.jpg");
-            // line 112
-            echo "    <img src=\"";
-            echo twig_escape_filter($this->env, $this->getContext($context, "asset_url"), "html", null, true);
-            echo "\" alt=\"Example\"/>
-";
-        } else {
-            // asset "e8d2308"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_e8d2308") : $this->env->getExtension('assets')->getAssetUrl("/images/example.jpg");
-            echo "    <img src=\"";
-            echo twig_escape_filter($this->env, $this->getContext($context, "asset_url"), "html", null, true);
-            echo "\" alt=\"Example\"/>
-";
-        }
-        unset($context["asset_url"]);
         // line 114
-        echo "          <div class=\"container\">
-            <div class=\"carousel-caption\">
-              <h1>Another example headline.</h1>
-              <p class=\"lead\">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class=\"btn btn-large btn-primary\" href=\"#\">Learn more</a>
-            </div>
-          </div>
-        </div>
-        <div class=\"item\">
-          ";
-        // line 123
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "b53d663_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_b53d663_0") : $this->env->getExtension('assets')->getAssetUrl("/images/example_slide-03_1.jpg");
-            // line 125
+            // line 116
             echo "    <img src=\"";
             echo twig_escape_filter($this->env, $this->getContext($context, "asset_url"), "html", null, true);
             echo "\" alt=\"Example\"/>
@@ -221,13 +196,45 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
 ";
         }
         unset($context["asset_url"]);
-        // line 127
+        // line 118
         echo "          <div class=\"container\">
             <div class=\"carousel-caption\">
-              <h1>One more for good measure.</h1>
-              <p class=\"lead\">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class=\"btn btn-large btn-primary\" href=\"#\">Browse gallery</a>
+              <!--<h1>Another example headline.</h1>
+              -->
+              <p class=\"lead\">Comfort and convenience Rooms.....</p>
+              <!--<a class=\"btn btn-large btn-primary\" href=\"#\">Learn more</a>
+              -->
             </div>
+          </div>
+        </div>
+        <div class=\"item\">
+          ";
+        // line 129
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "536b68c_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_536b68c_0") : $this->env->getExtension('assets')->getAssetUrl("/images/example_slide-04_1.jpg");
+            // line 131
+            echo "    <img src=\"";
+            echo twig_escape_filter($this->env, $this->getContext($context, "asset_url"), "html", null, true);
+            echo "\" alt=\"Example\"/>
+";
+        } else {
+            // asset "536b68c"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_536b68c") : $this->env->getExtension('assets')->getAssetUrl("/images/example.jpg");
+            echo "    <img src=\"";
+            echo twig_escape_filter($this->env, $this->getContext($context, "asset_url"), "html", null, true);
+            echo "\" alt=\"Example\"/>
+";
+        }
+        unset($context["asset_url"]);
+        // line 133
+        echo "          <div class=\"container\">
+            <div class=\"carousel-caption\">
+              <h1></h1>
+              <p class=\"lead\">Study Hall Facility....</p>
+              <!--<a class=\"btn btn-large btn-primary\" href=\"#\">Browse gallery</a>
+            -->
+              </div>
           </div>
         </div>
       </div>
@@ -247,7 +254,7 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
             
           <h3>About us</h3>
           
-          <p>us commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p>A2S is a software development company which is formed by five colleagues of University of Moratuwa, in order to develop software for the needy. We work towards doing the things in a different manner and which will be mirrored in our working style and our products in order to be unique from others.</p>
           
         </div>
         <div class=\"span4\">
@@ -257,15 +264,16 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
           University of Moratuwa </br>
           Srilanka
           </p>
-          
        </div>
-        <div class=\"span4\">
-          <h3>More details</h3>
-          <p>a porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          
+
+          <div class=\"span4\">
+          <h3>About This Page</h3>
+          <p>this web page is to keep the records of the students who are in the hostel and to keep records of employees who are working there.</p>
           
         </div>
       </div>
-              
+             
       <hr>
 
       <footer>
@@ -278,55 +286,55 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src=\"";
-        // line 182
+        // line 190
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/jquery.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 183
+        // line 191
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-transition.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 184
+        // line 192
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-alert.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 185
+        // line 193
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-modal.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 186
+        // line 194
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-dropdown.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 187
+        // line 195
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-scrollspy.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 188
+        // line 196
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-tab.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 189
+        // line 197
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-tooltip.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 190
+        // line 198
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-popover.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 191
+        // line 199
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-button.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 192
+        // line 200
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-collapse.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 193
+        // line 201
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-carousel.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 194
+        // line 202
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("assets/js/bootstrap-typeahead.js"), "html", null, true);
         echo "\"></script>
 
@@ -347,6 +355,6 @@ class __TwigTemplate_dac61ce6348df4f163776f6d91f70a8d8ce0e70cedb61edc7ed0ca7ec6d
 
     public function getDebugInfo()
     {
-        return array (  330 => 194,  326 => 193,  322 => 192,  318 => 191,  314 => 190,  310 => 189,  306 => 188,  302 => 187,  298 => 186,  294 => 185,  290 => 184,  286 => 183,  282 => 182,  225 => 127,  211 => 125,  207 => 123,  196 => 114,  182 => 112,  178 => 110,  166 => 100,  152 => 98,  148 => 96,  127 => 77,  120 => 73,  117 => 72,  115 => 71,  107 => 66,  68 => 30,  64 => 29,  60 => 28,  56 => 27,  52 => 26,  41 => 18,  31 => 11,  19 => 1,);
+        return array (  338 => 202,  334 => 201,  330 => 200,  326 => 199,  322 => 198,  318 => 197,  314 => 196,  310 => 195,  306 => 194,  302 => 193,  298 => 192,  294 => 191,  290 => 190,  231 => 133,  217 => 131,  213 => 129,  200 => 118,  186 => 116,  182 => 114,  168 => 102,  154 => 100,  150 => 98,  129 => 79,  121 => 74,  117 => 72,  115 => 71,  107 => 66,  68 => 30,  64 => 29,  60 => 28,  56 => 27,  52 => 26,  41 => 18,  31 => 11,  19 => 1,);
     }
 }

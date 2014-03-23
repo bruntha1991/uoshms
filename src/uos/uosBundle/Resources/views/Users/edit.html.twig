@@ -1,7 +1,9 @@
 {% extends '::base.html.twig' %}
 
 {% block container -%}
-    <h1>Users edit</h1>
+<div class="span10">
+    <div class="containerHome" >
+    <h1>Change Password</h1>
 
     {{ form(edit_form) }}
 
@@ -11,7 +13,7 @@
     {%block sideMenu %}
 
 <ul class="nav nav-list">
-    <li  class="active" class="nav-header" ><b>Home</b></li>
+    <li   class="nav-header" ><a  href="{{ path('uosuos_home')}}"><b>Home</b></a></li>
 
 {% if role== 'SuperUser' %}     
     <li class="nav-header">UOS Halls</li>
@@ -60,7 +62,7 @@
     <li><a href="{{ path('employee_edit', {'id' : stud_emp_id} ) }}">Edit Personal Infomation</a></li>
  {% endif %}
 
-    <li><a href="{{ path('users_edit', {'id' : id} ) }}">Change Password</a></li>
+    <li class="active"><a href="{{ path('users_edit', {'id' : id} ) }}">Change Password</a></li>
     
     
 </ul>

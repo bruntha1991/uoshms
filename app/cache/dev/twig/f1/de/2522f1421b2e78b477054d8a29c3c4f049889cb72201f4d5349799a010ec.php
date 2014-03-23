@@ -26,7 +26,7 @@ class __TwigTemplate_f1de2522f1421b2e78b477054d8a29c3c4f049889cb72201f4d5349799a
 <html lang=\"en\">
     <head>
         <meta charset=\"utf-8\">
-        <title>University of Sumanadasa, Hostel Management System</title>
+        <title>University of Sumanadasa, Hall Management System</title>
         <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
         <meta name=\"description\" content=\"\">
         <meta name=\"author\" content=\"\">
@@ -97,7 +97,7 @@ class __TwigTemplate_f1de2522f1421b2e78b477054d8a29c3c4f049889cb72201f4d5349799a
                         <span class=\"icon-bar\"></span>
                         <span class=\"icon-bar\"></span>
                     </button>
-                    <a class=\"brand\" href=\"#\">Hostel Management System for University of Sumanadasa</a>
+                    <a class=\"brand\" href=\"#\">Hall Management System for University of Sumanadasa</a>
                     <div class=\"nav-collapse collapse\">
               
               
@@ -299,6 +299,6 @@ class __TwigTemplate_f1de2522f1421b2e78b477054d8a29c3c4f049889cb72201f4d5349799a
 
     public function getDebugInfo()
     {
-        return array (  286 => 142,  281 => 141,  276 => 134,  270 => 133,  265 => 93,  260 => 87,  252 => 143,  249 => 142,  247 => 141,  237 => 135,  235 => 134,  231 => 133,  217 => 122,  213 => 121,  209 => 120,  205 => 119,  201 => 118,  197 => 117,  193 => 116,  189 => 115,  185 => 114,  181 => 113,  177 => 112,  173 => 111,  169 => 110,  152 => 95,  150 => 93,  144 => 89,  142 => 87,  115 => 63,  109 => 62,  86 => 42,  82 => 41,  78 => 40,  74 => 39,  70 => 38,  59 => 30,  37 => 11,  25 => 1,);
+        return array (  286 => 142,  281 => 141,  276 => 134,  270 => 133,  265 => 93,  260 => 87,  252 => 143,  249 => 142,  247 => 141,  237 => 135,  235 => 134,  231 => 133,  217 => 122,  213 => 121,  209 => 120,  205 => 119,  201 => 118,  197 => 117,  193 => 116,  189 => 115,  185 => 114,  181 => 113,  173 => 111,  152 => 95,  150 => 93,  144 => 89,  115 => 63,  82 => 41,  78 => 40,  74 => 39,  59 => 30,  37 => 11,  25 => 1,  177 => 112,  174 => 60,  169 => 110,  164 => 57,  159 => 55,  155 => 54,  151 => 53,  147 => 51,  142 => 87,  138 => 48,  132 => 45,  128 => 44,  122 => 41,  118 => 40,  114 => 39,  111 => 38,  109 => 62,  106 => 36,  100 => 33,  96 => 32,  90 => 29,  86 => 42,  80 => 25,  76 => 24,  70 => 38,  66 => 20,  60 => 17,  56 => 16,  51 => 14,  46 => 12,  42 => 10,  39 => 9,  32 => 4,  29 => 3,);
     }
 }

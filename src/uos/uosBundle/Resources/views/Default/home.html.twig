@@ -9,7 +9,7 @@
 {%block sideMenu %}
 
 <ul class="nav nav-list">
-    <li  class="active" class="nav-header" ><b>Home</b></li>
+    <li  class="active" class="nav-header" ><a  href="{{ path('uosuos_home')}}"><b>Home</b></a></li>
 
 {% if role== 'SuperUser' %}     
     <li class="nav-header">UOS Halls</li>

@@ -114,7 +114,7 @@ class DefaultController extends Controller {
                 return $this->render('uosuosBundle:Default:home.html.twig',array('name' => $user->getFirstname(),
                     'id'=>$user->getId(),'role'=>$user->getRole(),'stud_emp_id'=>$stud_emp_id));
             } else {
-                return $this->render('uosuosBundle:Default:uos.html.twig', array('error' => 'Incorrect UserID or Passeord'));
+                return $this->render('uosuosBundle:Default:uos.html.twig', array('error' => 'Incorrect UserID or Password'));
             }
         }
         return $this->render('uosuosBundle:Default:uos.html.twig');
@@ -179,6 +179,17 @@ class DefaultController extends Controller {
         return $form;
     }
 
+    public function homeAction(Request $request) {
+
+        $session  = $this->get("session");
+        
+        return $this->redirect($this->generateUrl('users_show', array(
+            'name' => $session->get('name'),
+            'id'=>$session->get('id'),
+            'role'=>$session->get('role'),
+            'stud_emp_id'=>$session->get('stud_emp_id'),)));
+    }
+    
     public function hall_roomAction(Request $request) {
 
         $hallname = $request->get('hallname');
