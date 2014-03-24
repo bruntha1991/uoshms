@@ -7,7 +7,7 @@
 
     {% endblock %}
 
-    {%block sideMenu %}
+  {%block sideMenu %}
 
 <ul class="nav nav-list">
     <li  class="active" class="nav-header" ><a  href="{{ path('uosuos_home')}}"><b>Home</b></a></li>
@@ -30,8 +30,8 @@
     <li><a href="{{ path('employee_new')}}">Add Employee</a></li>
     
     <li class="nav-header">UOS Managers </li>
-    <li><a href="{{ path('employee')}}">View Managers</a></li>
-    <li><a href="{{ path('employee_new')}}">Add Manager</a></li>
+    <li><a href="{{ path('users')}}">View Managers</a></li>
+    <li><a href="{{ path('users_new')}}">Add Manager</a></li>
     
 {% endif %}
     
