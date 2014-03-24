@@ -142,11 +142,12 @@ class DefaultController extends Controller {
 
         $session  = $this->get("session");
         
-        return $this->redirect($this->generateUrl('users_show', array(
+        return $this->render('uosuosBundle:Default:home.html.twig',  array(
             'name' => $session->get('name'),
             'u_id' => $session->get('id'),
             'role'=>$session->get('role'),
-            'stud_emp_id'=>$session->get('stud_emp_id'))));
+            'stud_emp_id'=>$session->get('stud_emp_id'),
+            ));
     }
     
     public function hall_roomAction(Request $request) {

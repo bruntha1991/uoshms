@@ -93,11 +93,11 @@ class __TwigTemplate_f5096748a53851598ac8e4a2b6d48eb95fe3478a389b939c020348b7172
     <li class=\"nav-header\">UOS Managers </li>
     <li><a href=\"";
             // line 32
-            echo $this->env->getExtension('routing')->getPath("employee");
+            echo $this->env->getExtension('routing')->getPath("users");
             echo "\">View Managers</a></li>
     <li><a href=\"";
             // line 33
-            echo $this->env->getExtension('routing')->getPath("employee_new");
+            echo $this->env->getExtension('routing')->getPath("users_new");
             echo "\">Add Manager</a></li>
     
 ";

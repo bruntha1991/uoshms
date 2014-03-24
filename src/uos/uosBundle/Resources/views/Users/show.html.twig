@@ -1,22 +1,21 @@
 {% extends '::base.html.twig' %}
 
 {% block container -%}
-    <h1>Users</h1>
+<div class="span2">
+    <div class="containerHome" >
+    <h1>Managers</h1>
 
-    <table class="record_properties">
+    <table class="table">
         <tbody>
             <tr>
-                <th>User</th>
+                <th>User Id</th>
                 <td>{{ entity.user }}</td>
             </tr>
             <tr>
                 <th>Role</th>
                 <td>{{ entity.role }}</td>
             </tr>
-            <tr>
-                <th>Password</th>
-                <td type="password">{{ entity.password }}</td>
-            </tr>
+            
             <tr>
                 <th>Firstname</th>
                 <td>{{ entity.firstname }}</td>
@@ -26,17 +25,17 @@
     </table>
 
         <ul class="record_actions">
-    <li>
+    <li class="nav-header">
         <a href="{{ path('users') }}">
             Back to the list
         </a>
     </li>
-    <li>
+    <li class="nav-header">
         <a href="{{ path('users_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>
-    <li>{{ form(delete_form) }}</li>
+    <li class="nav-header">{{ form(delete_form) }}</li>
 </ul>
 {% endblock %}
     

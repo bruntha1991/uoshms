@@ -1,42 +1,46 @@
 {% extends '::base.html.twig' %}
 
 {% block container -%}
-    <h1>Users list</h1>
+<div class="span6">
+    <div class="containerHome" >
+    <h1>Managers list</h1>
 
-    <table class="records_list">
+    <table class="table">
         <thead>
             <tr>
                 <th>User</th>
                 <th>Role</th>
-                <th>Password</th>
+                
                 <th>Firstname</th>
-                <th>Actions</th>
+                
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
+            {% if entity.role =='Manager' %}
             <tr>
                 <td><a href="{{ path('users_show', { 'id': entity.id }) }}">{{ entity.user }}</a></td>
                 <td>{{ entity.role }}</td>
-                <td type="password"> {{ entity.password }}</td>
+                
                 <td>{{ entity.firstname }}</td>
                 <td>
                 <ul>
-                    <li>
+                    <li class="nav-header">
                         <a href="{{ path('users_show', { 'id': entity.id }) }}">show</a>
                     </li>
-                    <li>
+                    <li class="nav-header">
                         <a href="{{ path('users_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
                 </td>
             </tr>
+            {% endif%}
         {% endfor %}
         </tbody>
     </table>
 
         <ul>
-        <li>
+        <li class="nav-header">
             <a href="{{ path('users_new') }}">
                 Create a new entry
             </a>
