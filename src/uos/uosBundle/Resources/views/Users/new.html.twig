@@ -1,12 +1,14 @@
 {% extends '::base.html.twig' %}
 
 {% block container -%}
-    <h1>Users creation</h1>
+<div class="span10">
+    <div class="containerHome" >
+    <h1>Add Manager</h1>
 
     {{ form(form) }}
 
         <ul class="record_actions">
-    <li>
+    <li class="nav-header">
         <a href="{{ path('users') }}">
             Back to the list
         </a>
